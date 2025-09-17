@@ -3,27 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Tles Software</title>
+    <title>Welcome to Tles Software | Tles Software</title>
     <style>
-        body {
-            background-color: lightblue;
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+        :root{
+            --pink-100: #EABFCB;
+            --rose-300: #C191A1;
+            --magenta-600: #A4508B;
+            --purple-700: #5F0A87;
+            --purple-900: #2F004F;
+
+            --bg: var(--pink-100);
+            --text: var(--purple-900);
+            --accent: var(--purple-700);
+            --accent-2: var(--magenta-600);
+            --muted: var(--rose-300);
+            --card: #ffffff;
+
+            --maxw: 960px;
         }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0 auto;              
+            width: 90%;                  
+            max-width: var(--maxw);      
+            background-color: var(--bg); 
+            color: var(--text);         
+            font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            line-height: 1.6;
+        }
+        header, main, footer {
+            background: var(--card);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(47,0,79,0.1);
+            border: 1px solid rgba(47, 0, 79, 0.06);
+        }
+        h1, h2 {
+            font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            margin: 0.25rem 0 0.5rem;
+            line-height: 1.2;
+        }
+        h1 { color: var(--purple-700); font-weight: 700; letter-spacing: 0.2px; }
+        h2 { color: var(--magenta-600); font-weight: 600; }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        header nav a {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        header nav a:hover,
+        header nav a:focus {
+            text-decoration: underline;
+            color: var(--accent-2);
+        }
+
+        footer nav {
+            display: block;
+            font-size: 0.95rem;
+        }
+        footer nav a {
+            text-decoration: none;
+            color: var(--accent-2);
+            font-weight: 600;
+        }
+        footer nav a:hover,
+        footer nav a:focus {
+        text-decoration: underline;
+        color: var(--accent);
+        }
+        footer .sep {
+            margin: 0 0.5rem;
+            opacity: 0.6;
+            user-select: none; 
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+
     </style>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+    
+
 </head>
 <body>
     <header>
         <h1>Welcome to Tles Software</h1>
-        <nav>
+        <nav aria-label="Primary">
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="index.html">Tles Software</a></li>
+                <li><a href="index.html" aria-current="page">Tles Software</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <p>Tles Software is dedicated to delivering innovative and reliable software solutions for businesses of all sizes. Our team of experienced developers and designers work collaboratively to create products that streamline operations and enhance productivity.</p>
-        <p>We pride ourselves on our commitment to customer satisfaction, offering personalized support and tailored services to meet the unique needs of each client. From custom applications to web development, we ensure quality and efficiency in every project.</p>
-        <p>At Tles Software, we believe in continuous improvement and staying ahead of industry trends. Our mission is to empower organizations with cutting-edge technology, helping them achieve their goals and drive growth in a competitive market.</p>
+    <main id="content">
+        <h2>Tles Software</h2>
+        <p>
+            Tles Software is dedicated to delivering innovative and reliable software solutions for businesses of all sizes.
+            Our team of experienced developers and designers work collaboratively to create products that streamline operations
+            and enhance productivity.
+        </p>
+        <p>
+            We pride ourselves on our commitment to customer satisfaction, offering personalized support and tailored services
+            to meet the unique needs of each client. From custom applications to web development, we ensure quality and
+            efficiency in every project.
+        </p>
+        <p>
+            At Tles Software, we believe in continuous improvement and staying ahead of industry trends. Our mission is to
+            empower organizations with cutting-edge technology, helping them achieve their goals and drive growth in a
+            competitive market.
+        </p>
     </main>
+
+    <footer>
+        <h2 class="sr-only">Footer</h2>
+        <nav aria-label="Footer">
+            <a href="https://nyceLester5.github.io/itis3135/" target="_blank" rel="noopener">ITIS3135</a><span class="sep">|</span>
+            <a href="https://github.com/nyceLester5/" target="_blank" rel="noopener">GitHub.com</a><span class="sep">|</span>
+            <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener">CLT Web</a><span class="sep">|</span>
+            <a href="https://nyceLester5.github.io/" target="_blank" rel="noopener">GitHub.io</a><span class="sep">|</span>
+            <a href="https://www.linkedin.com/in/tranyce-lester-b979a62a3" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+    </footer>
 </body>
 </html>
