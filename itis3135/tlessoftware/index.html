@@ -1,152 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Tles Software | Tles Software</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Title combines H1 + H2 -->
+  <title>Welcome to Tles Software — ITIS3135 Home</title>
+  <meta name="description" content="Tles Software — ITIS3135 home for Nyce (Tranyce) Lester. Clean, accessible front-end work with a focus on usability and professional presentation." />
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap');
 
-        :root{
-            --pink-100: #EABFCB;
-            --rose-300: #C191A1;
-            --magenta-600: #A4508B;
-            --purple-700: #5F0A87;
-            --purple-900: #2F004F;
+    :root{
+      --pink-100: #EABFCB;
+      --rose-300: #C191A1;
+      --magenta-600: #A4508B;
+      --purple-700: #5F0A87;
+      --purple-900: #2F004F;
 
-            --bg: var(--pink-100);
-            --text: var(--purple-900);
-            --accent: var(--purple-700);
-            --accent-2: var(--magenta-600);
-            --muted: var(--rose-300);
-            --card: #ffffff;
+      --bg: var(--pink-100);
+      --text: var(--purple-900);
+      --accent: var(--purple-700);
+      --accent-2: var(--magenta-600);
+      --muted: var(--rose-300);
+      --card: #ffffff;
 
-            --maxw: 960px;
-        }
+      --maxw: 960px;
+    }
 
-        * { box-sizing: border-box; }
-        body {
-            margin: 0 auto;              
-            width: 90%;                  
-            max-width: var(--maxw);      
-            background-color: var(--bg); 
-            color: var(--text);         
-            font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            line-height: 1.6;
-        }
-        header, main, footer {
-            background: var(--card);
-            padding: 1rem 1.25rem;
-            margin: 1rem 0;
-            border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(47,0,79,0.1);
-            border: 1px solid rgba(47, 0, 79, 0.06);
-        }
-        h1, h2 {
-            font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            margin: 0.25rem 0 0.5rem;
-            line-height: 1.2;
-        }
-        h1 { color: var(--purple-700); font-weight: 700; letter-spacing: 0.2px; }
-        h2 { color: var(--magenta-600); font-weight: 600; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
 
-        header nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0.5rem 0 0;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        header nav a {
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600;
-        }
-        header nav a:hover,
-        header nav a:focus {
-            text-decoration: underline;
-            color: var(--accent-2);
-        }
+    body {
+      margin: 0 auto;               /* centered */
+      width: 90%;                   /* 80–95% */
+      max-width: var(--maxw);       /* 600–1000px */
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
 
-        footer nav {
-            display: block;
-            font-size: 0.95rem;
-        }
-        footer nav a {
-            text-decoration: none;
-            color: var(--accent-2);
-            font-weight: 600;
-        }
-        footer nav a:hover,
-        footer nav a:focus {
-        text-decoration: underline;
-        color: var(--accent);
-        }
-        footer .sep {
-            margin: 0 0.5rem;
-            opacity: 0.6;
-            user-select: none; 
-        }
+    /* Skip link for WCAG keyboard users */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px; height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      left: 1rem; top: 1rem;
+      width: auto; height: auto;
+      background: #fff;
+      border: 2px solid currentColor;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      z-index: 1000;
+    }
 
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            white-space: nowrap;
-            border: 0;
-        }
+    header, main, footer {
+      background: var(--card);
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(47,0,79,0.1);
+      border: 1px solid rgba(47, 0, 79, 0.06);
+    }
 
+    h1, h2 {
+      font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0.25rem 0 0.5rem;
+      line-height: 1.2;
+    }
+    h1 { color: var(--purple-700); font-weight: 700; letter-spacing: 0.2px; }
+    h2 { color: var(--magenta-600); font-weight: 600; }
 
-    </style>
-    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    header nav a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    header nav a:hover,
+    header nav a:focus {
+      text-decoration: underline;
+      color: var(--accent-2);
+    }
 
-    
+    footer nav { display: block; font-size: 0.95rem; }
+    footer nav a {
+      text-decoration: none;
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+    footer nav a:hover,
+    footer nav a:focus {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+    footer .sep {
+      margin: 0 0.5rem;
+      opacity: 0.6;
+      user-select: none;
+    }
 
+    /* Visually-hidden helper (already accessible) */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <!-- Accumulus: add to every page at bottom of <head> -->
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header>
-        <h1>Welcome to Tles Software</h1>
-        <nav aria-label="Primary">
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="index.html" aria-current="page">Tles Software</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main id="content">
-        <h2>Tles Software</h2>
-        <p>
-            Tles Software is dedicated to delivering innovative and reliable software solutions for businesses of all sizes.
-            Our team of experienced developers and designers work collaboratively to create products that streamline operations
-            and enhance productivity.
-        </p>
-        <p>
-            We pride ourselves on our commitment to customer satisfaction, offering personalized support and tailored services
-            to meet the unique needs of each client. From custom applications to web development, we ensure quality and
-            efficiency in every project.
-        </p>
-        <p>
-            At Tles Software, we believe in continuous improvement and staying ahead of industry trends. Our mission is to
-            empower organizations with cutting-edge technology, helping them achieve their goals and drive growth in a
-            competitive market.
-        </p>
-    </main>
 
-    <footer>
-        <h2 class="sr-only">Footer</h2>
-        <nav aria-label="Footer">
-            <a href="https://nyceLester5.github.io/itis3135/" target="_blank" rel="noopener">ITIS3135</a><span class="sep">|</span>
-            <a href="https://github.com/nyceLester5/" target="_blank" rel="noopener">GitHub.com</a><span class="sep">|</span>
-            <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener">CLT Web</a><span class="sep">|</span>
-            <a href="https://nyceLester5.github.io/" target="_blank" rel="noopener">GitHub.io</a><span class="sep">|</span>
-            <a href="https://www.linkedin.com/in/tranyce-lester-b979a62a3" target="_blank" rel="noopener">LinkedIn</a>
-        </nav>
-    </footer>
+<body>
+  <!-- Skip to content for keyboard users -->
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header>
+    <h1>Welcome to Tles Software</h1>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="../index.html" rel="noopener noreferrer">Home</a></li>
+        <li><a href="index.html" aria-current="page" rel="noopener noreferrer">ITIS3135</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content">
+    <h2>ITIS3135 Home</h2>
+    <p>
+      Tles Software is dedicated to delivering innovative and reliable software solutions for businesses of all sizes.
+      Our team of developers and designers collaborates to create products that streamline operations and enhance productivity.
+    </p>
+    <p>
+      We focus on customer satisfaction, offering tailored services to meet unique needs—from custom applications to web development—
+      delivering quality and efficiency in every project.
+    </p>
+    <p>
+      We value continuous improvement and staying ahead of industry trends. Our mission is to empower organizations with
+      practical, accessible technology that supports real goals and sustainable growth.
+    </p>
+  </main>
+
+  <footer>
+    <h2 class="sr-only">Footer</h2>
+    <nav aria-label="Footer">
+      <a href="https://nyceLester5.github.io/itis3135/" target="_blank" rel="noopener noreferrer">ITIS3135</a><span class="sep" aria-hidden="true">|</span>
+      <a href="https://github.com/nyceLester5/" target="_blank" rel="noopener noreferrer">GitHub.com</a><span class="sep" aria-hidden="true">|</span>
+      <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener noreferrer">CLT Web</a><span class="sep" aria-hidden="true">|</span>
+      <a href="https://nyceLester5.github.io/" target="_blank" rel="noopener noreferrer">GitHub.io</a><span class="sep" aria-hidden="true">|</span>
+      <a href="https://www.linkedin.com/in/tranyce-lester-b979a62a3" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </nav>
+  </footer>
 </body>
 </html>
