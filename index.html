@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Title must combine H1 and H2 with a divider -->
+  <title>Nyce Lester — Personal Home Page</title>
+
+  <!-- Embedded CSS per assignment -->
+  <style>
+    /* ---------- Base / Layout ---------- */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;500;700&display=swap');
+
+    :root {
+      /* Replace with your Coolors palette; keep the URL for reference */
+      /* Example palette (Coolors): https://coolors.co/0a0a0a-1f3557-7aa5ff-f7f9fc-111827 */
+      --bg: #f7f9fc;
+      --ink: #0a0a0a;
+      --brand: #1f3557;
+      --accent: #7aa5ff;
+      --muted: #111827;
+      --card: #ffffff;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0 auto;              /* center */
+      max-width: 960px;            /* between 600–1000px */
+      width: 90%;                  /* 80–95% */
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- Header / Headings ---------- */
+    header { padding: 2.5rem 0 1rem; }
+    h1 {
+      font: 800 2.25rem/1.1 Poppins, system-ui, sans-serif; /* more stylized */
+      margin: 0 0 0.25rem;
+      letter-spacing: 0.5px;
+    }
+    h2 {
+      font: 600 1.25rem/1.2 Poppins, system-ui, sans-serif;
+      margin: 0; color: var(--brand);
+    }
+
+    /* ---------- Main ---------- */
+    main { padding: 2rem 0 3rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(17, 24, 39, 0.06);
+      padding: 1.25rem 1.25rem;
+    }
+    p { margin: 0 0 1rem; }
+    .lede { font-size: 1.05rem; }
+
+    /* ---------- Footer / Nav ---------- */
+    footer {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 1.25rem 0 3rem;
+      font-size: 0.98rem;
+    }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; }
+    .footer-nav a { padding: 0.1rem 0.25rem; }
+    .sep { opacity: 0.5; }
+
+    /* ---------- Utility ---------- */
+    .sr-only { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+  </style>
+  
+  <!-- Accumulus: course validator (add to every page, at bottom of <head>) -->
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-	<h1>Welcome to my site</h1>
-	<a href = "itis3135/">Click to go to ITIS3135 Site</a>
+  <header>
+    <h1>Nyce Lester</h1>
+    <h2>Personal Home Page</h2>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="about">
+      <h3 id="about" class="sr-only">About</h3>
+      <p class="lede">
+        Hi! I’m Nyce Lester, a Computer Science student focused on front‑end web development and UX/HCI.
+        I create clean, accessible interfaces and enjoy turning design research into working prototypes.
+      </p>
+      <p>
+        This site is my professional landing page and hub for coursework, projects, and profiles.
+        From here you can jump to my UNCC course site, my GitHub repositories and GitHub Pages, and my LinkedIn profile.
+        I keep both my school site and GitHub Pages in sync and validate pages regularly for quality.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <nav aria-label="Primary links">
+      <div class="footer-nav">
+        <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener">ITIS3135</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="https://github.com/nyceLester5/nyceLester5.github.io" target="_blank" rel="noopener">GitHub.com</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener">CLT Web</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="http://nyceLester5.github.io" target="_blank" rel="noopener">GitHub.io</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <!-- TODO: replace with your public LinkedIn profile URL before submitting -->
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </nav>
+
+    <div style="margin-top:0.75rem">
+      <!-- Accumulus / Validation Links -->
+      <!-- Replace the # with your instructor's Accumulus validator URL when provided -->
+      <a href="#" target="_blank" rel="noopener">Accumulus Validator</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2FNYLESTER5.GITHUB.IO%2F" target="_blank" rel="noopener">Validate HTML</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2FNYLESTER5.GITHUB.IO%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en" target="_blank" rel="noopener">Validate CSS</a>
+    </div>
+
+    <p style="margin-top:0.75rem">© <span id="y"></span> Nyce Lester • All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Tiny enhancement: current year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
