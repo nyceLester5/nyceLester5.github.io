@@ -184,13 +184,16 @@ a:focus-visible {
 
 /* Prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+    animation: none;
+    transition: none;
   }
 }
+
 
 /* ====== MEDIA / FIGURES ====== */
 /* Replace your global img rule with this */
