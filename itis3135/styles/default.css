@@ -32,7 +32,6 @@ header {
   padding-bottom: 1rem;
 }
 
-/* was: header h1 */
 h1 {
   color: var(--main-green);
   font-size: 1.8rem;
@@ -53,13 +52,30 @@ nav a {
   color: var(--link-green);
   text-decoration: none;
   font-weight: 600;
+  position: relative;
   transition: color 0.3s ease;
+}
+
+/* animated underline hover effect */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--hover-green);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
 }
 
 nav a:hover,
 nav a:focus {
   color: var(--hover-green);
-  text-decoration: underline;
 }
 
 /* ====== MAIN CONTENT ====== */
@@ -68,7 +84,6 @@ main {
   text-align: center;
 }
 
-/* was: main h2 */
 h2 {
   color: var(--main-green);
   margin-bottom: 1rem;
@@ -87,26 +102,61 @@ footer {
   font-size: 0.9rem;
 }
 
-footer nav {
-  margin-bottom: 0.5rem;
+/* enhanced responsive footer nav */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  text-align: center;
 }
 
-footer a {
+.footer-nav a {
   color: var(--link-green);
   text-decoration: none;
-  margin: 0 0.25rem;
+  font-weight: 600;
+  position: relative;
   transition: color 0.3s ease;
 }
 
-footer a:hover,
-footer a:focus {
-  color: var(--hover-green);
-  text-decoration: underline;
+.footer-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--hover-green);
+  transition: width 0.3s ease;
 }
 
-.sep {
+.footer-nav a:hover::after,
+.footer-nav a:focus::after {
+  width: 100%;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: var(--hover-green);
+}
+
+.footer-nav .sep {
   color: var(--border-light);
   margin: 0 0.25rem;
+}
+
+/* mobile-friendly layout */
+@media (max-width: 600px) {
+  .footer-nav {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-nav .sep {
+    display: none;
+  }
 }
 
 /* ====== ACCESSIBILITY ====== */
