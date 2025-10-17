@@ -6,10 +6,10 @@
   <title>Nyce Lester — Personal Home Page</title>
   <meta name="description" content="Personal home page for Nyce Lester, ITIS 3135 Front-End Web Development student at UNC Charlotte." />
 
-  <!-- If this file is /itis3135/index.html and CSS is /itis3135/styles/default.css -->
-  <link rel="stylesheet" href="styles/default.css" />
+  <!-- ✅ Correct CSS path for your GitHub Pages folder structure -->
+  <link rel="stylesheet" href="itis3135/styles/default.css" />
 
-  <!-- Accumulus kit: keep at end of <head>. This shows the cloud when the page loads over https. -->
+  <!-- ✅ Accumulus validator (keep this at end of <head>) -->
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 
@@ -54,7 +54,7 @@
     </nav>
 
     <div style="margin-top: 0.75rem;">
-      <!-- Validation links: update to your live page URL after deploy -->
+      <!-- ✅ Validation links (use your live URL) -->
       <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fnycelester5.github.io%2F" target="_blank" rel="noopener noreferrer">Validate HTML</a>
       <span class="sep" aria-hidden="true">|</span>
       <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fnycelester5.github.io%2F&profile=css3svg&usermedium=all&warning=1" target="_blank" rel="noopener noreferrer">Validate CSS</a>
@@ -66,7 +66,7 @@
   </footer>
 
   <script>
-    // Footer year
+    // Auto-update current year in footer
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
