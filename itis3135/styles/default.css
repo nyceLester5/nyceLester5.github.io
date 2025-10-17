@@ -174,3 +174,10 @@ footer {
 .skip-link:focus {
   top: 0;
 }
+img{
+    width: 60%;
+}
+figure{
+    text-align: center;
+    font-style:italic;
+}
