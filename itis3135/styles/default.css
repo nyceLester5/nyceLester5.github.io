@@ -1,0 +1,124 @@
+/* ====== GLOBAL STYLES ====== */
+:root {
+  --main-green: #3e8e41; /* primary green */
+  --light-beige: #f9f6ee; /* background beige */
+  --hover-green: #2d6a2e; /* darker hover green */
+  --text-dark: #2f2f2f;
+  --link-green: #3e8e41;
+  --border-light: #dcd7c9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-beige);
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+/* ====== HEADER ====== */
+header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 1rem;
+}
+
+header h1 {
+  color: var(--main-green);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ====== NAVIGATION ====== */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--link-green);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--hover-green);
+  text-decoration: underline;
+}
+
+/* ====== MAIN CONTENT ====== */
+main {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+main h2 {
+  color: var(--main-green);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  border-top: 2px solid var(--border-light);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+footer nav {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: var(--link-green);
+  text-decoration: none;
+  margin: 0 0.25rem;
+  transition: color 0.3s ease;
+}
+
+footer a:hover,
+footer a:focus {
+  color: var(--hover-green);
+  text-decoration: underline;
+}
+
+.sep {
+  color: var(--border-light);
+  margin: 0 0.25rem;
+}
+
+/* ====== ACCESSIBILITY ====== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--main-green);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
