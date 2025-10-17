@@ -6,10 +6,10 @@
   <title>Nyce Lester — Personal Home Page</title>
   <meta name="description" content="Personal home page for Nyce Lester, ITIS 3135 Front-End Web Development student at UNC Charlotte." />
 
-  <!-- ✅ Correct path: works if this file is inside the itis3135 folder -->
+  <!-- If this file is /itis3135/index.html and CSS is /itis3135/styles/default.css -->
   <link rel="stylesheet" href="styles/default.css" />
 
-  <!-- ✅ Accumulus validator (instructor-provided kit) -->
+  <!-- Accumulus kit: keep at end of <head>. This shows the cloud when the page loads over https. -->
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 
@@ -43,7 +43,7 @@
         <span class="sep" aria-hidden="true">|</span>
         <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener noreferrer">CLT Web</a>
         <span class="sep" aria-hidden="true">|</span>
-        <a href="http://nyceLester5.github.io" target="_blank" rel="noopener noreferrer">GitHub.io</a>
+        <a href="https://nycelester5.github.io/" target="_blank" rel="noopener noreferrer">GitHub.io</a>
         <span class="sep" aria-hidden="true">|</span>
         <a href="https://www.freecodecamp.org/NyceL" target="_blank" rel="noopener noreferrer">FreeCodeCamp</a>
         <span class="sep" aria-hidden="true">|</span>
@@ -54,9 +54,7 @@
     </nav>
 
     <div style="margin-top: 0.75rem;">
-      <!-- Validation and Accumulus Links -->
-      <a href="https://lint.page/kit/4d0fe3.js" target="_blank" rel="noopener noreferrer">Accumulus Validator</a>
-      <span class="sep" aria-hidden="true">|</span>
+      <!-- Validation links: update to your live page URL after deploy -->
       <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fnycelester5.github.io%2F" target="_blank" rel="noopener noreferrer">Validate HTML</a>
       <span class="sep" aria-hidden="true">|</span>
       <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fnycelester5.github.io%2F&profile=css3svg&usermedium=all&warning=1" target="_blank" rel="noopener noreferrer">Validate CSS</a>
@@ -68,7 +66,7 @@
   </footer>
 
   <script>
-    // Automatically inserts the current year in the footer
+    // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
