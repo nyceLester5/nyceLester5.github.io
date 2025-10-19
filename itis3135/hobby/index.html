@@ -6,8 +6,194 @@
   <title>Travel & Explore — Nyce Lester (Hobby)</title>
   <meta name="description" content="Nyce Lester's travel & exploration hobby page: what, who, when, where, how, and why — with photos and notes." />
 
-  <!-- External stylesheet inside hobby/styles/ -->
-  <link rel="stylesheet" href="styles/default.css" />
+  <!-- Readable, feminine-leaning fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========= THEME ========= */
+    :root{
+      /* Pastel mint/green palette */
+      --bg: #cee7e6;
+      --panel: #f4fbfa;
+      --card: #ffffff;
+
+      --ink: #1f2b2a;     /* main text (very high contrast) */
+      --muted: #51625d;   /* secondary text */
+      --line: #bfc0c0;    /* dividers */
+
+      --primary: #648767; /* accents/badges (not for small text) */
+      --accent:  #7dc95e; /* pills/active */
+      --accent2: #7cdf64; /* alt accent */
+
+      /* AA-compliant heading color for contrast on white */
+      --heading: #2f5a37;
+
+      --shadow: rgba(0,0,0,.08);
+      --radius: 16px;
+      --maxw: 900px;
+
+      /* spacing scale (proximity/alignment) */
+      --s-1: .25rem;
+      --s-2: .5rem;
+      --s-3: .75rem;
+      --s-4: 1rem;
+      --s-5: 1.25rem;
+      --s-6: 1.5rem;
+      --s-7: 2rem;
+    }
+
+    /* ========= BASE / LAYOUT ========= */
+    *,*::before,*::after{ box-sizing: border-box; }
+    html, body{ margin:0; padding:0; }
+    body{
+      font-family: "Poppins","Nunito",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background: radial-gradient(1000px 700px at 20% 0%, #cee7e6, #d6eceb 40%, #e8f5f1 70%) fixed;
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+    .wrap{ width: min(100%, var(--maxw)); margin-inline: auto; padding: var(--s-5); }
+
+    /* ========= ACCESSIBILITY ========= */
+    .skip-link{
+      position: absolute; left: 0; top: -40px;
+      background: var(--accent); color: #0d2a10;
+      padding: var(--s-2) var(--s-3); border-radius: 8px; font-weight: 700;
+      text-decoration: none; transition: top .2s ease;
+    }
+    .skip-link:focus{ top: .5rem; left: .5rem; z-index: 1000; }
+
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    /* ========= HEADINGS ========= */
+    h1{ margin: 0; text-align: center; letter-spacing: .2px; color: var(--heading); }
+    h2{ color: var(--heading); margin: 0 0 var(--s-2); text-align: center; font-weight: 700; }
+    h3{ color: var(--primary); margin: 0 0 var(--s-2); font-weight: 600; }
+
+    /* ========= HEADER + MENU ========= */
+    header{
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.65));
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(3px);
+    }
+    header .wrap{ display: grid; gap: var(--s-3); }
+
+    nav[aria-label="Section navigation"]{
+      display:flex; justify-content:center; align-items:center; flex-wrap: wrap; gap:.25rem;
+    }
+    .menu{
+      list-style:none; display:flex; flex-wrap:wrap;
+      gap:.25rem .75rem; margin:0; padding:0; align-items:center;
+    }
+    .menu li{ display:flex; align-items:center; gap:.5rem; }
+    .divider{ color: var(--line); user-select:none; }
+
+    .menu a{
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      padding: .5rem .9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .08s ease, box-shadow .2s ease;
+    }
+    .menu a:hover,
+    .menu a:focus-visible{
+      background: rgba(125, 201, 94, 0.15);
+      border-color: rgba(125, 201, 94, 0.45);
+      color: #0d2a10;
+      box-shadow: 0 0 0 3px rgba(125, 201, 94, 0.35);
+      outline: none;
+    }
+    .menu a[aria-current="page"]{
+      background: var(--accent);
+      color: #0d2a10;
+      border-color: rgba(125, 201, 94, 0.55);
+      box-shadow: 0 2px 8px rgba(125,201,94,.25);
+    }
+    .menu a:active{ transform: translateY(1px); }
+
+    /* ========= MAIN / CARDS ========= */
+    main{ padding-block: var(--s-6) var(--s-7); }
+    .cards{ display: grid; gap: var(--s-6); }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 24px var(--shadow);
+      padding: clamp(1rem, 2vw + .25rem, 1.5rem);
+    }
+    .card p, .card ul, .card table, .card figure { text-align: left; }
+    .card p{ margin: var(--s-2) 0 var(--s-4); }
+    .lede{ font-size: clamp(1.06rem, 1.1rem + .2vw, 1.22rem); color: var(--ink); }
+    .muted{ color: var(--muted); }
+
+    /* ========= SPA TOGGLING ========= */
+    [data-page]{ display:none; }
+    [data-page].active{ display:block; }
+
+    /* ========= GRIDS ========= */
+    .grid-2{ display:grid; grid-template-columns: 1fr; gap: var(--s-5); }
+    @media (min-width: 720px){ .grid-2{ grid-template-columns: 1fr 1fr; } }
+
+    /* ========= LISTS ========= */
+    .check{ list-style: "✓  "; padding-left: 1.2rem; }
+    .dot  { list-style: "•  "; padding-left: 1.2rem; }
+    .check li, .dot li{ margin-bottom: var(--s-2); }
+
+    /* ========= TABLES ========= */
+    table{ width:100%; border-collapse: collapse; margin: var(--s-3) 0; background: var(--card); }
+    th, td{ padding: .65rem .8rem; border-bottom: 1px solid var(--line); text-align:left; vertical-align: top; }
+    thead th{ color: var(--heading); font-weight: 700; }
+    tbody tr:hover{ background: #f3faf3; }
+
+    /* ========= FIGURES ========= */
+    figure{ margin: var(--s-5) 0; }
+    figure img{
+      display:block; max-width: min(100%, 680px); width: 100%; height: auto;
+      margin-inline:auto; border-radius: 14px; border: 1px solid var(--line);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+    figcaption{ margin-top: .5rem; color: var(--muted); }
+    .ai-note{ font-style: italic; color: var(--muted); }
+
+    /* ========= FOOTER ========= */
+    footer{ border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.9)); }
+    footer .wrap{ display:grid; gap:var(--s-3); }
+
+    .footer-nav{
+      display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem .75rem; align-items:center;
+    }
+    .footer-nav a{
+      color: var(--ink); text-decoration:none; font-weight:600;
+      border-bottom: 2px solid transparent; padding-bottom:1px;
+      transition: border-color .2s, color .2s, box-shadow .2s;
+    }
+    .footer-nav a:hover,
+    .footer-nav a:focus-visible{
+      color: var(--heading);
+      border-color: var(--heading);
+      box-shadow: 0 0 0 3px rgba(47, 90, 55, .25);
+      outline: none;
+    }
+    .sep{ color: var(--line); user-select:none; }
+
+    .validators{ text-align:center; font-size:.95rem; }
+    .validators a{ color: var(--heading); text-decoration:none; }
+    .validators a:hover,
+    .validators a:focus-visible{ text-decoration: underline; box-shadow: 0 0 0 2px rgba(47, 90, 55, .25); outline: none; }
+
+    /* ========= REDUCED MOTION ========= */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none; transition: none; scroll-behavior: auto; }
+    }
+  </style>
 
   <!-- Accumulus validator (keep at end of head) -->
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
@@ -34,8 +220,7 @@
 
   <main id="content">
     <div class="wrap cards">
-
-      <!-- WHAT (Home / default visible) -->
+      <!-- WHAT (default visible) -->
       <section class="card active" data-page="what" aria-labelledby="h-what">
         <h2 id="h-what">What — The Hobby</h2>
         <p class="lede">I love exploring new places—collecting moments, cultures, and views through photos and short travel notes. This page is a living scrapbook of trips and the practical tips I’ve learned along the way.</p>
@@ -59,50 +244,29 @@
           </div>
         </div>
 
-      <figure>
+        <figure>
           <img src="images/cover-belize.jpg" alt="Coastline and boats at San Pedro, Belize at golden hour" />
-        <figcaption>
-          Welcome snapshot — San Pedro, Belize (Summer 2024)
-          <br>
-          <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-        </figcaption>
-      </figure>
-
+          <figcaption>
+            Welcome snapshot — San Pedro, Belize (Summer 2024)<br>
+            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+          </figcaption>
+        </figure>
       </section>
 
       <!-- WHO -->
       <section class="card" data-page="who" aria-labelledby="h-who">
-  <h2 id="h-who">Who — About Me</h2>
-  <p class="lede">
-    I’m Tranyce Lester, and traveling has been a part of my life for as long as I can remember. Both of my parents served in the Army and were stationed in Fort Bragg, so I grew up moving often and spending time in places like New Jersey and Arizona. I was always excited to experience a new environment—sometimes the journey itself was my favorite part, whether it was a long drive or a flight across the country. In recent years, I’ve had the opportunity to travel abroad, which deepened my love for exploring different cultures and perspectives. I’m now a Computer Science student concentrating in Human–Computer Interaction, with aspirations to build a career in UX/UI design. My goal is to combine my passion for travel and my eye for user-centered design into experiences that connect people across places and cultures.
-  </p>
-        <div class="grid-2">
-          <div>
-            <h3>Travel Style</h3>
-            <ul class="dot">
-              <li>Mix of city wandering + nature day trips</li>
-              <li>High-value, not high-cost</li>
-              <li>Planning just enough to stay flexible</li>
-            </ul>
-          </div>
-          <div>
-            <h3>What I Pack</h3>
-            <ul class="check">
-              <li>Light backpack + personal item</li>
-              <li>Phone tripod for stable photos</li>
-              <li>Offline maps + saved spots</li>
-            </ul>
-          </div>
-        </div>
+        <h2 id="h-who">Who — About Me</h2>
+        <p class="lede">
+          I’m Tranyce Lester, and traveling has been a part of my life for as long as I can remember. Both of my parents served in the Army and were stationed in Fort Bragg, so I grew up moving often and spending time in places like New Jersey and Arizona. I was always excited to experience a new environment—sometimes the journey itself was my favorite part, whether it was a long drive or a flight across the country. In recent years, I’ve had the opportunity to travel abroad, which deepened my love for exploring different cultures and perspectives. I’m now a Computer Science student concentrating in Human–Computer Interaction, with aspirations to build a career in UX/UI design. My goal is to combine my passion for travel and my eye for user-centered design into experiences that connect people across places and cultures.
+        </p>
 
         <figure>
-    <img src="images/portrait-travel.jpg" alt="Tranyce smiling with city skyline in the background" />
-    <figcaption>
-      Always chasing good light and great views<br>
-      <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-    </figcaption>
-  </figure>
-
+          <img src="images/portrait-travel.jpg" alt="Tranyce smiling with city skyline in the background" />
+          <figcaption>
+            Always chasing good light and great views<br>
+            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+          </figcaption>
+        </figure>
       </section>
 
       <!-- WHEN -->
@@ -127,64 +291,61 @@
         <figure>
           <img src="images/calendar-collage.jpg" alt="Collage of trip calendar pages with highlighted dates" />
           <figcaption>
-          Planning windows to catch the right weather + lower prices<br>
-          <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+            Planning windows to catch the right weather + lower prices<br>
+            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
           </figcaption>
         </figure>
-
       </section>
 
-      
+      <!-- WHERE -->
+      <section class="card" data-page="where" aria-labelledby="h-where">
+        <h2 id="h-where">Where — Favorite Locations</h2>
+        <p class="lede">A few memorable stops I’d revisit and recommend:</p>
 
-<!-- WHERE -->
-<section class="card" data-page="where" aria-labelledby="h-where">
-  <h2 id="h-where">Where — Favorite Locations</h2>
-  <p class="lede">A few memorable stops I’d revisit and recommend:</p>
+        <div class="grid-2">
+          <figure>
+            <img src="images/belize-san-pedro.jpg" alt="Turquoise water and boats near San Pedro, Belize" />
+            <figcaption>
+              San Pedro, Belize — Summer 2024<br>
+              <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+            </figcaption>
+          </figure>
 
-  <div class="grid-2">
-    <figure>
-      <img src="images/belize-san-pedro.jpg" alt="Turquoise water and boats near San Pedro, Belize" />
-      <figcaption>
-        San Pedro, Belize — Summer 2024<br>
-        <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-      </figcaption>
-    </figure>
+          <figure>
+            <img src="images/puerto-rico.jpg" alt="Colorful street in Old San Juan, Puerto Rico" />
+            <figcaption>
+              Puerto Rico — Summer 2023 &amp; March 2025<br>
+              <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+            </figcaption>
+          </figure>
+        </div>
 
-    <figure>
-      <img src="images/puerto-rico.jpg" alt="Colorful street in Old San Juan, Puerto Rico" />
-      <figcaption>
-        Puerto Rico — Summer 2023 &amp; March 2025<br>
-        <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-      </figcaption>
-    </figure>
-  </div>
+        <div class="grid-2">
+          <figure>
+            <img src="images/grand-canyon.jpg" alt="Grand Canyon vista with layered cliffs at sunset" />
+            <figcaption>
+              Grand Canyon — December 2022<br>
+              <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+            </figcaption>
+          </figure>
 
-  <div class="grid-2">
-    <figure>
-      <img src="images/grand-canyon.jpg" alt="Grand Canyon vista with layered cliffs at sunset" />
-      <figcaption>
-        Grand Canyon — December 2022<br>
-        <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-      </figcaption>
-    </figure>
+          <figure>
+            <img src="images/san-francisco.jpg" alt="Golden Gate Bridge with rolling fog in autumn" />
+            <figcaption>
+              San Francisco — Fall 2022<br>
+              <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+            </figcaption>
+          </figure>
+        </div>
 
-    <figure>
-      <img src="images/san-francisco.jpg" alt="Golden Gate Bridge with rolling fog in autumn" />
-      <figcaption>
-        San Francisco — Fall 2022<br>
-        <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-      </figcaption>
-    </figure>
-  </div>
-
-  <figure>
-    <img src="images/mexico-2024.jpg" alt="Beachfront scene in Mexico with bright umbrellas" />
-    <figcaption>
-      Mexico — Summer 2024<br>
-      <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-    </figcaption>
-  </figure>
-</section>
+        <figure>
+          <img src="images/mexico-2024.jpg" alt="Beachfront scene in Mexico with bright umbrellas" />
+          <figcaption>
+            Mexico — Summer 2024<br>
+            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+          </figcaption>
+        </figure>
+      </section>
 
       <!-- HOW -->
       <section class="card" data-page="how" aria-labelledby="h-how">
@@ -210,13 +371,12 @@
         </div>
 
         <figure>
-  <img src="images/flatlay-gear.jpg" alt="Flat lay of travel essentials: small backpack, water bottle, camera, and sunglasses" />
-  <figcaption>
-    Light gear that keeps me moving<br>
-    <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-  </figcaption>
-</figure>
-
+          <img src="images/flatlay-gear.jpg" alt="Flat lay of travel essentials: small backpack, water bottle, camera, and sunglasses" />
+          <figcaption>
+            Light gear that keeps me moving<br>
+            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+          </figcaption>
+        </figure>
       </section>
 
       <!-- WHY -->
@@ -230,39 +390,35 @@
         </ul>
 
         <figure>
-  <img src="images/journal.jpg" alt="Open travel journal with handwritten notes and ticket stubs" />
-  <figcaption>
-    Notes become stories, and stories become ideas<br>
-    <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-  </figcaption>
-</figure>
-</section>
+          <img src="images/journal.jpg" alt="Open travel journal with handwritten notes and ticket stubs" />
+          <figcaption>
+            Notes become stories, and stories become ideas<br>
+            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
+          </figcaption>
+        </figure>
+      </section>
 
-<!-- AI PROMPTS -->
-<section class="card" data-page="ai" aria-labelledby="h-ai">
-  <h2 id="h-ai">AI Prompts / Attributions</h2>
-  <p>
-    All the images featured on this site are my own personal photos taken during my travels to
-    places like Belize, Puerto Rico, Mexico, San Francisco, and the Grand Canyon.
-    No AI-generated imagery was used. However, I did use AI tools to help
-    develop and refine parts of my <strong>CSS file</strong> — particularly for
-    color palette curation, responsive layout adjustments, and accessibility improvements.
-    The visual design was then customized and coded by me to fit my personal aesthetic and
-    the theme of travel and exploration.
-  </p>
+      <!-- AI PROMPTS -->
+      <section class="card" data-page="ai" aria-labelledby="h-ai">
+        <h2 id="h-ai">AI Prompts / Attributions</h2>
+        <p>
+          All the images featured on this site are my own personal photos taken during my travels to
+          places like Belize, Puerto Rico, Mexico, San Francisco, and the Grand Canyon.
+          No AI-generated imagery was used. However, I did use AI tools to help
+          develop and refine parts of my <strong>CSS file</strong> — particularly for
+          color palette curation, responsive layout adjustments, and accessibility improvements.
+          The visual design was then customized and coded by me to fit my personal aesthetic and
+          the theme of travel and exploration.
+        </p>
 
-  <figure>
-    <img src="images/ai-placeholder.jpg" alt="Placeholder scenic image representing a beach at sunset" />
-    <figcaption>
-      Example image placeholder (not AI-generated)<br>
-      <em class="ai-note">
-        Note: All photos on this site are personal; AI assistance was used only for refining the CSS design.
-      </em>
-    </figcaption>
-  </figure>
-</section>
-
-
+        <figure>
+          <img src="images/ai-placeholder.jpg" alt="Placeholder scenic image representing a beach at sunset" />
+          <figcaption>
+            Example image placeholder (not AI-generated)<br>
+            <em class="ai-note">All photos are personal; AI assisted only with CSS refinement.</em>
+          </figcaption>
+        </figure>
+      </section>
     </div>
   </main>
 
@@ -270,22 +426,22 @@
     <div class="wrap">
       <nav aria-label="Footer">
         <div class="footer-nav">
-          <a href="https://nycelester5.github.io/" target="_blank" rel="noopener noreferrer">GitHub.io</a>
+          <a href="https://nycelester5.github.io/" target="_blank" rel="noopener">GitHub.io</a>
           <span class="sep" aria-hidden="true">|</span>
-          <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener noreferrer">ITIS 3135</a>
+          <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener">ITIS 3135</a>
           <span class="sep" aria-hidden="true">|</span>
-          <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener">LinkedIn</a>
           <span class="sep" aria-hidden="true">|</span>
-          <a href="https://lesterlabs.com" target="_blank" rel="noopener noreferrer">Lester Labs</a>
+          <a href="https://lesterlabs.com" target="_blank" rel="noopener">Lester Labs</a>
         </div>
       </nav>
 
       <div class="validators" id="validators">
-        <a id="v-html" href="#" target="_blank" rel="noopener noreferrer">Validate HTML</a>
+        <a id="v-html" href="#" target="_blank" rel="noopener">Validate HTML</a>
         <span class="sep" aria-hidden="true">|</span>
-        <a id="v-css" href="#" target="_blank" rel="noopener noreferrer">Validate CSS</a>
+        <a id="v-css" href="#" target="_blank" rel="noopener">Validate CSS</a>
         <span class="sep" aria-hidden="true">|</span>
-        <a id="v-a11y" href="#" target="_blank" rel="noopener noreferrer">Accessibility Check</a>
+        <a id="v-a11y" href="#" target="_blank" rel="noopener">Accessibility Check</a>
       </div>
 
       <p class="muted">© <span id="y"></span> Nyce Lester • All rights reserved.</p>
@@ -293,28 +449,27 @@
   </footer>
 
   <script>
-    // SPA: show selected section; default = what
+    // SPA: show selected section; default = "what"
     const sections = [...document.querySelectorAll('section[data-page]')];
     const menu = document.getElementById('menu');
 
-    function show(page) {
-  sections.forEach((s) => s.classList.toggle('active', s.dataset.page === page));
-  const links = menu.querySelectorAll('a[data-target]');
-  links.forEach((a) => {
-    const isActive = a.dataset.target === page;
-    a.setAttribute('aria-current', isActive ? 'page' : 'false');
-  });
-  const el = document.querySelector(`[data-page="${page}"]`);
-  if (el) { history.replaceState(null, "", `#${page}`); }
-}
+    function show(page){
+      sections.forEach(s => s.classList.toggle('active', s.dataset.page === page));
+      const links = menu.querySelectorAll('a[data-target]');
+      links.forEach(a => {
+        const isActive = a.dataset.target === page;
+        a.setAttribute('aria-current', isActive ? 'page' : 'false');
+      });
+      const el = document.querySelector(`[data-page="${page}"]`);
+      if(el){ history.replaceState(null, "", `#${page}`); }
+    }
 
-menu.addEventListener('click', (e) => {
-  const link = e.target.closest('a[data-target]');
-  if (!link) return;
-  e.preventDefault();
-  show(link.dataset.target);
-});
-
+    menu.addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-target]');
+      if(!link) return;
+      e.preventDefault();
+      show(link.dataset.target);
+    });
 
     // On load: open hash target if present
     const initial = (location.hash || "#what").replace("#", "");
