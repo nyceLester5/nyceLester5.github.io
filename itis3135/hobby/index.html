@@ -448,41 +448,51 @@
     </div>
   </footer>
 
-  <script>
-    // SPA: show selected section; default = "what"
-    const sections = [...document.querySelectorAll('section[data-page]')];
-    const menu = document.getElementById('menu');
+ <script>
+  // SPA: show selected section; default = "what"
+  const sections = [...document.querySelectorAll('section[data-page]')];
+  const menu = document.getElementById('menu');
 
-    function show(page){
-      sections.forEach(s => s.classList.toggle('active', s.dataset.page === page));
-      const links = menu.querySelectorAll('a[data-target]');
-      links.forEach(a => {
-        const isActive = a.dataset.target === page;
-        a.setAttribute('aria-current', isActive ? 'page' : 'false');
-      });
-      const el = document.querySelector(`[data-page="${page}"]`);
-      if(el){ history.replaceState(null, "", `#${page}`); }
-    }
-
-    menu.addEventListener('click', (e) => {
-      const link = e.target.closest('a[data-target]');
-      if(!link) return;
-      e.preventDefault();
-      show(link.dataset.target);
+  function show(page) {
+    sections.forEach((s) => {
+      s.classList.toggle('active', s.dataset.page === page);
     });
 
-    // On load: open hash target if present
-    const initial = (location.hash || "#what").replace("#", "");
-    show(initial);
+    const links = menu.querySelectorAll('a[data-target]');
+    links.forEach((a) => {
+      const isActive = a.dataset.target === page;
+      a.setAttribute('aria-current', isActive ? 'page' : 'false');
+    });
 
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const el = document.querySelector(`[data-page="${page}"]`);
+    if (el) {
+      history.replaceState(null, '', `#${page}`);
+    }
+  }
 
-    // Validator links use current page URL
-    const url = encodeURIComponent(location.href);
-    document.getElementById('v-html').href = `https://validator.w3.org/nu/?doc=${url}`;
-    document.getElementById('v-css').href  = `https://jigsaw.w3.org/css-validator/validator?uri=${url}&profile=css3svg&usermedium=all&warning=1`;
-    document.getElementById('v-a11y').href = `https://wave.webaim.org/report#/${location.href}`;
-  </script>
+  menu.addEventListener('click', (e) => {
+    const link = e.target.closest('a[data-target]');
+    if (!link) {
+      return;
+    }
+    e.preventDefault();
+    show(link.dataset.target);
+  });
+
+  // On load: open hash target if present
+  const initial = (location.hash || '#what').replace('#', '');
+  show(initial);
+
+  // Footer year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Validator links use current page URL
+  const url = encodeURIComponent(location.href);
+  document.getElementById('v-html').href = `https://validator.w3.org/nu/?doc=${url}`;
+  document.getElementById('v-css').href =
+    `https://jigsaw.w3.org/css-validator/validator?uri=${url}&profile=css3svg&usermedium=all&warning=1`;
+  document.getElementById('v-a11y').href = `https://wave.webaim.org/report#/${location.href}`;
+</script>
+
 </body>
 </html>
