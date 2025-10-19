@@ -114,8 +114,14 @@ p{ margin: .25rem 0 .75rem; }
 .muted{ color: var(--muted); }
 
 /* ========= SPA SECTION TOGGLING ========= */
-section[data-page] { display: none; }
-.active { display: block; }
+
+[data-page] { 
+  display: none; 
+}
+[data-page].active { 
+  display: block; 
+}
+
 
 /* ========= GRIDS ========= */
 .grid-2{ display:grid; grid-template-columns: 1fr; gap: 1rem; }
