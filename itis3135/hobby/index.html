@@ -291,9 +291,9 @@
         <p id="when-note" class="muted">Always check current conditions and local calendars for festivals or closures.</p>
 
         <figure>
-          <img src="images/calendar-collage.jpg" alt="Collage of trip calendar pages with highlighted dates" />
+          <img src="images/proceannight.JPG" alt="Beachfront in Puerto Rico" />
           <figcaption>
-            Planning windows to catch the right weather + lower prices<br>
+            Some of my favorite images from these trips<br>
             <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
           </figcaption>
         </figure>
@@ -306,7 +306,7 @@
 
         <div class="grid-2">
           <figure>
-            <img src="images/belize-san-pedro.jpg" alt="Turquoise water and boats near San Pedro, Belize" />
+            <img src="images/boat.png" alt="Turquoise water and boats near San Pedro, Belize" />
             <figcaption>
               San Pedro, Belize — Summer 2024<br>
               <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
@@ -314,7 +314,7 @@
           </figure>
 
           <figure>
-            <img src="images/puerto-rico.jpg" alt="Colorful street in Old San Juan, Puerto Rico" />
+            <img src="images/prstreet.png" alt="Colorful street in Old San Juan, Puerto Rico" />
             <figcaption>
               Puerto Rico — Summer 2023 &amp; March 2025<br>
               <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
@@ -324,7 +324,7 @@
 
         <div class="grid-2">
           <figure>
-            <img src="images/grand-canyon.jpg" alt="Grand Canyon vista with layered cliffs at sunset" />
+            <img src="images/gc.png" alt="Grand Canyon vista with layered cliffs at sunset" />
             <figcaption>
               Grand Canyon — December 2022<br>
               <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
@@ -332,7 +332,7 @@
           </figure>
 
           <figure>
-            <img src="images/san-francisco.jpg" alt="Golden Gate Bridge with rolling fog in autumn" />
+            <img src="images/bridge.png" alt="Golden Gate Bridge with rolling fog in autumn" />
             <figcaption>
               San Francisco — Fall 2022<br>
               <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
@@ -341,7 +341,7 @@
         </div>
 
         <figure>
-          <img src="images/mexico-2024.jpg" alt="Beachfront scene in Mexico with bright umbrellas" />
+          <img src="images/mexico.png" alt="Beachfront scene in Mexico with sunset" />
           <figcaption>
             Mexico — Summer 2024<br>
             <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
@@ -373,7 +373,8 @@
         </div>
 
         <figure>
-          <img src="images/flatlay-gear.jpg" alt="Flat lay of travel essentials: small backpack, water bottle, camera, and sunglasses" />
+          <img src="images/forest.png" alt="Rainforest in Puerto Rico" />
+          <img src="images/full.png" alt="The Full House houses in San Francisco" />
           <figcaption>
             Light gear that keeps me moving<br>
             <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
@@ -392,7 +393,8 @@
         </ul>
 
         <figure>
-          <img src="images/journal.jpg" alt="Open travel journal with handwritten notes and ticket stubs" />
+          <img src="images/pr.png" alt="Cemetary in Puerto Rico" />
+          <img src="images/prbuilding.png" alt="Picture of a hotel in Puerto Rico" />
           <figcaption>
             Notes become stories, and stories become ideas<br>
             <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
@@ -401,26 +403,83 @@
       </section>
 
       <!-- AI PROMPTS -->
-      <section class="card" data-page="ai" aria-labelledby="h-ai">
-        <h2 id="h-ai">AI Prompts / Attributions</h2>
-        <p>
-          All the images featured on this site are my own personal photos taken during my travels to
-          places like Belize, Puerto Rico, Mexico, San Francisco, and the Grand Canyon.
-          No AI-generated imagery was used. However, I did use AI tools to help
-          develop and refine parts of my <strong>CSS file</strong> — particularly for
-          color palette curation, responsive layout adjustments, and accessibility improvements.
-          The visual design was then customized and coded by me to fit my personal aesthetic and
-          the theme of travel and exploration.
-        </p>
+      <!-- AI PROMPTS -->
+<section class="card" data-page="ai" aria-labelledby="h-ai">
+  <h2 id="h-ai">AI Prompts / Attributions</h2>
+  <p>
+    All the images featured on this site are my own personal photos taken during my travels to
+    places like Belize, Puerto Rico, Mexico, San Francisco, and the Grand Canyon. 
+    No AI-generated imagery was used. However, I used <strong>AI assistance for my CSS development process</strong> to help me plan and refine the site’s visual style and accessibility.
+  </p>
 
-        <figure>
-          <img src="images/ai-placeholder.jpg" alt="Placeholder scenic image representing a beach at sunset" />
-          <figcaption>
-            Example image placeholder (not AI-generated)<br>
-            <em class="ai-note">All photos are personal; AI assisted only with CSS refinement.</em>
-          </figcaption>
-        </figure>
-      </section>
+  <p>
+    Specifically, I worked with <strong>ChatGPT (GPT-5)</strong> to help me write cleaner,
+    responsive CSS and ensure alignment with accessibility and CRAP design principles
+    (Contrast, Repetition, Alignment, Proximity). 
+    I also used <strong>Coolors.co</strong> to help curate my pastel mint and green color palette,
+    which I then refined with ChatGPT to create properly named and accessible CSS variables inside my
+    <code>:root</code> section:
+  </p>
+
+  <pre><code>:root{
+  /* Pastel mint/green palette */
+  --bg: #cee7e6;
+  --panel: #f4fbfa;
+  --card: #ffffff;
+
+  --ink: #1f2b2a;     /* main text (very high contrast) */
+  --muted: #51625d;   /* secondary text */
+  --line: #bfc0c0;    /* dividers */
+
+  --primary: #648767; /* accents/badges (not for small text) */
+  --accent:  #7dc95e; /* pills/active */
+  --accent2: #7cdf64; /* alt accent */
+
+  /* AA-compliant heading color for contrast on white */
+  --heading: #2f5a37;
+
+  --shadow: rgba(0,0,0,.08);
+  --radius: 16px;
+  --maxw: 900px;
+
+  /* spacing scale (proximity/alignment) */
+  --s-1: .25rem;
+  --s-2: .5rem;
+  --s-3: .75rem;
+  --s-4: 1rem;
+  --s-5: 1.25rem;
+  --s-6: 1.5rem;
+  --s-7: 2rem;
+}</code></pre>
+
+  <p>
+    The color system above was generated through multiple prompts where I asked ChatGPT to help
+    me “<em>generate a soft, feminine, and readable color scheme using mint and sage tones that follow
+    accessibility contrast standards</em>.” 
+    Then, I adjusted the tones using Coolors and finalized them in VS Code for consistency across
+    backgrounds, headings, and accents.
+  </p>
+
+  <p>
+    I also used ChatGPT to help me:
+    <ul class="dot">
+      <li>Refactor my JavaScript SPA navigation function for cleaner syntax and ESLint compliance.</li>
+      <li>Optimize layout spacing and typography for better proximity and alignment.</li>
+      <li>Ensure hover/focus styles followed accessibility best practices instead of removing outlines.</li>
+    </ul>
+  </p>
+
+  <figure>
+    <img src="images/ai-placeholder.jpg" alt="Placeholder scenic image representing a beach at sunset" />
+    <figcaption>
+      Example placeholder (not AI-generated)<br>
+      <em class="ai-note">
+        All photos are personal; AI was used only to refine CSS structure, spacing, and color design with GPT-5 and Coolors.
+      </em>
+    </figcaption>
+  </figure>
+</section>
+
     </div>
   </main>
 
