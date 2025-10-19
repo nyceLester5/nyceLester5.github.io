@@ -6,33 +6,240 @@
   <title>Travel & Explore — Nyce Lester (Hobby)</title>
   <meta name="description" content="Nyce Lester's travel & exploration hobby page: what, who, when, where, how, and why — with photos and notes." />
 
-  <!-- ✅ Link to your new CSS file -->
+  <!-- External stylesheet inside hobby/styles/ -->
   <link rel="stylesheet" href="styles/default.css" />
 
-  <!-- Accumulus validator -->
+  <!-- Accumulus validator (keep at end of head) -->
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-  <!-- Skip to main content (WCAG compliant) -->
   <a class="skip-link" href="#content">Skip to main content</a>
 
   <header>
-    <h1>Welcome to Tranyce Lester’s ITIS 3135</h1>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="introduction.html">Introduction</a></li>
-        <li><a href="contract.html">Contract</a></li>
-        <li><a href="hobby/index.html">Hobby</a></li>
-      </ul>
-    </nav>
+    <div class="wrap">
+      <h1><span class="brand">Travel & Explore</span> — Nyce Lester</h1>
+      <nav aria-label="Section navigation">
+        <ul class="menu" id="menu">
+          <li><a href="#what" data-target="what" aria-current="page">What</a><span class="divider" aria-hidden="true">✦</span></li>
+          <li><a href="#who" data-target="who">Who</a><span class="divider" aria-hidden="true">✦</span></li>
+          <li><a href="#when" data-target="when">When</a><span class="divider" aria-hidden="true">✦</span></li>
+          <li><a href="#where" data-target="where">Where</a><span class="divider" aria-hidden="true">✦</span></li>
+          <li><a href="#how" data-target="how">How</a><span class="divider" aria-hidden="true">✦</span></li>
+          <li><a href="#why" data-target="why">Why</a><span class="divider" aria-hidden="true">✦</span></li>
+          <li><a href="#ai" data-target="ai">AI Prompts</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main id="content">
     <div class="wrap cards">
-      <!-- Sections will go here (What, Who, When, Where, How, Why, AI Prompts) -->
-      <!-- Keep the same HTML structure I gave you earlier, just without the <style> tag. -->
+
+      <!-- WHAT (Home / default visible) -->
+      <section class="card active" data-page="what" aria-labelledby="h-what">
+        <h2 id="h-what">What — The Hobby</h2>
+        <p class="lede">I love exploring new places—collecting moments, cultures, and views through photos and short travel notes. This page is a living scrapbook of trips and the practical tips I’ve learned along the way.</p>
+
+        <div class="grid-2">
+          <div>
+            <h3>Goals</h3>
+            <ul class="check">
+              <li>Share highlights from past trips (Belize, Puerto Rico, Grand Canyon, San Francisco, Mexico).</li>
+              <li>Organize planning notes so friends can reuse them.</li>
+              <li>Keep inspiration lists for future adventures.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Focus</h3>
+            <ul class="dot">
+              <li>Affordable flights &amp; stays</li>
+              <li>Local food finds</li>
+              <li>Walkable city routes</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure>
+          <!-- Replace with your image -->
+          <img src="images/cover-belize.jpg" alt="Coastline and boats at San Pedro, Belize at golden hour" />
+          <figcaption>Welcome snapshot — San Pedro, Belize (Summer 2024)</figcaption>
+          <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+        </figure>
+      </section>
+
+      <!-- WHO -->
+      <section class="card" data-page="who" aria-labelledby="h-who">
+        <h2 id="h-who">Who — About Me</h2>
+        <p class="lede">I’m Nyce (Tranyce) Lester — a CS student who documents trips to remember routes, budgets, and hidden gems.</p>
+
+        <div class="grid-2">
+          <div>
+            <h3>Travel Style</h3>
+            <ul class="dot">
+              <li>Mix of city wandering + nature day trips</li>
+              <li>High-value, not high-cost</li>
+              <li>Planning just enough to stay flexible</li>
+            </ul>
+          </div>
+          <div>
+            <h3>What I Pack</h3>
+            <ul class="check">
+              <li>Light backpack + personal item</li>
+              <li>Phone tripod for stable photos</li>
+              <li>Offline maps + saved spots</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure>
+          <img src="images/portrait-travel.jpg" alt="Nyce smiling with city skyline in the background" />
+          <figcaption>Always chasing good light and great views</figcaption>
+          <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+        </figure>
+      </section>
+
+      <!-- WHEN -->
+      <section class="card" data-page="when" aria-labelledby="h-when">
+        <h2 id="h-when">When — Best Times / Schedule</h2>
+        <p>These are approximate windows I found most comfortable or affordable for each place.</p>
+
+        <table aria-describedby="when-note">
+          <thead>
+            <tr><th>Destination</th><th>Good Window</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>San Pedro, Belize</td><td>Late Spring–Summer</td><td>Warm waters; plan for sun + occasional showers.</td></tr>
+            <tr><td>Puerto Rico</td><td>Late Spring / Early Fall</td><td>Shoulder seasons = better prices; watch hurricane forecasts.</td></tr>
+            <tr><td>Grand Canyon</td><td>Late Fall</td><td>Cooler temps; fewer crowds in December.</td></tr>
+            <tr><td>San Francisco</td><td>Early Fall</td><td>Less fog; bring layers.</td></tr>
+            <tr><td>Mexico (varies)</td><td>Late Spring–Summer</td><td>Beach destinations are lively; hydrate and use SPF.</td></tr>
+          </tbody>
+        </table>
+        <p id="when-note" class="muted">Always check current conditions and local calendars for festivals or closures.</p>
+
+        <figure>
+          <img src="images/calendar-collage.jpg" alt="Collage of trip calendar pages with highlighted dates" />
+          <figcaption>Planning windows to catch the right weather + lower prices</figcaption>
+          <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+        </figure>
+      </section>
+
+      <!-- WHERE -->
+      <section class="card" data-page="where" aria-labelledby="h-where">
+        <h2 id="h-where">Where — Favorite Locations</h2>
+        <p class="lede">A few memorable stops I’d revisit and recommend:</p>
+
+        <div class="grid-2">
+          <figure>
+            <img src="images/belize-san-pedro.jpg" alt="Turquoise water and boats near San Pedro, Belize" />
+            <figcaption>San Pedro, Belize — Summer 2024</figcaption>
+            <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+          </figure>
+          <figure>
+            <img src="images/puerto-rico.jpg" alt="Colorful street in Old San Juan, Puerto Rico" />
+            <figcaption>Puerto Rico — Summer 2023 &amp; March 2025</figcaption>
+            <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+          </figure>
+        </div>
+
+        <div class="grid-2">
+          <figure>
+            <img src="images/grand-canyon.jpg" alt="Grand Canyon vista with layered cliffs at sunset" />
+            <figcaption>Grand Canyon — December 2022</figcaption>
+            <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+          </figure>
+          <figure>
+            <img src="images/san-francisco.jpg" alt="Golden Gate Bridge with rolling fog in autumn" />
+            <figcaption>San Francisco — Fall 2022</figcaption>
+            <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+          </figure>
+        </div>
+
+        <figure>
+          <img src="images/mexico-2024.jpg" alt="Beachfront scene in Mexico with bright umbrellas" />
+          <figcaption>Mexico — Summer 2024</figcaption>
+          <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+        </figure>
+      </section>
+
+      <!-- HOW -->
+      <section class="card" data-page="how" aria-labelledby="h-how">
+        <h2 id="h-how">How — Planning &amp; Tips</h2>
+
+        <div class="grid-2">
+          <div>
+            <h3>My Process</h3>
+            <ul class="check">
+              <li>Pick 3–5 anchor spots; save to offline maps</li>
+              <li>Book stays near transit or walkable hubs</li>
+              <li>Pack light + bring a day bag for photos/snacks</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Quick Tips</h3>
+            <ul class="dot">
+              <li>Sunrise = empty landmarks + soft light</li>
+              <li>Ask locals for one food rec each day</li>
+              <li>Carry cash for small vendors</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure>
+          <img src="images/flatlay-gear.jpg" alt="Flat lay of travel essentials: small backpack, water bottle, camera, and sunglasses" />
+          <figcaption>Light gear that keeps me moving</figcaption>
+          <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+        </figure>
+      </section>
+
+      <!-- WHY -->
+      <section class="card" data-page="why" aria-labelledby="h-why">
+        <h2 id="h-why">Why — What Travel Gives Me</h2>
+        <p class="lede">Travel gives me perspective, creativity for my design work, and a chance to document places with an HCI lens.</p>
+        <ul class="dot">
+          <li>Meeting people and learning customs opens up empathy for design.</li>
+          <li>Photography helps me notice patterns, colors, and textures I can reuse in UI.</li>
+          <li>Planning builds systems thinking I use in code and projects.</li>
+        </ul>
+
+        <figure>
+          <img src="images/journal.jpg" alt="Open travel journal with handwritten notes and ticket stubs" />
+          <figcaption>Notes become stories, and stories become ideas</figcaption>
+          <p class="ai-note"><em>Image credit: personal photo (no AI prompt used).</em></p>
+        </figure>
+      </section>
+
+      <!-- AI PROMPTS -->
+      <section class="card" data-page="ai" aria-labelledby="h-ai">
+        <h2 id="h-ai">AI Prompts / Attributions</h2>
+        <p>For this page, I used my own photos. If you later replace any image with an AI-generated one, add the prompt in the figure’s italic line. Examples:</p>
+
+        <figure>
+          <img src="images/ai-placeholder.jpg" alt="Placeholder scenic image representing a beach at sunset" />
+          <figcaption>Example AI Image</figcaption>
+          <p class="ai-note"><em>AI prompt example: “Photorealistic beach at golden hour, calm waves, boats in distance, soft clouds, 50mm.”</em></p>
+        </figure>
+
+        <div class="grid-2">
+          <div>
+            <h3>How to Attribute</h3>
+            <ul class="check">
+              <li>Personal photos: write <em>“personal photo (no AI prompt used)”</em>.</li>
+              <li>AI images: include the exact prompt under the caption.</li>
+              <li>Open-source images: include source &amp; license.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Consistency</h3>
+            <ul class="dot">
+              <li>Stick to one visual style (all photo or all illustration).</li>
+              <li>Resize images to reasonable dimensions (≤ 1600px wide).</li>
+              <li>Keep alt text descriptive and specific.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
     </div>
   </main>
 
@@ -63,7 +270,7 @@
   </footer>
 
   <script>
-    // SPA: section switching
+    // SPA: show selected section; default = what
     const sections = [...document.querySelectorAll('section[data-page]')];
     const menu = document.getElementById('menu');
 
@@ -85,13 +292,14 @@
       show(link.dataset.target);
     });
 
+    // On load: open hash target if present
     const initial = (location.hash || "#what").replace("#", "");
     show(initial);
 
     // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Validator links
+    // Validator links use current page URL
     const url = encodeURIComponent(location.href);
     document.getElementById('v-html').href = `https://validator.w3.org/nu/?doc=${url}`;
     document.getElementById('v-css').href  = `https://jigsaw.w3.org/css-validator/validator?uri=${url}&profile=css3svg&usermedium=all&warning=1`;
