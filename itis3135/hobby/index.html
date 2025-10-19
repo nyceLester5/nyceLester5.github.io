@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tranyce Lester Nova Lion — ITIS 3135 Hobby</title>
-  <meta name="description" content="Course homepage for ITIS 3135 - Front-End Web Development by Tranyce Lester at UNC Charlotte." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Travel & Explore — Nyce Lester (Hobby)</title>
+  <meta name="description" content="Nyce Lester's travel & exploration hobby page: what, who, when, where, how, and why — with photos and notes." />
+
+  <!-- ✅ Link to your new CSS file -->
   <link rel="stylesheet" href="styles/default.css" />
 
   <!-- Accumulus validator -->
@@ -28,34 +30,72 @@
   </header>
 
   <main id="content">
-    <h2>Hobby</h2>
-    
+    <div class="wrap cards">
+      <!-- Sections will go here (What, Who, When, Where, How, Why, AI Prompts) -->
+      <!-- Keep the same HTML structure I gave you earlier, just without the <style> tag. -->
+    </div>
   </main>
 
   <footer>
-    <nav aria-label="Primary links">
-  <div class="footer-nav">
-    <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener">ITIS3135</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="https://github.com/nyceLester5/nyceLester5.github.io" target="_blank" rel="noopener">GitHub.com</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener">CLT Web</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="http://nyceLester5.github.io" target="_blank" rel="noopener">GitHub.io</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="https://www.freecodecamp.org/NyceL" target="_blank" rel="noopener">FreeCodeCamp</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="https://www.codecademy.com/profiles/NyceLester" target="_blank" rel="noopener">Codecademy</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="www.linkedin.com/in/tranycelester" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</nav>
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <div class="footer-nav">
+          <a href="https://nycelester5.github.io/" target="_blank" rel="noopener noreferrer">GitHub.io</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener noreferrer">ITIS 3135</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://lesterlabs.com" target="_blank" rel="noopener noreferrer">Lester Labs</a>
+        </div>
+      </nav>
 
-    <p>
-      Page Built by
-      <a href="https://lesterlabs.com" target="_blank" rel="noopener noreferrer">Lester Labs</a>
-      &copy; 2025
-    </p>
+      <div class="validators" id="validators">
+        <a id="v-html" href="#" target="_blank" rel="noopener noreferrer">Validate HTML</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a id="v-css" href="#" target="_blank" rel="noopener noreferrer">Validate CSS</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a id="v-a11y" href="#" target="_blank" rel="noopener noreferrer">Accessibility Check</a>
+      </div>
+
+      <p class="muted">© <span id="y"></span> Nyce Lester • All rights reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    // SPA: section switching
+    const sections = [...document.querySelectorAll('section[data-page]')];
+    const menu = document.getElementById('menu');
+
+    function show(page){
+      sections.forEach(s => s.classList.toggle('active', s.dataset.page === page));
+      const links = menu.querySelectorAll('a[data-target]');
+      links.forEach(a => {
+        const isActive = a.dataset.target === page;
+        a.setAttribute('aria-current', isActive ? 'page' : 'false');
+      });
+      const el = document.querySelector(`[data-page="${page}"]`);
+      if(el){ history.replaceState(null, "", `#${page}`); }
+    }
+
+    menu.addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-target]');
+      if(!link) return;
+      e.preventDefault();
+      show(link.dataset.target);
+    });
+
+    const initial = (location.hash || "#what").replace("#", "");
+    show(initial);
+
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Validator links
+    const url = encodeURIComponent(location.href);
+    document.getElementById('v-html').href = `https://validator.w3.org/nu/?doc=${url}`;
+    document.getElementById('v-css').href  = `https://jigsaw.w3.org/css-validator/validator?uri=${url}&profile=css3svg&usermedium=all&warning=1`;
+    document.getElementById('v-a11y').href = `https://wave.webaim.org/report#/${location.href}`;
+  </script>
 </body>
 </html>
