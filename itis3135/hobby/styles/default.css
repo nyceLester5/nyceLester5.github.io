@@ -169,10 +169,10 @@ footer .wrap { display: grid; gap: .75rem; }
   transition: border-color .2s, color .2s;
 }
 .footer-nav a:hover,
-.footer-nav a:focus-visible{
+.footer-nav a:focus-visible {
   color: var(--primary);
   border-color: var(--primary);
-  outline: none;
+  box-shadow: 0 0 0 3px rgba(125, 201, 94, 0.35); /* soft green glow */
 }
 
 .sep { color: var(--line); user-select: none; }
