@@ -158,13 +158,7 @@
       border: 1px solid var(--line);
       box-shadow: 0 4px 16px var(--shadow);
     }
-    /* Optimize overly large portrait image */
-img[src*="proceannight.JPG"] {
-  max-width: 100%;
-  height: auto;
-  max-height: 480px;  /* limits visible height */
-  object-fit: cover;
-}
+    
 
     /* ratio helpers */
     .photo-16x9 { aspect-ratio: 16 / 9; }
@@ -304,7 +298,7 @@ img[src*="proceannight.JPG"] {
         <p id="when-note" class="muted">Always check current conditions and local calendars for festivals or closures.</p>
 
         <figure class="img-row">
-  <img class="photo" src="images/proceannight.JPG" alt="Beachfront in Puerto Rico at night" loading="lazy" />
+  
   <img class="photo" src="images/belize.png" alt="Clear ocean water in Belize" loading="lazy" />
   <img class="photo" src="images/mocean.png" alt="Oceanfront in Mexico at sunset" loading="lazy" />
   <img class="photo" src="images/sd.png" alt="Sunny San Diego beach" loading="lazy" />
