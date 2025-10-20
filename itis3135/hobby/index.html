@@ -186,6 +186,25 @@
     }
     figcaption{ margin-top: .5rem; color: var(--muted); }
     .ai-note{ font-style: italic; color: var(--muted); }
+    /* ========= CUSTOM FIGURE: WHEN SECTION IMAGE ROW ========= */
+figure.img-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* adds space between images and caption */
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+figure.img-row figcaption {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 80%;
+  line-height: 1.5;
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+}
 
     /* ========= FOOTER ========= */
     footer{ border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.9)); }
@@ -227,7 +246,7 @@
 
   <header>
     <div class="wrap">
-      <h1><span class="brand">Travel & Explore</span> — Nyce Lester</h1>
+      <h1><span class="brand">Travel & Explore</span> — Nyce Lester | Nova Lion</h1>
       <nav aria-label="Section navigation">
         <ul class="menu" id="menu">
           <li><a href="#what" data-target="what" aria-current="page">What</a><span class="divider" aria-hidden="true">✦</span></li>
