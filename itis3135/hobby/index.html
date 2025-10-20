@@ -158,11 +158,11 @@
       border: 1px solid var(--line);
       box-shadow: 0 4px 16px var(--shadow);
     }
-    /* ratio helpers */
-    .photo-16x9 { aspect-ratio: 16 / 9; }
-    .photo-3x2  { aspect-ratio: 3 / 2; }
-    .photo-4x3  { aspect-ratio: 4 / 3; }
-    .photo-auto { aspect-ratio: auto; object-fit: contain; max-height: 60vh; }
+
+    /* ========= LISTS ========= */
+    .check{ list-style: "✓  "; padding-left: 1.2rem; }
+    .dot  { list-style: "•  "; padding-left: 1.2rem; }
+    .check li, .dot li{ margin-bottom: var(--s-2); }
 
     /* ========= TABLES ========= */
     table{ width:100%; border-collapse: collapse; margin: var(--s-3) 0; background: var(--card); }
@@ -247,12 +247,17 @@
         <h2 id="h-what">What — The Hobby</h2>
         <p class="lede">I love exploring new places—collecting moments, cultures, and views through photos and short travel notes. This page is a living scrapbook of trips and the practical tips I’ve learned along the way.</p>
 
-        <div class="img-row">
+        <ul class="dot">
+          <li>Trip notes to help friends reuse itineraries</li>
+          <li>Budget-friendly flight and stay ideas</li>
+          <li>Walkable routes and must-try food spots</li>
+        </ul>
+
+        <figure class="img-row">
           <img class="photo" src="images/belize.png" alt="Coastline and boats at San Pedro, Belize at golden hour" loading="lazy" />
           <img class="photo" src="images/boat.png" alt="Small boat on turquoise water near shore in Belize" loading="lazy" />
-        </div>
-
-        <p class="muted"><em>Welcome snapshot — San Pedro, Belize (Summer 2024). Image credit: personal photos.</em></p>
+          <figcaption>Welcome snapshots — San Pedro, Belize (Summer 2024).</figcaption>
+        </figure>
       </section>
 
       <!-- WHO -->
@@ -262,12 +267,11 @@
           I’m Tranyce Lester, and traveling has been a part of my life for as long as I can remember. Both of my parents served in the Army and were stationed in Fort Bragg, so I grew up moving often and spending time in places like New Jersey and Arizona. I was always excited to experience a new environment—sometimes the journey itself was my favorite part, whether it was a long drive or a flight across the country. In recent years, I’ve had the opportunity to travel abroad, which deepened my love for exploring different cultures and perspectives. I’m now a Computer Science student concentrating in Human–Computer Interaction, with aspirations to build a career in UX/UI design. My goal is to combine my passion for travel and my eye for user-centered design into experiences that connect people across places and cultures.
         </p>
 
-        <div class="img-row">
+        <figure class="img-row">
           <img class="photo" src="images/image.png" alt="Tranyce smiling with a city skyline in the background" loading="lazy" />
           <img class="photo" src="images/mme.png" alt="Puerto Peñasco sunset" loading="lazy" />
-        </div>
-
-        <p class="muted"><em>Always chasing good light and great views. Image credit: personal photos.</em></p>
+          <figcaption>Always chasing good light and great views.</figcaption>
+        </figure>
       </section>
 
       <!-- WHEN -->
@@ -289,13 +293,13 @@
         </table>
         <p id="when-note" class="muted">Always check current conditions and local calendars for festivals or closures.</p>
 
-        <div class="img-row">
+        <figure class="img-row">
           <img class="photo" src="images/proceannight.JPG" alt="Beachfront in Puerto Rico at night" loading="lazy" />
           <img class="photo" src="images/belize.png" alt="Clear ocean water in Belize" loading="lazy" />
           <img class="photo" src="images/mocean.png" alt="Oceanfront in Mexico at sunset" loading="lazy" />
           <img class="photo" src="images/sd.png" alt="Sunny San Diego beach" loading="lazy" />
-        </div>
-
+          <figcaption>Planning windows and highlights from recent trips.</figcaption>
+        </figure>
       </section>
 
       <!-- WHERE -->
@@ -304,30 +308,26 @@
         <p class="lede">A few memorable stops I’d revisit and recommend:</p>
 
         <div class="img-row">
-  <figure>
-    <img class="photo" src="images/boat.png" alt="Turquoise water and boats near San Pedro, Belize" loading="lazy" />
-    <figcaption>San Pedro, Belize — Summer 2024</figcaption>
-  </figure>
-
-  <figure>
-    <img class="photo" src="images/prstreet.png" alt="Colorful street in Old San Juan, Puerto Rico" loading="lazy" />
-    <figcaption>Puerto Rico — Summer 2023 &amp; March 2025</figcaption>
-  </figure>
-
-  <figure>
-    <img class="photo" src="images/gc.png" alt="Grand Canyon vista with layered cliffs at sunset" loading="lazy" />
-    <figcaption>Grand Canyon — December 2022</figcaption>
-  </figure>
-
-  <figure>
-    <img class="photo" src="images/bridge.png" alt="Golden Gate Bridge with rolling fog in autumn" loading="lazy" />
-    <figcaption>San Francisco — Fall 2022</figcaption>
-  </figure>
-</div>
-
+          <figure>
+            <img class="photo" src="images/boat.png" alt="Turquoise water and boats near San Pedro, Belize" loading="lazy" />
+            <figcaption>San Pedro, Belize — Summer 2024</figcaption>
+          </figure>
+          <figure>
+            <img class="photo" src="images/prstreet.png" alt="Colorful street in Old San Juan, Puerto Rico" loading="lazy" />
+            <figcaption>Puerto Rico — Summer 2023 &amp; March 2025</figcaption>
+          </figure>
+          <figure>
+            <img class="photo" src="images/gc.png" alt="Grand Canyon vista with layered cliffs at sunset" loading="lazy" />
+            <figcaption>Grand Canyon — December 2022</figcaption>
+          </figure>
+          <figure>
+            <img class="photo" src="images/bridge.png" alt="Golden Gate Bridge with rolling fog in autumn" loading="lazy" />
+            <figcaption>San Francisco — Fall 2022</figcaption>
+          </figure>
+        </div>
 
         <figure>
-          <img class="photo photo-16x9" src="images/mexico.png" alt="Beachfront scene in Mexico at sunset" loading="lazy" />
+          <img src="images/mexico.png" alt="Beachfront scene in Mexico at sunset" loading="lazy" />
           <figcaption>Mexico — Summer 2024</figcaption>
         </figure>
       </section>
@@ -355,11 +355,11 @@
           </div>
         </div>
 
-        <div class="img-row">
-  <img class="photo" src="images/forest.png" alt="Rainforest scene in Puerto Rico" loading="lazy" />
-  <img class="photo" src="images/full.png" alt="The Painted Ladies houses in San Francisco" loading="lazy" />
-</div>
-
+        <figure class="img-row">
+          <img class="photo" src="images/forest.png" alt="Rainforest scene in Puerto Rico" loading="lazy" />
+          <img class="photo" src="images/full.png" alt="The Painted Ladies houses in San Francisco" loading="lazy" />
+          <figcaption>Light gear and flexible routes keep trips easy.</figcaption>
+        </figure>
       </section>
 
       <!-- WHY -->
@@ -372,15 +372,14 @@
           <li>Planning builds systems thinking I use in code and projects.</li>
         </ul>
 
-        <div class="img-row">
-  <img class="photo" src="images/pr.png" alt="Cemetery by the sea in Puerto Rico" loading="lazy" />
-  <img class="photo" src="images/prbuilding.png" alt="Historic hotel building in Puerto Rico" loading="lazy" />
-</div>
-
-
+        <figure class="img-row">
+          <img class="photo" src="images/pr.png" alt="Cemetery by the sea in Puerto Rico" loading="lazy" />
+          <img class="photo" src="images/prbuilding.png" alt="Historic hotel building in Puerto Rico" loading="lazy" />
+          <figcaption>Moments that inspire empathy, design ideas, and perspective.</figcaption>
+        </figure>
       </section>
 
-      <!-- AI PROMPTS -->
+      <!-- AI PROMPTS (LEFT AS YOU HAD IT) -->
       <section class="card" data-page="ai" aria-labelledby="h-ai">
         <h2 id="h-ai">AI Prompts / Attributions</h2>
         <p>
@@ -416,7 +415,9 @@
   --s-5: 1.25rem; --s-6: 1.5rem; --s-7: 2rem;
 }</code></pre>
 
-        <p>I also used ChatGPT to help me:</p>
+        <p>
+          I also used ChatGPT to help me:
+        </p>
         <ul class="dot">
           <li>Optimize layout spacing and typography for better proximity and alignment.</li>
           <li>Ensure hover/focus styles followed accessibility best practices instead of removing outlines.</li>
