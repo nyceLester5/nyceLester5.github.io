@@ -158,6 +158,14 @@
       border: 1px solid var(--line);
       box-shadow: 0 4px 16px var(--shadow);
     }
+    /* Optimize overly large portrait image */
+img[src*="proceannight.JPG"] {
+  max-width: 100%;
+  height: auto;
+  max-height: 480px;  /* limits visible height */
+  object-fit: cover;
+}
+
     /* ratio helpers */
     .photo-16x9 { aspect-ratio: 16 / 9; }
     .photo-3x2  { aspect-ratio: 3 / 2; }
