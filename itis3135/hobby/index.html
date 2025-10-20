@@ -74,6 +74,7 @@
     h1{ margin: 0; text-align: center; letter-spacing: .2px; color: var(--heading); }
     h2{ color: var(--heading); margin: 0 0 var(--s-2); text-align: center; font-weight: 700; }
     h3{ color: var(--primary); margin: 0 0 var(--s-2); font-weight: 600; }
+    .brand{ color: var(--primary); }
 
     /* ========= HEADER + MENU ========= */
     header{
@@ -138,14 +139,25 @@
     [data-page]{ display:none; }
     [data-page].active{ display:block; }
 
-    /* ========= GRIDS ========= */
-    .grid-2{ display:grid; grid-template-columns: 1fr; gap: var(--s-5); }
-    @media (min-width: 720px){ .grid-2{ grid-template-columns: 1fr 1fr; } }
-
-    /* ========= LISTS ========= */
-    .check{ list-style: "✓  "; padding-left: 1.2rem; }
-    .dot  { list-style: "•  "; padding-left: 1.2rem; }
-    .check li, .dot li{ margin-bottom: var(--s-2); }
+    /* ========= IMAGE LAYOUT HELPERS ========= */
+    .img-row{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s-3);
+      margin: var(--s-4) 0;
+    }
+    @media (max-width: 600px){
+      .img-row{ grid-template-columns: 1fr; }
+    }
+    .photo{
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
 
     /* ========= TABLES ========= */
     table{ width:100%; border-collapse: collapse; margin: var(--s-3) 0; background: var(--card); }
@@ -156,8 +168,13 @@
     /* ========= FIGURES ========= */
     figure{ margin: var(--s-5) 0; }
     figure img{
-      display:block; max-width: min(100%, 680px); width: 100%; height: auto;
-      margin-inline:auto; border-radius: 14px; border: 1px solid var(--line);
+      display:block;
+      max-width: min(100%, 680px);
+      width: 100%;
+      height: auto;
+      margin-inline:auto;
+      border-radius: 14px;
+      border: 1px solid var(--line);
       box-shadow: 0 4px 16px var(--shadow);
     }
     figcaption{ margin-top: .5rem; color: var(--muted); }
@@ -225,33 +242,11 @@
         <h2 id="h-what">What — The Hobby</h2>
         <p class="lede">I love exploring new places—collecting moments, cultures, and views through photos and short travel notes. This page is a living scrapbook of trips and the practical tips I’ve learned along the way.</p>
 
-        <div class="grid-2">
-          <div>
-            <h3>Goals</h3>
-            <ul class="check">
-              <li>Share highlights from past trips (Belize, Puerto Rico, Grand Canyon, San Francisco, Mexico).</li>
-              <li>Organize planning notes so friends can reuse them.</li>
-              <li>Keep inspiration lists for future adventures.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Focus</h3>
-            <ul class="dot">
-              <li>Affordable flights &amp; stays</li>
-              <li>Local food finds</li>
-              <li>Walkable city routes</li>
-            </ul>
-          </div>
+        <div class="img-row" aria-label="Belize welcome images">
+          <img class="photo" src="images/belize.png" alt="Coastline and boats at San Pedro, Belize at golden hour" loading="lazy" />
+          <img class="photo" src="images/boat.png" alt="Small boat on turquoise water near shore in Belize" loading="lazy" />
         </div>
-
-        <figure>
-          <img src="images/belize.png" alt="Coastline and boats at San Pedro, Belize at golden hour" />
-          <img src="images/boat.png" alt="Small boat on turquoise water near shore in Belize" />
-          <figcaption>
-            Welcome snapshot — San Pedro, Belize (Summer 2024)<br>
-            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-          </figcaption>
-        </figure>
+        <p class="muted"><em>Welcome snapshot — San Pedro, Belize (Summer 2024). Image credit: personal photos.</em></p>
       </section>
 
       <!-- WHO -->
@@ -261,14 +256,11 @@
           I’m Tranyce Lester, and traveling has been a part of my life for as long as I can remember. Both of my parents served in the Army and were stationed in Fort Bragg, so I grew up moving often and spending time in places like New Jersey and Arizona. I was always excited to experience a new environment—sometimes the journey itself was my favorite part, whether it was a long drive or a flight across the country. In recent years, I’ve had the opportunity to travel abroad, which deepened my love for exploring different cultures and perspectives. I’m now a Computer Science student concentrating in Human–Computer Interaction, with aspirations to build a career in UX/UI design. My goal is to combine my passion for travel and my eye for user-centered design into experiences that connect people across places and cultures.
         </p>
 
-        <figure>
-          <img src="images/image.png" alt="Tranyce smiling with city skyline in the background" />
-          <img src="images/mme.png" alt="Puerto Penasco sunset" />
-          <figcaption>
-            Always chasing good light and great views<br>
-            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-          </figcaption>
-        </figure>
+        <div class="img-row" aria-label="Portrait and travel">
+          <img class="photo" src="images/image.png" alt="Tranyce smiling with a city skyline in the background" loading="lazy" />
+          <img class="photo" src="images/mme.png" alt="Puerto Peñasco sunset" loading="lazy" />
+        </div>
+        <p class="muted"><em>Always chasing good light and great views. Image credit: personal photos.</em></p>
       </section>
 
       <!-- WHEN -->
@@ -290,16 +282,12 @@
         </table>
         <p id="when-note" class="muted">Always check current conditions and local calendars for festivals or closures.</p>
 
-        <figure>
-          <img src="images/proceannight.JPG" alt="Beachfront in Puerto Rico" />
-          <img src="images/belize.png" alt="Clear ocean what in Belize" />
-          <img src="images/mocean.png" alt="Ocean front in Mexico sunset" />
-                    
-          <figcaption>
-            Some of my favorite images from these trips<br>
-            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-          </figcaption>
-        </figure>
+        <div class="img-row" aria-label="Trip highlights collage">
+          <img class="photo" src="images/proceannight.JPG" alt="Beachfront in Puerto Rico at night" loading="lazy" />
+          <img class="photo" src="images/belize.png" alt="Clear ocean water in Belize" loading="lazy" />
+          <img class="photo" src="images/mocean.png" alt="Oceanfront in Mexico at sunset" loading="lazy" />
+          <img class="photo" src="images/calendar-collage.jpg" alt="Trip calendar collage with highlighted dates" loading="lazy" />
+        </div>
       </section>
 
       <!-- WHERE -->
@@ -307,48 +295,28 @@
         <h2 id="h-where">Where — Favorite Locations</h2>
         <p class="lede">A few memorable stops I’d revisit and recommend:</p>
 
-        <div class="grid-2">
+        <div class="img-row">
           <figure>
-            <img src="images/boat.png" alt="Turquoise water and boats near San Pedro, Belize" />
-            <figcaption>
-              San Pedro, Belize — Summer 2024<br>
-              <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-            </figcaption>
+            <img class="photo" src="images/boat.png" alt="Turquoise water and boats near San Pedro, Belize" loading="lazy" />
+            <figcaption>San Pedro, Belize — Summer 2024</figcaption>
           </figure>
-
           <figure>
-            <img src="images/prstreet.png" alt="Colorful street in Old San Juan, Puerto Rico" />
-            <figcaption>
-              Puerto Rico — Summer 2023 &amp; March 2025<br>
-              <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-            </figcaption>
+            <img class="photo" src="images/prstreet.png" alt="Colorful street in Old San Juan, Puerto Rico" loading="lazy" />
+            <figcaption>Puerto Rico — Summer 2023 &amp; March 2025</figcaption>
           </figure>
-        </div>
-
-        <div class="grid-2">
           <figure>
-            <img src="images/gc.png" alt="Grand Canyon vista with layered cliffs at sunset" />
-            <figcaption>
-              Grand Canyon — December 2022<br>
-              <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-            </figcaption>
+            <img class="photo" src="images/gc.png" alt="Grand Canyon vista with layered cliffs at sunset" loading="lazy" />
+            <figcaption>Grand Canyon — December 2022</figcaption>
           </figure>
-
           <figure>
-            <img src="images/bridge.png" alt="Golden Gate Bridge with rolling fog in autumn" />
-            <figcaption>
-              San Francisco — Fall 2022<br>
-              <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-            </figcaption>
+            <img class="photo" src="images/bridge.png" alt="Golden Gate Bridge with rolling fog in autumn" loading="lazy" />
+            <figcaption>San Francisco — Fall 2022</figcaption>
           </figure>
         </div>
 
         <figure>
-          <img src="images/mexico.png" alt="Beachfront scene in Mexico with sunset" />
-          <figcaption>
-            Mexico — Summer 2024<br>
-            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-          </figcaption>
+          <img src="images/mexico.png" alt="Beachfront scene in Mexico at sunset" loading="lazy" />
+          <figcaption>Mexico — Summer 2024</figcaption>
         </figure>
       </section>
 
@@ -375,14 +343,10 @@
           </div>
         </div>
 
-        <figure>
-          <img src="images/forest.png" alt="Rainforest in Puerto Rico" />
-          <img src="images/full.png" alt="The Full House houses in San Francisco" />
-          <figcaption>
-            Light gear that keeps me moving<br>
-            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-          </figcaption>
-        </figure>
+        <div class="img-row" aria-label="How I travel images">
+          <img class="photo" src="images/forest.png" alt="Rainforest scene in Puerto Rico" loading="lazy" />
+          <img class="photo" src="images/full.png" alt="The Painted Ladies houses in San Francisco" loading="lazy" />
+        </div>
       </section>
 
       <!-- WHY -->
@@ -395,98 +359,77 @@
           <li>Planning builds systems thinking I use in code and projects.</li>
         </ul>
 
-        <figure>
-          <img src="images/pr.png" alt="Cemetary in Puerto Rico" />
-          <img src="images/prbuilding.png" alt="Picture of a hotel in Puerto Rico" />
-          <figcaption>
-            Notes become stories, and stories become ideas<br>
-            <em class="ai-note">Image credit: personal photo (no AI prompt used).</em>
-          </figcaption>
-        </figure>
+        <div class="img-row" aria-label="Why I travel images">
+          <img class="photo" src="images/pr.png" alt="Cemetery by the sea in Puerto Rico" loading="lazy" />
+          <img class="photo" src="images/prbuilding.png" alt="Historic hotel building in Puerto Rico" loading="lazy" />
+        </div>
       </section>
 
       <!-- AI PROMPTS -->
-      <!-- AI PROMPTS -->
-<section class="card" data-page="ai" aria-labelledby="h-ai">
-  <h2 id="h-ai">AI Prompts / Attributions</h2>
-  <p>
-    All the images featured on this site are my own personal photos taken during my travels to
-    places like Belize, Puerto Rico, Mexico, San Francisco, and the Grand Canyon. 
-    No AI-generated imagery was used. However, I used <strong>AI assistance for my CSS development process</strong> to help me plan and refine the site’s visual style and accessibility.
-  </p>
+      <section class="card" data-page="ai" aria-labelledby="h-ai">
+        <h2 id="h-ai">AI Prompts / Attributions</h2>
+        <p>
+          All the images featured on this site are my own personal photos taken during my travels to
+          places like Belize, Puerto Rico, Mexico, San Francisco, and the Grand Canyon. 
+          No AI-generated imagery was used. However, I used <strong>AI assistance for my CSS development process</strong> to help me plan and refine the site’s visual style and accessibility.
+        </p>
 
-  <p>
-    Specifically, I worked with <strong>ChatGPT (GPT-5)</strong> to help me write cleaner,
-    responsive CSS and ensure alignment with accessibility and CRAP design principles
-    (Contrast, Repetition, Alignment, Proximity). 
-    I also used <strong>Coolors.co</strong> to help curate my pastel mint and green color palette,
-    which I then refined with ChatGPT to create properly named and accessible CSS variables inside my
-    <code>:root</code> section:
-  </p>
+        <p>
+          Specifically, I worked with <strong>ChatGPT (GPT-5)</strong> to help me write cleaner,
+          responsive CSS and ensure alignment with accessibility and CRAP design principles
+          (Contrast, Repetition, Alignment, Proximity). 
+          I also used <strong>Coolors.co</strong> to help curate my pastel mint and green color palette,
+          which I then refined with ChatGPT to create properly named and accessible CSS variables inside my
+          <code>:root</code> section:
+        </p>
 
-  <pre><code>:root{
-  /* Pastel mint/green palette */
+        <pre><code>:root{
   --bg: #cee7e6;
   --panel: #f4fbfa;
   --card: #ffffff;
-
-  --ink: #1f2b2a;     /* main text (very high contrast) */
-  --muted: #51625d;   /* secondary text */
-  --line: #bfc0c0;    /* dividers */
-
-  --primary: #648767; /* accents/badges (not for small text) */
-  --accent:  #7dc95e; /* pills/active */
-  --accent2: #7cdf64; /* alt accent */
-
-  /* AA-compliant heading color for contrast on white */
+  --ink: #1f2b2a;
+  --muted: #51625d;
+  --line: #bfc0c0;
+  --primary: #648767;
+  --accent:  #7dc95e;
+  --accent2: #7cdf64;
   --heading: #2f5a37;
-
   --shadow: rgba(0,0,0,.08);
   --radius: 16px;
   --maxw: 900px;
-
-  /* spacing scale (proximity/alignment) */
-  --s-1: .25rem;
-  --s-2: .5rem;
-  --s-3: .75rem;
-  --s-4: 1rem;
-  --s-5: 1.25rem;
-  --s-6: 1.5rem;
-  --s-7: 2rem;
+  --s-1: .25rem; --s-2: .5rem; --s-3: .75rem; --s-4: 1rem;
+  --s-5: 1.25rem; --s-6: 1.5rem; --s-7: 2rem;
 }</code></pre>
 
-  <p>
-    The color system above was generated through multiple prompts where I asked ChatGPT to help
-    me “<em>generate a soft, feminine, and readable color scheme using mint and sage tones that follow
-    accessibility contrast standards</em>.” 
-    Then, I adjusted the tones using Coolors and finalized them in VS Code for consistency across
-    backgrounds, headings, and accents.
-  </p>
-
-  <p>
-    I also used ChatGPT to help me:
-    <ul class="dot">
-      <li>Optimize layout spacing and typography for better proximity and alignment.</li>
-      <li>Ensure hover/focus styles followed accessibility best practices instead of removing outlines.</li>
-    </ul>
-  </p>
-
-</section>
+        <p>
+          I also used ChatGPT to help me:
+        </p>
+        <ul class="dot">
+          <li>Optimize layout spacing and typography for better proximity and alignment.</li>
+          <li>Ensure hover/focus styles followed accessibility best practices instead of removing outlines.</li>
+        </ul>
+      </section>
 
     </div>
   </main>
 
   <footer>
     <div class="wrap">
-      <nav aria-label="Footer">
+      <nav aria-label="Primary links">
         <div class="footer-nav">
-          <a href="https://nycelester5.github.io/" target="_blank" rel="noopener">GitHub.io</a>
+          <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener noreferrer">ITIS3135</a>
           <span class="sep" aria-hidden="true">|</span>
-          <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener">ITIS 3135</a>
+          <a href="https://github.com/nyceLester5/nyceLester5.github.io" target="_blank" rel="noopener noreferrer">GitHub.com</a>
           <span class="sep" aria-hidden="true">|</span>
-          <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener noreferrer">CLT Web</a>
           <span class="sep" aria-hidden="true">|</span>
-          <a href="https://lesterlabs.com" target="_blank" rel="noopener">Lester Labs</a>
+          <a href="http://nyceLester5.github.io" target="_blank" rel="noopener noreferrer">GitHub.io</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.freecodecamp.org/NyceL" target="_blank" rel="noopener noreferrer">FreeCodeCamp</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.codecademy.com/profiles/NyceLester" target="_blank" rel="noopener noreferrer">Codecademy</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </nav>
 
@@ -498,55 +441,58 @@
         <a id="v-a11y" href="#" target="_blank" rel="noopener">Accessibility Check</a>
       </div>
 
+      <p>Page Built by
+        <a href="https://lesterlabs.com" target="_blank" rel="noopener noreferrer">Lester Labs</a>
+        &copy; 2025
+      </p>
       <p class="muted">© <span id="y"></span> Nyce Lester • All rights reserved.</p>
     </div>
   </footer>
 
- <script>
-  // SPA: show selected section; default = "what"
-  const sections = [...document.querySelectorAll('section[data-page]')];
-  const menu = document.getElementById('menu');
+  <script>
+    // SPA: show selected section; default = "what"
+    const sections = [...document.querySelectorAll('section[data-page]')];
+    const menu = document.getElementById('menu');
 
-  function show(page) {
-    sections.forEach((s) => {
-      s.classList.toggle('active', s.dataset.page === page);
+    function show(page) {
+      sections.forEach((s) => {
+        s.classList.toggle('active', s.dataset.page === page);
+      });
+
+      const links = menu.querySelectorAll('a[data-target]');
+      links.forEach((a) => {
+        const isActive = a.dataset.target === page;
+        a.setAttribute('aria-current', isActive ? 'page' : 'false');
+      });
+
+      const el = document.querySelector(`[data-page="${page}"]`);
+      if (el) {
+        history.replaceState(null, '', `#${page}`);
+      }
+    }
+
+    menu.addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-target]');
+      if (!link) {
+        return;
+      }
+      e.preventDefault();
+      show(link.dataset.target);
     });
 
-    const links = menu.querySelectorAll('a[data-target]');
-    links.forEach((a) => {
-      const isActive = a.dataset.target === page;
-      a.setAttribute('aria-current', isActive ? 'page' : 'false');
-    });
+    // On load: open hash target if present
+    const initial = (location.hash || '#what').replace('#', '');
+    show(initial);
 
-    const el = document.querySelector(`[data-page="${page}"]`);
-    if (el) {
-      history.replaceState(null, '', `#${page}`);
-    }
-  }
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-  menu.addEventListener('click', (e) => {
-    const link = e.target.closest('a[data-target]');
-    if (!link) {
-      return;
-    }
-    e.preventDefault();
-    show(link.dataset.target);
-  });
-
-  // On load: open hash target if present
-  const initial = (location.hash || '#what').replace('#', '');
-  show(initial);
-
-  // Footer year
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // Validator links use current page URL
-  const url = encodeURIComponent(location.href);
-  document.getElementById('v-html').href = `https://validator.w3.org/nu/?doc=${url}`;
-  document.getElementById('v-css').href =
-    `https://jigsaw.w3.org/css-validator/validator?uri=${url}&profile=css3svg&usermedium=all&warning=1`;
-  document.getElementById('v-a11y').href = `https://wave.webaim.org/report#/${location.href}`;
-</script>
-
+    // Validator links use current page URL
+    const url = encodeURIComponent(location.href);
+    document.getElementById('v-html').href = `https://validator.w3.org/nu/?doc=${url}`;
+    document.getElementById('v-css').href =
+      `https://jigsaw.w3.org/css-validator/validator?uri=${url}&profile=css3svg&usermedium=all&warning=1`;
+    document.getElementById('v-a11y').href = `https://wave.webaim.org/report#/${location.href}`;
+  </script>
 </body>
 </html>
