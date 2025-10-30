@@ -25,177 +25,186 @@
   --header-height: 84px;
 }
 
-/* Base */
-*{box-sizing:border-box;}
-html{min-height:100%;}
-body{
-  margin:0;
-  font-family:var(--brand-font);
-  color:var(--ink);
-  background: linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%);
-  -webkit-font-smoothing:antialiased;
-  line-height:1.45;
-  padding:clamp(1rem,2.5vw,2rem);
-  display:flex;
-  justify-content:center;
-  min-height:100%;
-  overflow-y:auto;             /* allow page scroll */
-  position:relative;           /* for fixed bg layer */
-}
+  /* Base */
+  *{ box-sizing:border-box; }
+  html{ min-height:100%; }
+  body{
+    margin:0;
+    font-family:var(--brand-font);
+    color:var(--ink);
+    background: linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.45;
+    padding:clamp(1rem,2.5vw,2rem);
+    min-height:100vh;            /* more robust than 100% */
+    overflow-y:auto;             /* allow page scroll */
+    position:relative;           /* for fixed bg layer */
+    display:block;               /* avoid body-as-flex warnings */
+  }
 
+  /* Fixed background layer */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:
+      radial-gradient(1200px 800px at -10% -10%, var(--bg), transparent 70%),
+      radial-gradient(1200px 800px at 110% 110%, var(--muted), transparent 70%),
+      linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%);
+    transform: translateZ(0);
+  }
 
-body::before{
-  content:"";
-  position:fixed; inset:0; z-index:-1;
-  background:
-    radial-gradient(1200px 800px at -10% -10%, var(--bg), transparent 70%),
-    radial-gradient(1200px 800px at 110% 110%, var(--muted), transparent 70%),
-    linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%);
-  transform:translateZ(0);
-}
+  .container{
+    width:100%;
+    max-width:var(--max-width);
+    margin: 0 auto;              /* center instead of body flex */
+    background:transparent;      /* let main/footer be the cards */
+    border-radius:16px;
+    box-shadow:none;
+    overflow:visible;            /* prevent clipping */
+    display:flex;
+    flex-direction:column;
+  }
 
+  /* Skip link (WCAG) */
+  .skip-link{
+    position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+  }
+  .skip-link:focus{
+    left:1rem; top:1rem; width:auto; height:auto;
+    padding:.5rem .75rem; background:#111; color:#fff; border-radius:6px; z-index:1000;
+  }
 
-.container{
-  width:100%;
-  max-width:var(--max-width);
-  background:transparent;      /* was white */
-  border-radius:16px;
-  box-shadow:none;             /* let main/footer be the cards */
-  overflow:visible;            /* was hidden -> caused clipping */
-  display:flex;
-  flex-direction:column;
-}
+  /* Header (banner landmark belongs on header) */
+  header{
+    display:flex; align-items:center; gap:1rem;
+    padding:calc(var(--gap) * 1.25);
+    background:linear-gradient(90deg, rgba(226,115,150,0.06), rgba(179,222,226,0.04));
+    border:1px solid rgba(0,0,0,0.06);
+    border-radius:16px;
+    min-height:var(--header-height);
+    margin-bottom:1rem;
+  }
 
-/* Skip link (WCAG) */
-.skip-link{
-  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-}
-.skip-link:focus{
-  left:1rem; top:1rem; width:auto; height:auto;
-  padding:.5rem .75rem; background:#111; color:#fff; border-radius:6px; z-index:1000;
-}
+  .brand{ display:flex; align-items:center; gap:1rem; width:100%; }
 
+  /* logo */
+  .brand img{
+    box-sizing: border-box;      /* satisfy width+border warning */
+    width:72px; height:72px; object-fit:cover;
+    border-radius:10px; border:2px solid rgba(0,0,0,0.06);
+    background:linear-gradient(180deg, var(--accent-2), var(--teal));
+    flex:0 0 72px;
+  }
 
-header{
-  display:flex; align-items:center; gap:1rem;
-  padding:calc(var(--gap) * 1.25);
-  background:linear-gradient(90deg, rgba(226,115,150,0.06), rgba(179,222,226,0.04));
-  border:1px solid rgba(0,0,0,0.06);
-  border-radius:16px;          /* rounded like a chip, not a full white box */
-  min-height:var(--header-height);
-  margin-bottom:1rem;          /* separate from white content card */
-}
+  /* unqualified h1 to satisfy validator (defined once) */
+  h1{
+    margin:0;
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    line-height:1.05;
+    letter-spacing:-0.015em;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
+  .brand-text{ display:flex; flex-direction:column; justify-content:center; gap:4px; min-width:0; }
 
-.brand{ display:flex; align-items:center; gap:1rem; width:100%; }
+  .brand-text p,
+  .brand-text .lede{ margin:0; font-size:.95rem; color:var(--muted-ink); font-weight:500; }
+  .brand-text .tag{ display:block; font-size:.8rem; color:#666; margin-top:2px; font-style:italic; }
 
-/* logo */
-.brand img{
-  width:72px; height:72px; object-fit:cover;
-  border-radius:10px; border:2px solid rgba(0,0,0,0.06);
-  background:linear-gradient(180deg, var(--accent-2), var(--teal));
-  flex:0 0 72px;
-}
+  /* Focus styles (no outline:none) */
+  :focus-visible{ outline:3px solid rgba(226,115,150,0.18); outline-offset:3px; border-radius:6px; }
 
-/* text next to logo */
-.brand-text{ display:flex; flex-direction:column; justify-content:center; gap:4px; min-width:0; }
-.brand-text h1{
-  margin:0; font-size:1.25rem; line-height:1.05; letter-spacing:-0.015em; color:var(--ink);
-  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-}
+  /* Main white card */
+  main{
+    padding:calc(var(--gap) * 1.5);
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(30,30,30,0.08);
+  }
+  main h2{ margin-top:0; font-size:1.5rem; color:var(--accent-1); }
+  .intro p{ margin:.5rem 0 1rem 0; max-width:74ch; }
 
-.brand-text p,
-.brand-text .lede{ margin:0; font-size:.95rem; color:var(--muted-ink); font-weight:500; }
-.brand-text .tag{ display:block; font-size:.8rem; color:#666; margin-top:2px; font-style:italic; }
+  /* Highlights */
+  .highlights{
+    list-style:none; margin:0 0 1.25rem 0; padding:0;
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:.75rem;
+  }
+  .highlights li{
+    background:linear-gradient(180deg, rgba(226,115,150,0.06), rgba(179,222,226,0.02));
+    padding:.75rem 1rem; border-radius:10px; position:relative;
+    border:1px solid rgba(0,0,0,0.04); box-shadow:0 6px 18px rgba(30,30,30,0.03);
+    min-height:56px; display:flex; align-items:center; gap:.6rem; font-weight:600;
+  }
+  .highlights li::before{ content:"✦"; font-size:1.1rem; color:var(--accent-1); margin-right:.6rem; }
 
-/* Focus styles */
-:focus{ outline:none; }
-:focus-visible{ outline:3px solid rgba(226,115,150,0.18); outline-offset:3px; border-radius:6px; }
+  /* Offer */
+  .offer{
+    margin-top:1rem; padding:1rem; border-left:4px solid var(--teal);
+    background:linear-gradient(90deg, rgba(179,222,226,0.06), rgba(226,115,150,0.02));
+    border-radius:8px;
+  }
 
+  /* Contact cards */
+  .contact{ margin-top:1rem; display:flex; gap:1.25rem; flex-wrap:wrap; }
+  .contact .card{
+    flex:1 1 220px; background:#fff; border-radius:10px; padding:0.75rem 1rem; border:1px solid rgba(0,0,0,0.04);
+  }
+  .contact dt{ font-weight:700; color:var(--accent-1); }
+  .contact dd{ margin:0 0 0.5rem 0; }
 
-main{
-  padding:calc(var(--gap) * 1.5);
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 10px 30px rgba(30,30,30,0.08);
-}
-main h2{ margin-top:0; font-size:1.5rem; color:var(--accent-1); }
-.intro p{ margin:.5rem 0 1rem 0; max-width:74ch; }
+  /* Footer white card */
+  footer{
+    margin-top:1rem;
+    padding:calc(var(--gap) * 0.9);
+    background:#fff;
+    display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    border:1px solid rgba(0,0,0,0.04);
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(30,30,30,0.08);
+    font-size:.95rem;
+  }
+  .tagline{ color:#666; font-weight:600; }
 
-/* Highlights */
-.highlights{
-  list-style:none; margin:0 0 1.25rem 0; padding:0;
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:.75rem;
-}
-.highlights li{
-  background:linear-gradient(180deg, rgba(226,115,150,0.06), rgba(179,222,226,0.02));
-  padding:.75rem 1rem; border-radius:10px; position:relative;
-  border:1px solid rgba(0,0,0,0.04); box-shadow:0 6px 18px rgba(30,30,30,0.03);
-  min-height:56px; display:flex; align-items:center; gap:.6rem; font-weight:600;
-}
-.highlights li::before{ content:"✦"; font-size:1.1rem; color:var(--accent-1); margin-right:.6rem; }
+  /* Preferences */
+  @media (prefers-reduced-motion: reduce){
+    *{
+      transition-duration: 0s;
+      animation-duration: 0s;
+      animation-iteration-count: 1;
+    }
+  }
+  @media (prefers-contrast: more){
+    h1{ color:#000; }
+    .brand-text .tag, .brand-text p, .brand-text .lede{ color:#111; }
+  }
 
-/* Offer */
-.offer{
-  margin-top:1rem; padding:1rem; border-left:4px solid var(--teal);
-  background:linear-gradient(90deg, rgba(179,222,226,0.06), rgba(226,115,150,0.02));
-  border-radius:8px;
-}
-
-/* Contact cards */
-.contact{ margin-top:1rem; display:flex; gap:1.25rem; flex-wrap:wrap; }
-.contact .card{
-  flex:1 1 220px; background:#fff; border-radius:10px; padding:0.75rem 1rem; border:1px solid rgba(0,0,0,0.04);
-}
-.contact dt{ font-weight:700; color:var(--accent-1); }
-.contact dd{ margin:0 0 0.5rem 0; }
-
-/* Footer becomes a separate white card too */
-footer{
-  margin-top:1rem;
-  padding:calc(var(--gap) * 0.9);
-  background:#fff;
-  display:flex; justify-content:space-between; align-items:center; gap:1rem;
-  border:1px solid rgba(0,0,0,0.04);
-  border-radius:16px;
-  box-shadow:0 10px 30px rgba(30,30,30,0.08);
-  font-size:.95rem;
-}
-.tagline{ color:#666; font-weight:600; }
-
-/* Preferences */
-@media (prefers-reduced-motion: reduce){
-  *{ transition-duration:.001ms !important; animation-duration:.001ms !important; }
-}
-@media (prefers-contrast: more){
-  .brand-text h1{ color:#000; }
-  .brand-text .tag, .brand-text p, .brand-text .lede{ color:#111; }
-}
-
-/* Responsive */
-@media (max-width:860px){
-  header{ padding:calc(var(--gap) * 0.9); min-height:72px; }
-  .brand img{ width:64px; height:64px; flex:0 0 64px; }
-  .brand-text h1{ font-size:1.12rem; }
-}
-@media (max-width:560px){
-  body{ padding:1rem; }
-  header{ padding:calc(var(--gap) * 0.75); min-height:auto; }
-  .brand{ gap:.75rem; }
-  .brand img{ width:56px; height:56px; flex:0 0 56px; }
-  .brand-text h1{ font-size:1.05rem; white-space:normal; }
-  .highlights{ grid-template-columns:1fr; }
-  footer{ flex-direction:column; align-items:flex-start; gap:.5rem; }
-}
-</style>
-
+  /* Responsive */
+  @media (max-width:860px){
+    header{ padding:calc(var(--gap) * 0.9); min-height:72px; }
+    .brand img{ width:64px; height:64px; flex:0 0 64px; }
+  }
+  @media (max-width:560px){
+    body{ padding:1rem; }
+    header{ padding:calc(var(--gap) * 0.75); min-height:auto; }
+    .brand{ gap:.75rem; }
+    .brand img{ width:56px; height:56px; flex:0 0 56px; }
+    .highlights{ grid-template-columns:1fr; }
+    footer{ flex-direction:column; align-items:flex-start; gap:.5rem; }
+  }
+  </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <div class="container" role="document">
-    <header>
-      <div class="brand" role="banner">
+    <header role="banner">
+      <div class="brand">
         <img src="images/lesterlabs-logo.png" alt="Lester Labs 3D LL logo" width="72" height="72">
         <div class="brand-text">
           <h1>Lester Labs</h1>
@@ -205,16 +214,16 @@ footer{
       </div>
     </header>
 
-    <main id="main" role="main" aria-labelledby="page-title">
+    <main id="main" aria-labelledby="page-title">
       <h2 id="page-title">Lester Labs — Services</h2>
 
-      <section class="intro" aria-label="About the company">
+      <section class="intro">
         <p>
-          Lester Labs is a small creative & technical practice that blends user-centered research with polished front-end implementation.
+          Lester Labs is a small creative &amp; technical practice that blends user-centered research with polished front-end implementation.
           We focus on crafting web and product experiences that reduce friction, increase clarity, and help people accomplish their goals faster.
         </p>
 
-        <ul class="highlights" aria-label="Amazing things about the company">
+        <ul class="highlights">
           <li>User-first process: research-led decisions, not guesswork.</li>
           <li>Rapid prototyping: wireframes to clickable demos in days.</li>
           <li>Cross-functional skillset: design, HTML/CSS, and front-end engineering.</li>
@@ -222,13 +231,13 @@ footer{
           <li>Iterative improvement: data-informed UX tweaks that move metrics.</li>
         </ul>
 
-        <div class="offer" aria-label="What we offer clients">
+        <div class="offer">
           <p>
             For clients, we offer a complete engagement from discovery and usability testing through design and front-end development. We partner closely with your team to translate business needs into intuitive user experiences that scale.
           </p>
         </div>
 
-        <dl class="contact" aria-label="Contact information">
+        <dl class="contact">
           <div class="card" role="group" aria-labelledby="contact-heading">
             <dt id="contact-heading">Contact</dt>
             <dd>Email: <a href="mailto:hello@lesterlabs.co">hello@lesterlabs.co</a></dd>
@@ -250,7 +259,7 @@ footer{
       </section>
     </main>
 
-    <footer role="contentinfo">
+    <footer>
       <div class="copyright">&copy; 2025 Lester Labs</div>
       <div class="tagline">Designs that listen — clear, accessible, delightful.</div>
     </footer>
