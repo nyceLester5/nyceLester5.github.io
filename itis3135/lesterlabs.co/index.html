@@ -42,7 +42,7 @@
     position:relative;
   }
 
-  /* Fixed background layer (validator-safe version) */
+  /* Fixed background layer (validator-safe formatting) */
 .bg-fixed {
   position: fixed;
   inset: 0;
@@ -51,9 +51,9 @@
     radial-gradient(1200px 800px at -10% -10%, var(--bg), transparent 70%),
     radial-gradient(1200px 800px at 110% 110%, var(--muted), transparent 70%),
     linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%);
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: center, center, center;
-  background-size: cover, cover, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   transform: translateZ(0);
 }
 
@@ -64,9 +64,9 @@
       radial-gradient(600px 400px at -10% -10%, var(--bg), transparent 70%),
       radial-gradient(600px 400px at 110% 110%, var(--muted), transparent 70%),
       linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%);
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-position: center, center, center;
-    background-size: cover, cover, cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 }
 
