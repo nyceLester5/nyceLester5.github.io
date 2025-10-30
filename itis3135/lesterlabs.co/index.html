@@ -43,26 +43,27 @@
   }
 
   /* Fixed background layer (div instead of ::before to avoid parser issues) */
-  .bg-fixed{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    background:
-      radial-gradient(1200px 800px at -10% -10%, var(--bg), transparent 70%) no-repeat center/cover,
-      radial-gradient(1200px 800px at 110% 110%, var(--muted), transparent 70%) no-repeat center/cover,
-      linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%) no-repeat center/cover;
-    transform:translateZ(0);
-  }
+  .bg-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 800px at -10% -10%, var(--bg), transparent 70%) no-repeat center/cover,
+    radial-gradient(1200px 800px at 110% 110%, var(--muted), transparent 70%) no-repeat center/cover,
+    linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%) no-repeat center/cover;
+  transform: translateZ(0);
+}
 
-  /* Smaller gradients on very small screens (optional tuning) */
-  @media (max-width:560px){
-    .bg-fixed{
-      background:
-        radial-gradient(600px 400px at -10% -10%, var(--bg), transparent 70%) no-repeat center/cover,
-        radial-gradient(600px 400px at 110% 110%, var(--muted), transparent 70%) no-repeat center/cover,
-        linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%) no-repeat center/cover;
-    }
+/* Smaller gradients on very small screens (optional tuning) */
+@media (max-width: 560px) {
+  .bg-fixed {
+    background:
+      radial-gradient(600px 400px at -10% -10%, var(--bg), transparent 70%) no-repeat center/cover,
+      radial-gradient(600px 400px at 110% 110%, var(--muted), transparent 70%) no-repeat center/cover,
+      linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%) no-repeat center/cover;
   }
+}
+
 
   .container{
     width:100%;
