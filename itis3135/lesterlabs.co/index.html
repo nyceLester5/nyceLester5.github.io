@@ -36,10 +36,10 @@
     -webkit-font-smoothing:antialiased;
     line-height:1.45;
     padding:clamp(1rem,2.5vw,2rem);
-    min-height:100vh;            /* more robust than 100% */
-    overflow-y:auto;             /* allow page scroll */
-    position:relative;           /* for fixed bg layer */
-    display:block;               /* avoid body-as-flex warnings */
+    min-height:100vh;
+    overflow-y:auto;
+    position:relative;  /* for fixed bg layer */
+    display:block;
   }
 
   /* Fixed background layer */
@@ -58,16 +58,16 @@
   .container{
     width:100%;
     max-width:var(--max-width);
-    margin: 0 auto;              /* center instead of body flex */
-    background:transparent;      /* let main/footer be the cards */
+    margin: 0 auto;
+    background:transparent;
     border-radius:16px;
     box-shadow:none;
-    overflow:visible;            /* prevent clipping */
+    overflow:visible;
     display:flex;
     flex-direction:column;
   }
 
-  /* Skip link (WCAG) */
+  /* Skip link */
   .skip-link{
     position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
   }
@@ -76,7 +76,7 @@
     padding:.5rem .75rem; background:#111; color:#fff; border-radius:6px; z-index:1000;
   }
 
-  /* Header (banner landmark belongs on header) */
+  /* Header */
   header{
     display:flex; align-items:center; gap:1rem;
     padding:calc(var(--gap) * 1.25);
@@ -86,37 +86,44 @@
     min-height:var(--header-height);
     margin-bottom:1rem;
   }
-
   .brand{ display:flex; align-items:center; gap:1rem; width:100%; }
 
   /* logo */
   .brand img{
-    box-sizing: border-box;      /* satisfy width+border warning */
+    box-sizing:border-box;
     width:72px; height:72px; object-fit:cover;
     border-radius:10px; border:2px solid rgba(0,0,0,0.06);
     background:linear-gradient(180deg, var(--accent-2), var(--teal));
     flex:0 0 72px;
   }
 
-  /* unqualified h1 to satisfy validator (defined once) */
+  /* single, unqualified h1 (defined once) */
   h1{
     margin:0;
     font-size: clamp(1.05rem, 2.5vw, 1.25rem);
     line-height:1.05;
     letter-spacing:-0.015em;
-    color: var(--ink);
+    color: var(--h1-color);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .brand-text{ display:flex; flex-direction:column; justify-content:center; gap:4px; min-width:0; }
-
   .brand-text p,
   .brand-text .lede{ margin:0; font-size:.95rem; color:var(--muted-ink); font-weight:500; }
   .brand-text .tag{ display:block; font-size:.8rem; color:#666; margin-top:2px; font-style:italic; }
 
-  /* Focus styles (no outline:none) */
+  /* Visually hidden utility for section headings */
+  .sr-only{
+    position:absolute !important;
+    width:1px !important; height:1px !important;
+    padding:0 !important; margin:-1px !important;
+    overflow:hidden !important; clip:rect(0 0 0 0) !important; clip-path: inset(50%) !important;
+    white-space:nowrap !important; border:0 !important;
+  }
+
+  /* Focus styles */
   :focus-visible{ outline:3px solid rgba(226,115,150,0.18); outline-offset:3px; border-radius:6px; }
 
   /* Main white card */
@@ -179,7 +186,7 @@
     }
   }
   @media (prefers-contrast: more){
-    h1{ color:#000; }
+    :root{ --h1-color:#000; } /* adjust h1 color via variable (no second h1 rule) */
     .brand-text .tag, .brand-text p, .brand-text .lede{ color:#111; }
   }
 
@@ -202,8 +209,8 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <div class="container" role="document">
-    <header role="banner">
+  <div class="container">
+    <header>
       <div class="brand">
         <img src="images/lesterlabs-logo.png" alt="Lester Labs 3D LL logo" width="72" height="72">
         <div class="brand-text">
@@ -218,6 +225,9 @@
       <h2 id="page-title">Lester Labs — Services</h2>
 
       <section class="intro">
+        <!-- Visually hidden heading to satisfy "section needs heading" -->
+        <h3 class="sr-only">About the company</h3>
+
         <p>
           Lester Labs is a small creative &amp; technical practice that blends user-centered research with polished front-end implementation.
           We focus on crafting web and product experiences that reduce friction, increase clarity, and help people accomplish their goals faster.
