@@ -42,32 +42,32 @@
     position:relative;
   }
 
-  /* Fixed background layer (div instead of ::before) */
+/* Fixed background layer using ::before pseudo-element for better stacking context */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
   .bg-fixed {
   position: fixed;
   inset: 0;
   z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(1200px 800px at -10% -10%, var(--bg), transparent 70%) no-repeat center/cover,
     radial-gradient(1200px 800px at 110% 110%, var(--muted), transparent 70%) no-repeat center/cover,
     linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%) no-repeat center/cover;
-  transform: translateZ(0);
 }
 
-  .container{
-    width:100%;
-    max-width:var(--max-width);
-    margin:0 auto;
-    background:transparent;
-    border-radius:16px;
-    display:flex;
-    flex-direction:column;
-    gap:1rem;
+/* Optimize background gradients for mobile devices */
+@media (max-width: 560px) {
+  .bg-fixed {
+    background:
+      radial-gradient(600px 400px at -10% -10%, var(--bg), transparent 70%) no-repeat center/cover,
+      radial-gradient(600px 400px at 110% 110%, var(--muted), transparent 70%) no-repeat center/cover,
+      linear-gradient(180deg, var(--bg) 0%, var(--muted) 100%) no-repeat center/cover;
   }
-
-  /* Skip link */
-  .skip-link{
-    position:absolute;
+}
     left:-999px;
     top:auto;
     width:1px;
@@ -254,8 +254,7 @@
 </head>
 
 <body>
-  <!-- Fixed gradient background layer -->
-  <div class="bg-fixed" aria-hidden="true"></div>
+  <!-- Fixed gradient background layer is now handled by body::before in CSS -->
 
   <a class="skip-link" href="#main">Skip to main content</a>
 
