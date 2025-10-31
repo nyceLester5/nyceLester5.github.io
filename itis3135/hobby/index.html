@@ -10,100 +10,212 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
+    /* ========= THEME ========= */
+    :root{
+      /* Pastel mint/green palette */
       --bg: #cee7e6;
       --panel: #f4fbfa;
       --card: #ffffff;
-      --ink: #1f2b2a;
-      --muted: #51625d;
-      --line: #bfc0c0;
-      --primary: #648767;
-      --accent: #7dc95e;
-      --accent2: #7cdf64;
+
+      --ink: #1f2b2a;     /* main text (very high contrast) */
+      --muted: #51625d;   /* secondary text */
+      --line: #bfc0c0;    /* dividers */
+
+      --primary: #648767; /* accents/badges (not for small text) */
+      --accent:  #7dc95e; /* pills/active */
+      --accent2: #7cdf64; /* alt accent */
+
+      /* AA-compliant heading color for contrast on white */
       --heading: #2f5a37;
-      --shadow: rgba(0, 0, 0, .08);
+
+      --shadow: rgba(0,0,0,.08);
       --radius: 16px;
       --maxw: 900px;
+
+      /* spacing scale (proximity/alignment) */
+      --s-1: .25rem;
+      --s-2: .5rem;
+      --s-3: .75rem;
+      --s-4: 1rem;
+      --s-5: 1.25rem;
+      --s-6: 1.5rem;
+      --s-7: 2rem;
     }
 
-    body {
-      font-family: "Poppins", "Nunito", sans-serif;
+    /* ========= BASE / LAYOUT ========= */
+    *,*::before,*::after{ box-sizing: border-box; }
+    html, body{ margin:0; padding:0; }
+    body{
+      font-family: "Poppins","Nunito",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
       background: radial-gradient(1000px 700px at 20% 0%, #cee7e6, #d6eceb 40%, #e8f5f1 70%) fixed;
       color: var(--ink);
       line-height: 1.65;
-      margin: 0;
       min-height: 100vh;
       display: grid;
       grid-template-rows: auto 1fr auto;
     }
+    .wrap{ width: min(100%, var(--maxw)); margin-inline: auto; padding: var(--s-5); }
 
-    header {
+    /* ========= ACCESSIBILITY ========= */
+    .skip-link{
+      position: absolute; left: 0; top: -40px;
+      background: var(--accent); color: #0d2a10;
+      padding: var(--s-2) var(--s-3); border-radius: 8px; font-weight: 700;
+      text-decoration: none; transition: top .2s ease;
+    }
+    .skip-link:focus{ top: .5rem; left: .5rem; z-index: 1000; }
+
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    /* ========= HEADINGS ========= */
+    h1{ margin: 0; text-align: center; letter-spacing: .2px; color: var(--heading); }
+    h2{ color: var(--heading); margin: 0 0 var(--s-2); text-align: center; font-weight: 700; }
+    h3{ color: var(--primary); margin: 0 0 var(--s-2); font-weight: 600; }
+    .brand{ color: var(--primary); }
+
+    /* ========= HEADER + MENU ========= */
+    header{
       background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.65));
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(3px);
     }
+    header .wrap{ display: grid; gap: var(--s-3); }
 
-    h1 {
-      text-align: center;
-      color: var(--heading);
+    nav[aria-label="Section navigation"]{
+      display:flex; justify-content:center; align-items:center; flex-wrap: wrap; gap:.25rem;
     }
-
-    nav[aria-label="Section navigation"] {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: .5rem;
+    .menu{
+      list-style:none; display:flex; flex-wrap:wrap;
+      gap:.25rem .75rem; margin:0; padding:0; align-items:center;
     }
+    .menu li{ display:flex; align-items:center; gap:.5rem; }
+    .divider{ color: var(--line); user-select:none; }
 
-    .menu {
-      list-style: none;
-      display: flex;
-      gap: .5rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    .menu a {
+    .menu a{
+      color: var(--ink);
       text-decoration: none;
       font-weight: 600;
       padding: .5rem .9rem;
       border-radius: 999px;
-      color: var(--ink);
       border: 1px solid transparent;
-      transition: all 0.2s ease;
+      transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .08s ease, box-shadow .2s ease;
     }
-
     .menu a:hover,
-    .menu a[aria-current="page"] {
+    .menu a:focus-visible{
+      background: rgba(125, 201, 94, 0.15);
+      border-color: rgba(125, 201, 94, 0.45);
+      color: #0d2a10;
+      box-shadow: 0 0 0 3px rgba(125, 201, 94, 0.35);
+      outline: none;
+    }
+    .menu a[aria-current="page"]{
       background: var(--accent);
       color: #0d2a10;
       border-color: rgba(125, 201, 94, 0.55);
       box-shadow: 0 2px 8px rgba(125,201,94,.25);
     }
+    .menu a:active{ transform: translateY(1px); }
 
-    main { padding: 2rem 1rem 3rem; max-width: var(--maxw); margin: 0 auto; }
-    .card { background: var(--card); padding: 1.5rem; border-radius: var(--radius); box-shadow: 0 6px 24px var(--shadow); }
+    /* ========= MAIN / CARDS ========= */
+    main{ padding-block: var(--s-6) var(--s-7); }
+    .cards{ display: grid; gap: var(--s-6); }
 
-    footer {
-      border-top: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.95));
-      text-align: center;
-      color: var(--muted);
-      padding: 1.25rem 1rem 1.5rem;
-      font-size: 0.95rem;
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 24px var(--shadow);
+      padding: clamp(1rem, 2vw + .25rem, 1.5rem);
     }
+    .card p, .card ul, .card table, .card figure { text-align: left; }
+    .card p{ margin: var(--s-2) 0 var(--s-4); }
+    .lede{ font-size: clamp(1.06rem, 1.1rem + .2vw, 1.22rem); color: var(--ink); }
+    .muted{ color: var(--muted); }
 
-    footer a {
+    /* ========= SPA TOGGLING ========= */
+    [data-page]{ display:none; }
+    [data-page].active{ display:block; }
+
+    /* ========= IMAGE LAYOUT HELPERS ========= */
+    .img-row{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s-3);
+      margin: var(--s-4) 0;
+    }
+    @media (max-width: 600px){
+      .img-row{ grid-template-columns: 1fr; }
+    }
+    .photo{
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+    
+
+    /* ratio helpers */
+    .photo-16x9 { aspect-ratio: 16 / 9; }
+    .photo-3x2  { aspect-ratio: 3 / 2; }
+    .photo-4x3  { aspect-ratio: 4 / 3; }
+    .photo-auto { aspect-ratio: auto; object-fit: contain; max-height: 60vh; }
+
+    /* ========= TABLES ========= */
+    table{ width:100%; border-collapse: collapse; margin: var(--s-3) 0; background: var(--card); }
+    th, td{ padding: .65rem .8rem; border-bottom: 1px solid var(--line); text-align:left; vertical-align: top; }
+    thead th{ color: var(--heading); font-weight: 700; }
+    tbody tr:hover{ background: #f3faf3; }
+
+    /* ========= FIGURES ========= */
+    figure{ margin: var(--s-5) 0; }
+    figure img{
+      display:block;
+      max-width: min(100%, 680px);
+      width: 100%;
+      height: auto;
+      margin-inline:auto;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+    figcaption{ margin-top: .5rem; color: var(--muted); }
+    .ai-note{ font-style: italic; color: var(--muted); }
+    
+    /* ========= FOOTER ========= */
+    footer{ border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.9)); }
+    footer .wrap{ display:grid; gap:var(--s-3); }
+
+    .footer-nav{
+      display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem .75rem; align-items:center;
+    }
+    .footer-nav a{
+      color: var(--ink); text-decoration:none; font-weight:600;
+      border-bottom: 2px solid transparent; padding-bottom:1px;
+      transition: border-color .2s, color .2s, box-shadow .2s;
+    }
+    .footer-nav a:hover,
+    .footer-nav a:focus-visible{
       color: var(--heading);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color .2s ease;
+      border-color: var(--heading);
+      box-shadow: 0 0 0 3px rgba(47, 90, 55, .25);
+      outline: none;
     }
+    .sep{ color: var(--line); user-select:none; }
 
-    footer a:hover,
-    footer a:focus-visible {
-      color: var(--primary);
-      text-decoration: underline;
+    .validators{ text-align:center; font-size:.95rem; }
+    .validators a{ color: var(--heading); text-decoration:none; }
+    .validators a:hover,
+    .validators a:focus-visible{ text-decoration: underline; box-shadow: 0 0 0 2px rgba(47, 90, 55, .25); outline: none; }
+
+    /* ========= REDUCED MOTION ========= */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none; transition: none; scroll-behavior: auto; }
     }
   </style>
 
@@ -331,40 +443,85 @@
   </main>
 
   <footer>
-    <div data-include="../components/footer.html"></div>
+    <div class="wrap">
+      <nav aria-label="Primary links">
+        <div class="footer-nav">
+          <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener noreferrer">ITIS3135</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://github.com/nyceLester5/nyceLester5.github.io" target="_blank" rel="noopener noreferrer">GitHub.com</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener noreferrer">CLT Web</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="http://nyceLester5.github.io" target="_blank" rel="noopener noreferrer">GitHub.io</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.freecodecamp.org/NyceL" target="_blank" rel="noopener noreferrer">FreeCodeCamp</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.codecademy.com/profiles/NyceLester" target="_blank" rel="noopener noreferrer">Codecademy</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </nav>
+
+      <div class="validators" id="validators">
+        <a id="v-html" href="#" target="_blank" rel="noopener">Validate HTML</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a id="v-css" href="#" target="_blank" rel="noopener">Validate CSS</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a id="v-a11y" href="#" target="_blank" rel="noopener">Accessibility Check</a>
+      </div>
+
+      <p>
+        © Page built by
+        <a href="https://webpages.charlotte.edu/tlester5/itis3135/lesterlabs.co/" target="_blank" rel="noopener">LesterLabs.co</a>
+      </p>
+      <p class="muted">© <span id="y"></span> Nyce Lester • All rights reserved.</p>
+    </div>
   </footer>
 
-  <!-- HTML Include Loader -->
-  <script src="../scripts/HTMLInclude.js"></script>
-
   <script>
-    // SPA-like section switching logic
+    // SPA: show selected section; default = "what"
     const sections = [...document.querySelectorAll('section[data-page]')];
     const menu = document.getElementById('menu');
+
     function show(page) {
-      sections.forEach(s => s.classList.toggle('active', s.dataset.page === page));
-      const links = menu.querySelectorAll('a[data-target]');
-      links.forEach(a => {
-        const active = a.dataset.target === page;
-        a.setAttribute('aria-current', active ? 'page' : 'false');
+      sections.forEach((s) => {
+        s.classList.toggle('active', s.dataset.page === page);
       });
+
+      const links = menu.querySelectorAll('a[data-target]');
+      links.forEach((a) => {
+        const isActive = a.dataset.target === page;
+        a.setAttribute('aria-current', isActive ? 'page' : 'false');
+      });
+
       const el = document.querySelector(`[data-page="${page}"]`);
-      if (el) history.replaceState(null, '', `#${page}`);
+      if (el) {
+        history.replaceState(null, '', `#${page}`);
+      }
     }
-    menu.addEventListener('click', e => {
+
+    menu.addEventListener('click', (e) => {
       const link = e.target.closest('a[data-target]');
-      if (!link) return;
+      if (!link) {
+        return;
+      }
       e.preventDefault();
       show(link.dataset.target);
     });
+
+    // On load: open hash target if present
     const initial = (location.hash || '#what').replace('#', '');
     show(initial);
 
-    // Update year dynamically in footer
-    document.addEventListener("DOMContentLoaded", () => {
-      const y = document.getElementById("y") || document.getElementById("year");
-      if (y) y.textContent = new Date().getFullYear();
-    });
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Validator links use current page URL
+    const url = encodeURIComponent(location.href);
+    document.getElementById('v-html').href = `https://validator.w3.org/nu/?doc=${url}`;
+    document.getElementById('v-css').href =
+      `https://jigsaw.w3.org/css-validator/validator?uri=${url}&profile=css3svg&usermedium=all&warning=1`;
+    document.getElementById('v-a11y').href = `https://wave.webaim.org/report#/${location.href}`;
   </script>
 </body>
 </html>
