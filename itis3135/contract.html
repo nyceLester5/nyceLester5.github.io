@@ -16,15 +16,7 @@
   <a class="skip-link" href="#content">Skip to main content</a>
 
   <header>
-    <h1>Welcome to Tranyce Lester’s ITIS 3135</h1>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="introduction.html">Introduction</a></li>
-        <li><a href="contract.html">Contract</a></li>
-        <li><a href="hobby/index.html">Hobby</a></li>
-      </ul>
-    </nav>
+    <div data-include="components/header.html"></div>    
   </header>
 
   <main id="content">
@@ -35,29 +27,13 @@
   </main>
 
   <footer>
-    <nav aria-label="Primary links">
-  <div class="footer-nav">
-    <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener">ITIS3135</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="https://github.com/nyceLester5/nyceLester5.github.io" target="_blank" rel="noopener">GitHub.com</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener">CLT Web</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="http://nyceLester5.github.io" target="_blank" rel="noopener">GitHub.io</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="https://www.freecodecamp.org/NyceL" target="_blank" rel="noopener">FreeCodeCamp</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="https://www.codecademy.com/profiles/NyceLester" target="_blank" rel="noopener">Codecademy</a>
-    <span class="sep" aria-hidden="true">|</span>
-    <a href="www.linkedin.com/in/tranycelester" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</nav>
-
-    <p>
-      Page Built by
-      <a href="https://webpages.charlotte.edu/tlester5/itis3135/lesterlabs.co/" target="_blank" rel="noopener noreferrer">LesterLabs.co</a>
-      &copy; 2025
-    </p>
+    <div data-include="components/footer.html"></div>
+  
   </footer>
+  <script>
+    document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+    document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+</script>
+<script src="scripts/HTMLInclude.min.js"></script>
 </body>
 </html>
