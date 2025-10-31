@@ -60,8 +60,8 @@
   <script>
     // Only run the validator script after includes load
     window.addEventListener('load', function() {
-      const html = document.getElementById('validation_link_html');
-      const css  = document.getElementById('validation_link_css');
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
       if (html && css) {
         html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
         css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
