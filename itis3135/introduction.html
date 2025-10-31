@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <!-- Skip to main content (WCAG compliant) -->
+  
   <a class="skip-link" href="#content">Skip to main content</a>
 
   <header>
@@ -54,11 +54,11 @@
     <div data-include="components/footer.html"></div>
   </footer>
 
-  <!-- Load include logic AFTER footer placeholder -->
+  
   <script src="scripts/HTMLInclude.js"></script>
 
   <script>
-    // Only run the validator script after includes load
+    
     window.addEventListener('load', function() {
       const html = document.getElementById('validation-link-html');
       const css  = document.getElementById('validation-link-css');
