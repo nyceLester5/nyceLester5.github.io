@@ -15,7 +15,7 @@
   <a class="skip-link" href="#content">Skip to main content</a>
 
   <header>
-    <div data-include="components/header.html"></div>    
+    <div data-include="components/header.html"></div>
   </header>
 
   <main id="content">
@@ -36,7 +36,7 @@
 
       <li><strong>Background in This Subject:</strong> I have a strong foundation in HTML and CSS and a growing interest in user experience design, particularly in identifying usability problems and creating thoughtful design solutions. I also have programming experience in Java, JavaScript, Python, C, and SQL, which helps me bridge the gap between design and development.</li>
 
-      <li><strong>Primary Computer Platform:</strong> MacOS and Windows.</li>
+      <li><strong>Primary Computer Platform:</strong> macOS and Windows.</li>
 
       <li>
         <strong>Courses I’m Taking &amp; Why:</strong><br>
@@ -52,12 +52,19 @@
 
   <footer>
     <div data-include="components/footer.html"></div>
-  
   </footer>
+
+  <!-- Load include helper first -->
+  <script src="scripts/HTMLInclude.min.js"></script>
   <script>
-    document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-    document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-</script>
-<script src="scripts/HTMLInclude.min.js"></script>
+    // Wait until includes are injected, then wire validator links
+    window.addEventListener('HTMLIncludeLoaded', () => {
+      const url = encodeURIComponent(location.href);
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html) html.href = `https://validator.w3.org/nu/?doc=${url}`;
+      if (css)  css.href  = `https://jigsaw.w3.org/css-validator/validator?uri=${url}`;
+    });
+  </script>
 </body>
 </html>
