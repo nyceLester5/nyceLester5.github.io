@@ -36,7 +36,7 @@
     <div data-include="components/footer.html"></div>
   </footer>
 
-  <!-- Include fragments (no external library needed) -->
+  
   <script>
     async function includeHTML() {
       const holders = document.querySelectorAll('[data-include]');
@@ -56,7 +56,7 @@
 
     document.addEventListener('DOMContentLoaded', includeHTML);
 
-    // After fragments are in the DOM, wire validator links and year (if present)
+    
     document.addEventListener('includes:loaded', () => {
       const url = encodeURIComponent(location.href);
       const html = document.getElementById('validation-link-html');
