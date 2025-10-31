@@ -443,43 +443,85 @@
   </main>
 
   <footer>
-    <div data-include="../components/footer.html"></div>
+    <div class="wrap">
+      <nav aria-label="Primary links">
+        <div class="footer-nav">
+          <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener noreferrer">ITIS3135</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://github.com/nyceLester5/nyceLester5.github.io" target="_blank" rel="noopener noreferrer">GitHub.com</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener noreferrer">CLT Web</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="http://nyceLester5.github.io" target="_blank" rel="noopener noreferrer">GitHub.io</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.freecodecamp.org/NyceL" target="_blank" rel="noopener noreferrer">FreeCodeCamp</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.codecademy.com/profiles/NyceLester" target="_blank" rel="noopener noreferrer">Codecademy</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </nav>
+
+      <div class="validators" id="validators">
+        <a id="v-html" href="#" target="_blank" rel="noopener">Validate HTML</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a id="v-css" href="#" target="_blank" rel="noopener">Validate CSS</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a id="v-a11y" href="#" target="_blank" rel="noopener">Accessibility Check</a>
+      </div>
+
+      <p>
+        © Page built by
+        <a href="https://webpages.charlotte.edu/tlester5/itis3135/lesterlabs.co/" target="_blank" rel="noopener">LesterLabs.co</a>
+      </p>
+      <p class="muted">© <span id="y"></span> Nyce Lester • All rights reserved.</p>
+    </div>
   </footer>
 
-  <!-- Include loader -->
-  <script src="../scripts/HTMLInclude.js"></script>
-
   <script>
-    // SPA switching (keeps your navigation behavior)
+    // SPA: show selected section; default = "what"
     const sections = [...document.querySelectorAll('section[data-page]')];
     const menu = document.getElementById('menu');
 
     function show(page) {
-      sections.forEach(s => s.classList.toggle('active', s.dataset.page === page));
-      const links = menu.querySelectorAll('a[data-target]');
-      links.forEach(a => {
-        const active = a.dataset.target === page;
-        a.setAttribute('aria-current', active ? 'page' : 'false');
+      sections.forEach((s) => {
+        s.classList.toggle('active', s.dataset.page === page);
       });
+
+      const links = menu.querySelectorAll('a[data-target]');
+      links.forEach((a) => {
+        const isActive = a.dataset.target === page;
+        a.setAttribute('aria-current', isActive ? 'page' : 'false');
+      });
+
       const el = document.querySelector(`[data-page="${page}"]`);
-      if (el) history.replaceState(null, '', `#${page}`);
+      if (el) {
+        history.replaceState(null, '', `#${page}`);
+      }
     }
 
-    menu.addEventListener('click', e => {
+    menu.addEventListener('click', (e) => {
       const link = e.target.closest('a[data-target]');
-      if (!link) return;
+      if (!link) {
+        return;
+      }
       e.preventDefault();
       show(link.dataset.target);
     });
 
+    // On load: open hash target if present
     const initial = (location.hash || '#what').replace('#', '');
     show(initial);
 
-    // Footer year once loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('year') || document.getElementById('y');
-      if (y) y.textContent = new Date().getFullYear();
-    });
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Validator links use current page URL
+    const url = encodeURIComponent(location.href);
+    document.getElementById('v-html').href = `https://validator.w3.org/nu/?doc=${url}`;
+    document.getElementById('v-css').href =
+      `https://jigsaw.w3.org/css-validator/validator?uri=${url}&profile=css3svg&usermedium=all&warning=1`;
+    document.getElementById('v-a11y').href = `https://wave.webaim.org/report#/${location.href}`;
   </script>
 </body>
 </html>
