@@ -16,7 +16,12 @@
   <a class="skip-link" href="#content">Skip to main content</a>
 
   <header>
-    <div data-include="components/header.html"></div>    
+    <!-- This will be replaced by components/header.html -->
+    <div data-include="components/header.html"></div>
+    <noscript>
+      <!-- Optional fallback if JS is disabled -->
+      <h1>ITIS 3135 — Tranyce Lester</h1>
+    </noscript>
   </header>
 
   <main id="content">
@@ -34,12 +39,19 @@
 
   <footer>
     <div data-include="components/footer.html"></div>
-  
   </footer>
+
+  <!-- Load include script BEFORE the validation wiring -->
+  <script src="scripts/HTMLInclude.min.js"></script>
   <script>
-    document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-    document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-</script>
-<script src="scripts/HTMLInclude.min.js"></script>
+    // Wait for includes to finish loading before wiring validator links
+    window.addEventListener('HTMLIncludeLoaded', function () {
+      const url = encodeURIComponent(location.href);
+      const html = document.getElementById('validation-link-html');
+      const css = document.getElementById('validation-link-css');
+      if (html) html.href = `https://validator.w3.org/nu/?doc=${url}`;
+      if (css)  css.href  = `https://jigsaw.w3.org/css-validator/validator?uri=${url}`;
+    });
+  </script>
 </body>
 </html>
