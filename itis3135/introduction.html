@@ -54,17 +54,38 @@
     <div data-include="components/footer.html"></div>
   </footer>
 
-  <!-- Load include helper first -->
-  <script src="scripts/HTMLInclude.min.js"></script>
+  <!-- Include fragments (no external library needed) -->
   <script>
-    // Wait until includes are injected, then wire validator links
-    window.addEventListener('HTMLIncludeLoaded', () => {
+    async function includeHTML() {
+      const holders = document.querySelectorAll('[data-include]');
+      await Promise.all([...holders].map(async (el) => {
+        const src = el.getAttribute('data-include');
+        try {
+          const res = await fetch(src, { cache: 'no-cache' });
+          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          el.innerHTML = await res.text();
+        } catch (err) {
+          console.error('Include failed:', src, err);
+          el.innerHTML = '<!-- include failed: ' + src + ' -->';
+        }
+      }));
+      document.dispatchEvent(new Event('includes:loaded'));
+    }
+
+    document.addEventListener('DOMContentLoaded', includeHTML);
+
+    // After fragments are in the DOM, wire validator links and year (if present)
+    document.addEventListener('includes:loaded', () => {
       const url = encodeURIComponent(location.href);
       const html = document.getElementById('validation-link-html');
       const css  = document.getElementById('validation-link-css');
       if (html) html.href = `https://validator.w3.org/nu/?doc=${url}`;
       if (css)  css.href  = `https://jigsaw.w3.org/css-validator/validator?uri=${url}`;
+
+      const y = document.getElementById('y');
+      if (y) y.textContent = new Date().getFullYear();
     });
   </script>
 </body>
 </html>
+
