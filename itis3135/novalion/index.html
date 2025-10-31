@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tranyce Lester Nova Lion — ITIS 3135 Home</title>
+  <meta name="description" content="Course homepage for ITIS 3135 - Front-End Web Development by Tranyce Lester at UNC Charlotte." />
+  <link rel="stylesheet" href="styles/default.css" />
+
+  <!-- Accumulus Validator -->
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- Skip to main content (WCAG compliant) -->
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- Embedded Header -->
+  <header>
+    <div data-include="components/header.html"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="content">
+    <h2>About This Site</h2>
+    <p>
+      Hello! I’m <strong>Tranyce Lester</strong>, and this website showcases my projects, assignments,
+      and labs for <strong>ITIS 3135 – Front-End Web Development</strong> at UNC Charlotte.
+      Here you’ll find examples of HTML, CSS, and JavaScript work I’ve completed
+      throughout the semester.
+    </p>
+    <p>
+      Use the navigation links above to explore my course materials and visit my side project,
+      <strong>Nova Lion Tech</strong> — <em>Courage in every click.</em>
+    </p>
+  </main>
+
+  <!-- Embedded Footer -->
+  <footer>
+    <div data-include="components/footer.html"></div>
+  </footer>
+
+  <!-- HTML Include Script -->
+  <script src="scripts/HTMLInclude.js"></script>
+
+  <!-- Validator Links & Dynamic Year -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const html = document.getElementById("validation-link-html");
+      const css = document.getElementById("validation-link-css");
+      const y = document.getElementById("year");
+
+      if (html) html.href = "https://validator.w3.org/check?uri=" + location.href;
+      if (css) css.href = "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href;
+      if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

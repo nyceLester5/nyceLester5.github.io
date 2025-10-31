@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nova Lion Tech — About</title>
+  <meta name="description" content="About Nova Lion Tech — accessible UX tools for creative teams." />
+  <link rel="stylesheet" href="../styles/default.css" />
+
+  <!-- Accumulus Validator -->
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- Skip to main content -->
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <!-- Embedded Header -->
+  <header>
+    <div data-include="../components/header.html"></div>
+  </header>
+
+  <main id="content">
+    <h2>About Nova Lion Tech</h2>
+    <p>
+      <strong>Nova Lion Tech</strong> is a small creative startup focused on crafting digital tools
+      that make UX research simpler, faster, and more inclusive. Our team designs lightweight
+      web applications that help students, designers, and small teams run usability studies with
+      confidence.
+    </p>
+    <p>
+      Our motto — <em>Courage in every click</em> — represents the spirit of exploration and innovation.
+      Whether you’re analyzing user feedback or preparing your next design sprint, Nova Lion Tech
+      gives you the courage to test, learn, and grow.
+    </p>
+
+    <section>
+      <h3>Our Focus</h3>
+      <ul>
+        <li>Accessible, mobile-friendly design tools</li>
+        <li>Ready-to-use UX testing templates</li>
+        <li>Inclusive experiences built with accessibility first</li>
+        <li>Simple web utilities that encourage creativity</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Embedded Footer -->
+  <footer>
+    <div data-include="../components/footer.html"></div>
+  </footer>
+
+  <!-- Include Script -->
+  <script src="../scripts/HTMLInclude.js"></script>
+
+  <!-- Validator Links & Dynamic Year -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const html = document.getElementById("validation-link-html");
+      const css = document.getElementById("validation-link-css");
+      const y = document.getElementById("year");
+
+      if (html) html.href = "https://validator.w3.org/check?uri=" + location.href;
+      if (css) css.href = "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href;
+      if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
