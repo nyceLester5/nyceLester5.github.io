@@ -1,69 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="novalion">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nova Lion Tech — About</title>
-  <meta name="description" content="About Nova Lion Tech — accessible UX tools for creative teams." />
-  <link rel="stylesheet" href="../styles/default.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova Lion — About</title>
+  <meta name="description" content="About Nova Lion — mission, style, and tools.">
 
-  <!-- Accumulus Validator -->
+  <!-- Color palette (Coolors): https://coolors.co/1f2937-0ea5e9-22c55e-f1f5f9-334155 -->
+  <style>
+    .novalion {
+      --ink:#1f2937; --muted:#334155; --bg:#f1f5f9; --brand:#0ea5e9; --accent:#22c55e; --card:#ffffff; --line:#dce3ea;
+      --radius:14px; --shadow:0 8px 28px rgba(0,0,0,.08);
+      --space-2:.5rem; --space-3:.75rem; --space-4:1rem; --space-5:1.25rem; --space-6:1.5rem; --space-7:2rem;
+      --maxw:960px;
+    }
+    body.novalion{ margin:0; color:var(--ink); font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue",sans-serif;
+      background: radial-gradient(900px 600px at -10% -10%, #e6f7ff 0%, transparent 70%),
+                  radial-gradient(900px 600px at 110% 110%, #e8fff0 0%, transparent 70%),
+                  var(--bg);
+      min-height:100vh; display:grid; grid-template-rows:auto 1fr auto; line-height:1.6; }
+    .wrap{ width:min(100%, var(--maxw)); margin-inline:auto; padding:var(--space-6); }
+    .skip-link{ position:absolute; left:0; top:-40px; background:var(--brand); color:#fff; padding:.5rem .75rem; border-radius:8px; font-weight:700; text-decoration:none; transition:top .2s; }
+    .skip-link:focus{ top:.5rem; left:.5rem; z-index:1000; }
+    header{ background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.7)); border-bottom:1px solid var(--line); backdrop-filter: blur(4px); }
+    .nl-tagline{ margin:0; padding:0 var(--space-6) var(--space-4); color:var(--muted); font-style:italic; }
+    main{ padding-block:var(--space-7); }
+    .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:clamp(1rem,1rem + 1vw,1.5rem); }
+    h2{ margin:0 0 var(--space-3); font-size:clamp(1.2rem, 1.1rem + 1vw, 1.6rem); }
+    .lede{ color:var(--muted); margin:.25rem 0 var(--space-4); }
+    footer{ border-top:1px solid var(--line); background:linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.95)); }
+  </style>
+
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
-
-<body>
-  <!-- Skip to main content -->
+<body class="novalion">
   <a class="skip-link" href="#content">Skip to main content</a>
 
-  <!-- Embedded Header -->
   <header>
     <div data-include="../components/header.html"></div>
+    <p class="nl-tagline"><em>Courage in every click.</em></p>
   </header>
 
   <main id="content">
-    <h2>About Nova Lion Tech</h2>
-    <p>
-      <strong>Nova Lion Tech</strong> is a small creative startup focused on crafting digital tools
-      that make UX research simpler, faster, and more inclusive. Our team designs lightweight
-      web applications that help students, designers, and small teams run usability studies with
-      confidence.
-    </p>
-    <p>
-      Our motto — <em>Courage in every click</em> — represents the spirit of exploration and innovation.
-      Whether you’re analyzing user feedback or preparing your next design sprint, Nova Lion Tech
-      gives you the courage to test, learn, and grow.
-    </p>
+    <div class="wrap">
+      <section class="card" aria-labelledby="about-title">
+        <h2 id="about-title">About Nova Lion Tech</h2>
+        <p class="lede">
+          We’re a tiny studio focused on practical UX helpers. Our tools are intentionally small,
+          fast, and accessible—so students and lean teams can run better studies without wrestling complex software.
+        </p>
 
-    <section>
-      <h3>Our Focus</h3>
-      <ul>
-        <li>Accessible, mobile-friendly design tools</li>
-        <li>Ready-to-use UX testing templates</li>
-        <li>Inclusive experiences built with accessibility first</li>
-        <li>Simple web utilities that encourage creativity</li>
-      </ul>
-    </section>
+        <h3>What we build</h3>
+        <ul>
+          <li>Task timer + SEQ capture with export</li>
+          <li>Consent & note templates for consistent studies</li>
+          <li>Auto-formatted summaries</li>
+          <li>Keyboard-first UI, ARIA-labeled controls</li>
+        </ul>
+
+        <h3>Why we build it</h3>
+        <p>
+          Great research doesn’t need heavy tools. We ship focused web apps students can trust in class and teams
+          can trust in sprint. If it isn’t simple and accessible, it isn’t Nova Lion.
+        </p>
+      </section>
+    </div>
   </main>
 
-  <!-- Embedded Footer -->
   <footer>
     <div data-include="../components/footer.html"></div>
   </footer>
 
-  <!-- Include Script -->
   <script src="../scripts/HTMLInclude.js"></script>
-
-  <!-- Validator Links & Dynamic Year -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const html = document.getElementById("validation-link-html");
-      const css = document.getElementById("validation-link-css");
-      const y = document.getElementById("year");
-
-      if (html) html.href = "https://validator.w3.org/check?uri=" + location.href;
-      if (css) css.href = "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href;
-      if (y) y.textContent = new Date().getFullYear();
-    });
-  </script>
 </body>
 </html>

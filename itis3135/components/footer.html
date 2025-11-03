@@ -1,42 +1,43 @@
-<nav aria-label="Footer links">
-  <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener">ITIS3135</a>
+<nav aria-label="footer links">
+  <a href="https://webpages.charlotte.edu/tlester5/itis3135/" target="_blank" rel="noopener">itis3135</a>
   <span class="sep" aria-hidden="true">|</span>
-  <a href="https://github.com/nyceLester5/nyceLester5.github.io" target="_blank" rel="noopener">GitHub.com</a>
+  <a href="https://github.com/nyceLester5/nyceLester5.github.io" target="_blank" rel="noopener">github.com</a>
   <span class="sep" aria-hidden="true">|</span>
-  <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener">CLT Web</a>
+  <a href="https://webpages.charlotte.edu/tlester5/" target="_blank" rel="noopener">clt web</a>
   <span class="sep" aria-hidden="true">|</span>
-  <a href="http://nyceLester5.github.io" target="_blank" rel="noopener">GitHub.io</a>
+  <a href="http://nyceLester5.github.io" target="_blank" rel="noopener">github.io</a>
   <span class="sep" aria-hidden="true">|</span>
-  <a href="https://www.freecodecamp.org/NyceL" target="_blank" rel="noopener">freeCodeCamp</a>
+  <a href="https://www.freecodecamp.org/NyceL" target="_blank" rel="noopener">freecodecamp</a>
   <span class="sep" aria-hidden="true">|</span>
-  <a href="https://www.codecademy.com/profiles/NyceLester" target="_blank" rel="noopener">Codecademy</a>
+  <a href="https://www.codecademy.com/profiles/NyceLester" target="_blank" rel="noopener">codecademy</a>
   <span class="sep" aria-hidden="true">|</span>
-  <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener">Linkedin</a>
+  <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener">linkedin</a>
 </nav>
 
 <p>
-  Page built by
-  <a href="https://webpages.charlotte.edu/tlester5/itis3135/lesterlabs.co/" target="_blank" rel="noopener">Lester Labs</a>
+  page built by
+  <a href="https://webpages.charlotte.edu/tlester5/itis3135/lesterlabs.co/" target="_blank" rel="noopener">lester labs</a>
   © <span id="year"></span>
 </p>
 
 <div class="validators">
   <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
-    <img src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML.">
+    <img src="/tlester5/itis3135/images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML">
   </a>
   <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
-    <img src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS.">
+    <img src="/tlester5/itis3135/images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS">
   </a>
 </div>
 
-
 <script>
-  document.getElementById("validation-link-html").setAttribute(
-    "href",
-    "https://validator.w3.org/check?uri=" + location.href
-  );
-  document.getElementById("validation-link-css").setAttribute(
-    "href",
-    "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href
-  );
+  // ids are lowercase-dashed, imgs are not self-closed
+  (function () {
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    var html = document.getElementById('validation-link-html');
+    var css  = document.getElementById('validation-link-css');
+    if (html) html.setAttribute('href', 'https://validator.w3.org/check?uri=' + location.href);
+    if (css)  css.setAttribute('href', 'https://jigsaw.w3.org/css-validator/validator?uri=' + location.href);
+  }());
 </script>
