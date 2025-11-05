@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FCC Full Stack JavaScript Outline</title>
+  <link rel="stylesheet" href="/tlester5/itis3135/styles/default.css" />
+
+  <!-- Page-specific table styles (keeps cells balanced) -->
+  <style>
+    .table-wrap { max-width: 900px; margin: 2rem auto; }
+    table.fcc-outline {
+      width: 100%;
+      table-layout: fixed;              /* prevents one cell from wrapping 3 lines while others are empty */
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid var(--border-light, #dcd7c9);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .fcc-outline caption {
+      caption-side: top;
+      padding: .75rem 1rem;
+      font-weight: 700;
+      color: var(--main-green, #3e8e41);
+      text-align: left;
+    }
+    .fcc-outline thead th {
+      background: #f4f1e6;
+      border-bottom: 1px solid var(--border-light, #dcd7c9);
+    }
+    .fcc-outline th, .fcc-outline td {
+      padding: .75rem .85rem;
+      border-bottom: 1px solid var(--border-light, #dcd7c9);
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+    .fcc-outline tfoot td {
+      background: #faf8f1;
+      font-weight: 600;
+    }
+    /* subtle zebra for readability */
+    .fcc-outline tbody tr:nth-child(even) td { background: #fcfbf7; }
+
+    /* keep column balance */
+    col.num     { width: 3.2rem; }      /* # */
+    col.section { width: 52%;  }        /* name/notes */
+    col.steps   { width: 9rem; }        /* steps/quizzes count */
+    col.notes   { width: auto; }        /* short notes */
+
+    /* small screens */
+    @media (max-width: 560px) {
+      .fcc-outline { font-size: .95rem; }
+      col.section { width: 48%; }
+      col.steps   { width: 7.5rem; }
+    }
+
+    /* schedule block */
+    .schedule { max-width: 900px; margin: 2rem auto; text-align: left; }
+    .schedule h3 { color: var(--main-green, #3e8e41); margin-bottom: .5rem; }
+    .schedule p { margin-bottom: .5rem; }
+    .schedule ul { padding-left: 1.2rem; }
+    .signoff { margin-top: 1rem; font-style: italic; }
+  </style>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div data-include="components/header.html"></div>
+  </header>
+
+  <main class="content">
+    <h2>FCC Full Stack JavaScript Outline</h2>
+    <p class="tagline"><em>CRAP-friendly table using caption, thead/tbody/tfoot, scope, and colgroup for balanced layout.</em></p>
+
+    <div class="table-wrap">
+      <table class="fcc-outline">
+        <caption>freeCodeCamp – JavaScript Portion (≈917 steps across ~20 sections)</caption>
+
+        <!-- column sizing for balance -->
+        <colgroup>
+          <col class="num">
+          <col class="section">
+          <col class="steps">
+          <col class="notes">
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Section</th>
+            <th scope="col">Steps / Quizzes</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+
+<tbody>
+  <tr>
+    <th scope="row">1</th>
+    <td><strong>Code Editors</strong></td>
+    <td>5 quiz pages</td>
+    <td>Editor setup and environment basics.</td>
+  </tr>
+  <tr>
+    <th scope="row">2</th>
+    <td><strong>Variables and Strings</strong></td>
+    <td>62 steps</td>
+    <td>Variables, string methods, and interpolation.</td>
+  </tr>
+  <tr>
+    <th scope="row">3</th>
+    <td><strong>Booleans and Numbers</strong></td>
+    <td>37 steps</td>
+    <td>Boolean logic, math operations, and comparisons.</td>
+  </tr>
+  <tr>
+    <th scope="row">4</th>
+    <td><strong>Functions</strong></td>
+    <td>≈45 steps</td>
+    <td>Function declarations, parameters, and returns.</td>
+  </tr>
+  <tr>
+    <th scope="row">5</th>
+    <td><strong>Arrays</strong></td>
+    <td>≈50 steps</td>
+    <td>Array creation, indexing, loops, and built-ins.</td>
+  </tr>
+  <tr>
+    <th scope="row">6</th>
+    <td><strong>Objects</strong></td>
+    <td>≈40 steps</td>
+    <td>Object properties, methods, and JSON syntax.</td>
+  </tr>
+  <tr>
+    <th scope="row">7</th>
+    <td><strong>Loops</strong></td>
+    <td>≈35 steps</td>
+    <td>for, while, and for...of loops; iteration logic.</td>
+  </tr>
+  <tr>
+    <th scope="row">8</th>
+    <td><strong>JavaScript Fundamentals Review</strong></td>
+    <td>≈25 steps</td>
+    <td>Reinforces basic syntax and logic patterns.</td>
+  </tr>
+  <tr>
+    <th scope="row">9</th>
+    <td><strong>Higher Order Functions and Callbacks</strong></td>
+    <td>≈40 steps</td>
+    <td>map(), filter(), reduce(), and callback functions.</td>
+  </tr>
+  <tr>
+    <th scope="row">10</th>
+    <td><strong>DOM Manipulation and Events</strong></td>
+    <td>≈60 steps</td>
+    <td>Document object model, event listeners, interactivity.</td>
+  </tr>
+  <tr>
+    <th scope="row">11</th>
+    <td><strong>JavaScript and Accessibility</strong></td>
+    <td>≈20 steps</td>
+    <td>Using JS to enhance accessibility features.</td>
+  </tr>
+  <tr>
+    <th scope="row">12</th>
+    <td><strong>Debugging</strong></td>
+    <td>≈30 steps</td>
+    <td>Console, breakpoints, and error handling.</td>
+  </tr>
+  <tr>
+    <th scope="row">13</th>
+    <td><strong>Basic Regex</strong></td>
+    <td>≈35 steps</td>
+    <td>Regular expressions for text patterns.</td>
+  </tr>
+  <tr>
+    <th scope="row">14</th>
+    <td><strong>Form Validation</strong></td>
+    <td>≈25 steps</td>
+    <td>Input validation using JS and regex.</td>
+  </tr>
+  <tr>
+    <th scope="row">15</th>
+    <td><strong>Dates</strong></td>
+    <td>≈20 steps</td>
+    <td>Date objects and formatting techniques.</td>
+  </tr>
+  <tr>
+    <th scope="row">16</th>
+    <td><strong>Audio and Video Events</strong></td>
+    <td>≈20 steps</td>
+    <td>Controlling media playback through events.</td>
+  </tr>
+  <tr>
+    <th scope="row">17</th>
+    <td><strong>Maps and Sets</strong></td>
+    <td>≈30 steps</td>
+    <td>Key-value data structures and unique value sets.</td>
+  </tr>
+  <tr>
+    <th scope="row">18</th>
+    <td><strong>localStorage and CRUD Operations</strong></td>
+    <td>≈35 steps</td>
+    <td>Storing and managing persistent browser data.</td>
+  </tr>
+  <tr>
+    <th scope="row">19</th>
+    <td><strong>Classes</strong></td>
+    <td>≈25 steps</td>
+    <td>Object-oriented programming with class syntax.</td>
+  </tr>
+  <tr>
+    <th scope="row">20</th>
+    <td><strong>Recursion</strong></td>
+    <td>≈25 steps</td>
+    <td>Functions that call themselves; problem decomposition.</td>
+  </tr>
+  <tr>
+    <th scope="row">21</th>
+    <td><strong>Functional Programming</strong></td>
+    <td>≈40 steps</td>
+    <td>Pure functions, immutability, and function composition.</td>
+  </tr>
+  <tr>
+    <th scope="row">22</th>
+    <td><strong>Asynchronous JavaScript</strong></td>
+    <td>≈45 steps</td>
+    <td>Promises, async/await, and API requests.</td>
+  </tr>
+  <tr>
+    <th scope="row">23</th>
+    <td><strong>JavaScript Review</strong></td>
+    <td>≈15 steps</td>
+    <td>Final summary and review exercises.</td>
+  </tr>
+</tbody>
+
+<tfoot>
+          <tr>
+            <td colspan="4">
+              <strong>Total:</strong> ~917 steps across ~20 sections (numbers may vary slightly per FCC update).
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- 4-week plan -->
+    <section class="schedule">
+      <h3>General 4-Week Schedule</h3>
+      <p><strong>I, Tranyce Lester,</strong> intend to finish the freeCodeCamp Full-Stack Developer <em>JavaScript</em> portion over the next <strong>4 weeks</strong>, at an average pace of ~33 steps/day (≈917 ÷ 28). I acknowledge this is a single assignment and will pace myself accordingly.</p>
+      <ul>
+        <li><strong>Week 1:</strong> Code Editors (5 quizzes), Variables &amp; Strings (first ~30–35 steps)</li>
+        <li><strong>Week 2:</strong> Variables &amp; Strings (finish), Booleans &amp; Numbers (~37 steps)</li>
+        <li><strong>Week 3:</strong> Next 6–7 sections (~225–250 steps total)</li>
+        <li><strong>Week 4:</strong> Remaining sections (~400+ steps), review &amp; notes</li>
+      </ul>
+      <p class="signoff">— Tranyce Lester, [update with today’s date]</p>
+    </section>
+
+    <p style="margin:1.5rem auto; max-width:900px; text-align:left;">
+      <strong>Tip to collect the list fast:</strong> screenshot each section list on FCC, use iPhone/Android Live Text or any OCR, paste into a doc, then clean with AI to convert into “Section — Steps/Quizzes” lines. Don’t copy a classmate’s page; build your own from your OCR text.
+    </p>
+  </main>
+
+  <footer>
+    <div data-include="components/footer.html"></div>
+  </footer>
+
+  <script src="scripts/HTMLInclude.js"></script>
+  <script>
+    // Auto-wire validators if your footer has these IDs
+    window.addEventListener('load', () => {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.href = "https://validator.w3.org/check?uri=" + location.href;
+        css.href  = "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href;
+      }
+    });
+  </script>
+</body>
+</html>
