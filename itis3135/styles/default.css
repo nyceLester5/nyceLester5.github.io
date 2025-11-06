@@ -19,10 +19,9 @@ body {
   background-color: var(--light-beige);
   color: var(--text-dark);
   line-height: 1.6;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
-  max-width: 900px;
-  padding: 2rem;
+  padding: 2rem;                /* base padding; adjusted in media queries */
 }
 
 /* ====== HEADER ====== */
@@ -46,6 +45,7 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -79,9 +79,12 @@ nav a:focus {
 }
 
 /* ====== MAIN CONTENT ====== */
+/* Foundational Three: width %, max-width, centered with margin: 0 auto */
 main {
-  margin: 2rem auto;
+  margin: 2rem auto;            /* centers the block vertically with space */
   text-align: center;
+  width: 90%;                   /* % width for fluid layout */
+  max-width: 1200px;            /* keeps lines readable on large screens */
 }
 
 h2 {
@@ -170,18 +173,6 @@ a:active {
   color: #1f4d20;
 }
 
-/* mobile-friendly layout */
-@media (max-width: 600px) {
-  .footer-nav {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .footer-nav .sep {
-    display: none;
-  }
-}
-
 /* ====== ACCESSIBILITY ====== */
 .skip-link {
   position: absolute;
@@ -207,19 +198,11 @@ a:focus-visible {
 
 /* Prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  * {
-    animation: none;
-    transition: none;
-  }
+  html { scroll-behavior: auto; }
+  * { animation: none; transition: none; }
 }
 
-
 /* ====== MEDIA / FIGURES ====== */
-/* Replace your global img rule with this */
 img {
   display: block;
   max-width: 100%;
@@ -227,10 +210,7 @@ img {
   margin-inline: auto;
 }
 
-/* Optional: limit portrait width on large screens */
-figure img {
-  max-width: 600px;
-}
+figure img { max-width: 600px; }
 
 figure {
   margin: 1rem auto 2rem;
@@ -248,15 +228,43 @@ figcaption {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  max-width: 60ch;   /* comfy reading width */
-  text-align: left;  /* keeps paragraphs readable */
+  max-width: 60ch;     /* comfy reading width */
+  text-align: left;    /* keeps paragraphs readable */
 }
 
-.bio-list > li + li {
-  margin-top: 1rem;  /* space between items */
+.bio-list > li + li { margin-top: 1rem; }
+.bio-list li strong + br { line-height: 1rem; }
+
+/* ===================================================================== */
+/* ========================= RESPONSIVE QUERIES ========================= */
+/* Desktop/Large screens = default rules above                            */
+/* Tablet: 601px–980px                                                    */
+/* Mobile: 370px–600px                                                    */
+/* (You can adjust breakpoints to your instructor's preference)           */
+/* ===================================================================== */
+
+/* ====== TABLET (601px–980px) ====== */
+@media screen and (min-width: 601px) and (max-width: 980px) {
+  body { padding: 1.5rem; }
+  main { width: 94%; max-width: 1000px; }
+  nav ul { gap: 1rem; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.2rem; }
 }
 
-/* Keep the courses block tidy if it uses <br> lines */
-.bio-list li strong + br {
-  line-height: 1rem;
+/* ====== MOBILE (370px–600px) ====== */
+@media screen and (min-width: 370px) and (max-width: 600px) {
+  body { padding: 1rem; }
+  main { width: 95%; max-width: 580px; }
+  nav ul { gap: 0.65rem; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.1rem; }
+  .footer-nav { flex-direction: column; gap: 0.25rem; }
+  .footer-nav .sep { display: none; }
+}
+
+/* ====== SMALL-LAPTOP / WIDE-TABLET (981px–1400px) ====== */
+@media screen and (min-width: 981px) and (max-width: 1400px) {
+  main { width: 92%; max-width: 1100px; }
+  nav ul { gap: 1.25rem; }
 }
