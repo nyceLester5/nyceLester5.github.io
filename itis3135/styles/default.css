@@ -248,8 +248,8 @@ figcaption {
   body { padding: 1.5rem; }
   main { width: 94%; max-width: 1000px; }
   nav ul { gap: 1rem; }
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.2rem; }
+  body.responsive h1 { font-size: 1.6rem; }
+  body.responsive h2 { font-size: 1.2rem; }
 }
 
 /* ====== MOBILE (370px–600px) ====== */
@@ -257,8 +257,8 @@ figcaption {
   body { padding: 1rem; }
   main { width: 95%; max-width: 580px; }
   nav ul { gap: 0.65rem; }
-  h1 { font-size: 1.4rem; }
-  h2 { font-size: 1.1rem; }
+  body.responsive h1 { font-size: 1.4rem; }
+  body.responsive h2 { font-size: 1.1rem; }
   .footer-nav { flex-direction: column; gap: 0.25rem; }
   .footer-nav .sep { display: none; }
 }
