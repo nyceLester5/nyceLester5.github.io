@@ -305,8 +305,8 @@ figcaption {
 /* ====== PAGE-SPECIFIC ADJUSTMENTS ====== */
 
 /* Increase spacing only on the Nova Lion page */
-body.novalion .crappy-nav {
-  margin-top: 2.5rem;     /* moves it slightly lower */
+.novalion .crappy-nav {
+  margin-top: 3rem;     /* moves it slightly lower */
   margin-bottom: 2rem;    /* optional: adds bottom breathing room */
   border-top: 1px solid var(--border-light); /* subtle divider line for separation */
 }
