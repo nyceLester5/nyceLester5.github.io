@@ -156,8 +156,10 @@
           </label>
           <label>
             Acknowledgment Date*:
-            <input type="date" name="ackDate" required onfocus="(this.type='date')" onblur="(this.type='text')" />
+            <input type="text" name="ackDate" placeholder="YYYY-MM-DD" required pattern="\d{4}-\d{2}-\d{2}" />
+            <small style="color:#555;">Format: YYYY-MM-DD</small>
         </label>
+
 
         </fieldset>
 
