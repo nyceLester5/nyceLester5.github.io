@@ -78,6 +78,39 @@ nav a:focus {
   color: var(--hover-green);
 }
 
+/* ====== CRAPPY NAVIGATION (for MY&CRAPPY.htm link) ====== */
+.crappy-nav {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.crappy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.crappy-item {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.crappy-item a {
+  color: var(--link-green);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.crappy-item a:hover,
+.crappy-item a:focus {
+  color: var(--hover-green);
+  text-decoration: underline;
+}
+
 /* ====== MAIN CONTENT ====== */
 /* Foundational Three: width %, max-width, centered with margin: 0 auto */
 main {
