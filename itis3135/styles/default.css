@@ -81,7 +81,7 @@ nav a:focus {
 /* ====== CRAPPY NAVIGATION (for MY&CRAPPY.htm link) ====== */
 .crappy-nav {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -301,3 +301,13 @@ figcaption {
   main { width: 92%; max-width: 1100px; }
   nav ul { gap: 1.25rem; }
 }
+
+/* ====== PAGE-SPECIFIC ADJUSTMENTS ====== */
+
+/* Increase spacing only on the Nova Lion page */
+body.novalion .crappy-nav {
+  margin-top: 2.5rem;     /* moves it slightly lower */
+  margin-bottom: 2rem;    /* optional: adds bottom breathing room */
+  border-top: 1px solid var(--border-light); /* subtle divider line for separation */
+}
+
