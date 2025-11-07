@@ -4,14 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Introduction Form</title>
+  <meta name="description" content="Build a custom introduction matching the ITIS 3135 introduction layout." />
 
   <!-- Use relative path so it works locally and on server -->
   <link rel="stylesheet" href="styles/default.css" />
 
-  <!-- Accumulus / lint kit -->
+  <!-- Accumulus validator -->
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 
-  <!-- Tiny helper class for hidden headings (for accessibility / validators) -->
+  <!-- Page-specific form styling (kept minimal & aligned with your design) -->
   <style>
     .visually-hidden {
       position: absolute;
@@ -25,7 +26,10 @@
       border: 0;
     }
 
-    /* Simple form spacing tweaks so it looks like the intro page style */
+    #intro-form-section {
+      margin-top: 1rem;
+    }
+
     #intro-form fieldset {
       margin: 1rem 0;
       text-align: left;
@@ -106,17 +110,18 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
   <header>
     <div data-include="components/header.html"></div>
   </header>
 
-  <main class="content">
+  <main id="content">
     <h2>Introduction Form</h2>
+    <h3>Please submit the form below.</h3>
 
-    <!-- FORM SECTION (has heading, so validator is happy) -->
+    <!-- FORM SECTION -->
     <section id="intro-form-section">
-      <h3>Please submit the form below.</h3>
-
       <form id="intro-form" novalidate>
         <!-- NAME FIELDS -->
         <fieldset>
@@ -156,11 +161,12 @@
           </label>
           <label>
             Acknowledgment Date*:
-            <input type="text" name="ackDate" placeholder="YYYY-MM-DD" required pattern="\d{4}-\d{2}-\d{2}" />
-            <small style="color:#555;">Format: YYYY-MM-DD</small>
-        </label>
-
-
+            <input type="text"
+                   name="ackDate"
+                   required
+                   placeholder="YYYY-MM-DD"
+                   pattern="\d{4}-\d{2}-\d{2}" />
+          </label>
         </fieldset>
 
         <!-- MASCOT -->
@@ -181,18 +187,20 @@
           <label>
             Divider*:
             <input type="text" name="divider" required
-                   value="~"
-                   placeholder="e.g. ~ | ♥️" />
+                   value="·"
+                   placeholder="e.g. ~ | ♥️ ·" />
           </label>
         </fieldset>
 
-        <!-- IMAGE -->
+        <!-- PICTURE -->
         <fieldset>
           <legend>Picture</legend>
+          <p style="font-size:0.85rem; color:#555;">
+            Defaults to your current introduction image if no file is chosen.
+          </p>
           <label>
-            Upload Image*:
-            <input type="file" name="imageFile" id="imageFile"
-                   accept="image/*" required />
+            Upload Image:
+            <input type="file" name="imageFile" id="imageFile" accept="image/*" />
           </label>
           <label>
             Picture Caption*:
@@ -208,52 +216,59 @@
           <label>
             Personal Statement*:
             <textarea name="personalStatement" required
-                      placeholder="Write a brief introduction."></textarea>
+              placeholder="Write a brief introduction about yourself.">Hi, I’m Tranyce. My hometown is Raeford, North Carolina. I moved to Charlotte about three years ago to attend UNCC, and I am now a junior.</textarea>
           </label>
         </fieldset>
 
         <!-- 7 MAIN BULLETS -->
         <fieldset>
-          <legend>Main Sections (7 bullets)</legend>
+          <legend>7 Main Bullets</legend>
           <label>Personal Background*:
             <input type="text" name="bullet1" required
+                   value="Hi, I’m Tranyce. My hometown is Raeford, North Carolina. I moved to Charlotte about three years ago to attend UNCC, and I am now a junior."
                    placeholder="Personal Background" />
           </label>
-          <label>Academic Background*:
+          <label>Professional Background*:
             <input type="text" name="bullet2" required
+                   value="Experience in customer engagement and technology at Apple and Walgreens; focused on accessible, intuitive digital experiences."
+                   placeholder="Professional Background" />
+          </label>
+          <label>Academic Background*:
+            <input type="text" name="bullet3" required
+                   value="Junior at UNCC, originally MechE, now Computer Science B.A. with Human-Computer Interaction concentration."
                    placeholder="Academic Background" />
           </label>
-          <label>Background in this Subject*:
-            <input type="text" name="bullet3" required
-                   placeholder="Background in this Subject" />
+          <label>Background in This Subject*:
+            <input type="text" name="bullet4" required
+                   value="Strong foundation in HTML/CSS, UX interest, and programming in Java, JavaScript, Python, C, and SQL."
+                   placeholder="Background in This Subject" />
           </label>
           <label>Primary Computer Platform*:
-            <input type="text" name="bullet4" required
+            <input type="text" name="bullet5" required
+                   value="macOS and Windows."
                    placeholder="Primary Computer Platform" />
           </label>
-          <label>Courses Taking*:
-            <input type="text" name="bullet5" required
-                   placeholder="General note about your courses" />
-          </label>
-          <label>Funny/Interesting Thing*:
+          <label>Courses I’m Taking &amp; Why*:
             <input type="text" name="bullet6" required
-                   placeholder="Something fun/interesting" />
+                   value="Taking UX, web, backend, social tech, and physical computing courses that support my HCI path."
+                   placeholder="Courses you are taking and why" />
           </label>
           <label>Anything Else*:
             <input type="text" name="bullet7" required
+                   value="I enjoy designing experiences that blend creativity and technical precision."
                    placeholder="Anything else you'd like to share" />
           </label>
         </fieldset>
 
-        <!-- COURSES (dynamic list) -->
+        <!-- COURSES (dynamic) -->
         <fieldset>
-          <legend>Courses</legend>
+          <legend>Courses (Dept, Number, Name, Reason)</legend>
           <div id="courses-container">
             <div class="course-row">
-              <input type="text" name="courseDept[]" placeholder="Dept (e.g. ITIS)" required />
-              <input type="text" name="courseNum[]" placeholder="Number (e.g. 3135)" required />
-              <input type="text" name="courseName[]" placeholder="Course Name" required />
-              <input type="text" name="courseReason[]" placeholder="Reason for taking" required />
+              <input type="text" name="courseDept[]" placeholder="Dept (e.g. ITIS)" value="ITIS" required />
+              <input type="text" name="courseNum[]" placeholder="Number" value="3135" required />
+              <input type="text" name="courseName[]" placeholder="Course Name" value="Web-Based Programming" required />
+              <input type="text" name="courseReason[]" placeholder="Reason" value="To strengthen my front-end and web skills." required />
             </div>
           </div>
           <button type="button" id="add-course-btn">Add Another Course</button>
@@ -291,10 +306,10 @@
         <fieldset>
           <legend>Links (up to 5)</legend>
           <label>Link 1:
-            <input type="url" name="link1" placeholder="https://..." />
+            <input type="url" name="link1" placeholder="https://linkedin.com/in/..." />
           </label>
           <label>Link 2:
-            <input type="url" name="link2" placeholder="https://..." />
+            <input type="url" name="link2" placeholder="https://github.com/..." />
           </label>
           <label>Link 3:
             <input type="url" name="link3" placeholder="https://..." />
@@ -316,7 +331,7 @@
       </form>
     </section>
 
-    <!-- RESULT SECTION (now has a heading for validator; content replaced by JS) -->
+    <!-- RESULT SECTION: JS will inject intro-style layout here -->
     <section id="intro-result-section" style="display:none;">
       <h3 class="visually-hidden">Generated Introduction</h3>
     </section>
@@ -330,7 +345,6 @@
   <script src="scripts/introduction.js"></script>
 
   <script>
-    // Auto-wire validators in footer, if present
     window.addEventListener("load", function () {
       var html = document.getElementById("validation-link-html");
       var css = document.getElementById("validation-link-css");

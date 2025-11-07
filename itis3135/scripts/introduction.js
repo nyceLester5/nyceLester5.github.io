@@ -9,18 +9,18 @@ document.addEventListener("DOMContentLoaded", function () {
   var formSection = document.getElementById("intro-form-section");
 
   if (!form) {
-    return; // safety
+    return;
   }
 
-  // ---------- Helpers ----------
+  // -------- Helpers --------
 
   function getUploadedImageSrc() {
     var fileInput = document.getElementById("imageFile");
     if (fileInput && fileInput.files && fileInput.files[0]) {
       return URL.createObjectURL(fileInput.files[0]);
     }
-    // fallback to your default intro image if none selected
-    return "/tlester5/itis3135/images/introduction-photo.jpg";
+    // Default intro image (matches your introduction.html)
+    return "images/profile.jpg";
   }
 
   function buildIntroductionPage() {
@@ -35,25 +35,26 @@ document.addEventListener("DOMContentLoaded", function () {
       return x;
     }).join(" ");
 
-    var mascotAdj = data.get("mascotAdj") || "";
-    var mascotAnimal = data.get("mascotAnimal") || "";
-    var divider = data.get("divider") || "~";
+    var mascotAdj = data.get("mascotAdj") || "Nova";
+    var mascotAnimal = data.get("mascotAnimal") || "Lion";
+    var divider = data.get("divider") || "·";
 
     var imgSrc = getUploadedImageSrc();
-    var imageCaption = data.get("imageCaption") || "";
+    var imageCaption = data.get("imageCaption") || displayName || "Profile Photo";
 
     var personalStatement = data.get("personalStatement") || "";
 
-    var bullets = [
-      data.get("bullet1"),
-      data.get("bullet2"),
-      data.get("bullet3"),
-      data.get("bullet4"),
-      data.get("bullet5"),
-      data.get("bullet6"),
-      data.get("bullet7")
-    ].filter(function (b) {
-      return b;
+    // bullets mapped w/ labels
+    var bulletItems = [
+      { label: "Personal Background", value: data.get("bullet1") },
+      { label: "Professional Background", value: data.get("bullet2") },
+      { label: "Academic Background", value: data.get("bullet3") },
+      { label: "Background in This Subject", value: data.get("bullet4") },
+      { label: "Primary Computer Platform", value: data.get("bullet5") },
+      { label: "Courses I’m Taking & Why", value: data.get("bullet6") },
+      { label: "Anything Else", value: data.get("bullet7") }
+    ].filter(function (item) {
+      return item.value;
     });
 
     var quote = data.get("quote") || "";
@@ -90,75 +91,81 @@ document.addEventListener("DOMContentLoaded", function () {
       return l;
     });
 
-    // ---------- Build HTML result ----------
+    // -------- Build HTML to match introduction.html layout --------
+
     var html = "";
 
-    html += '<h2>Introduction Form – ' + displayName + "</h2>";
+    // Only difference: H2 text
+    html += "<h2>Introduction Form</h2>";
+    html += "<h3>" + displayName + " · " + mascotAdj + " " + mascotAnimal + "</h3>";
 
     html += "<figure>";
     html += '<img src="' + imgSrc + '" alt="' + imageCaption + '">';
     html += "<figcaption>" + imageCaption + "</figcaption>";
     html += "</figure>";
 
-    html += "<p><strong>" + mascotAdj + " " + mascotAnimal + "</strong> " +
-            divider + " " + displayName + "</p>";
+    html += '<ul class="bio-list">';
 
     if (personalStatement) {
-      html += "<p>" + personalStatement + "</p>";
+      html += "<li><strong>Personal Statement:</strong> " + personalStatement + "</li>";
     }
 
-    if (bullets.length > 0) {
-      html += "<ul>";
-      html += bullets.map(function (b) {
-        return "<li>" + b + "</li>";
-      }).join("");
-      html += "</ul>";
-    }
+    html += bulletItems.map(function (item) {
+      return "<li><strong>" + item.label + ":</strong> " + item.value + "</li>";
+    }).join("");
 
     if (courses.length > 0) {
-      html += "<h3>Current Courses</h3>";
-      html += "<ul>";
+      html += "<li><strong>Courses I’m Taking &amp; Why:</strong><br>";
       html += courses.map(function (c) {
-        return "<li>" +
-          (c.dept || "") + " " +
-          (c.num || "") +
-          (c.name ? " — " + c.name : "") +
-          (c.reason ? " (" + c.reason + ")" : "") +
-          "</li>";
-      }).join("");
-      html += "</ul>";
+        var text = "";
+        if (c.dept) {
+          text += c.dept + " ";
+        }
+        if (c.num) {
+          text += c.num + " ";
+        }
+        if (c.name) {
+          text += "– " + c.name + " ";
+        }
+        if (c.reason) {
+          text += "(" + c.reason + ")";
+        }
+        return text.trim();
+      }).join("<br>");
+      html += "</li>";
     }
 
     if (quote || quoteAuthor) {
-      html += "<h3>Favorite Quote</h3>";
-      html += '<p>"' + quote + '" — ' + quoteAuthor + "</p>";
+      html += '<li><strong>Favorite Quote:</strong> "' + quote + '" — ' + quoteAuthor + "</li>";
     }
 
     if (funnyThing) {
-      html += "<p><strong>Funny thing:</strong> " + funnyThing + "</p>";
+      html += "<li><strong>Funny thing:</strong> " + funnyThing + "</li>";
     }
 
     if (share) {
-      html += "<p><strong>Something I'd like to share:</strong> " + share + "</p>";
+      html += "<li><strong>Something I'd like to share:</strong> " + share + "</li>";
     }
 
     if (links.length > 0) {
-      html += "<h3>Links</h3>";
-      html += "<ul>";
+      html += "<li><strong>Links:</strong><br>";
       html += links.map(function (l) {
-        return '<li><a href="' + l + '" target="_blank" rel="noopener">' + l + "</a></li>";
-      }).join("");
-      html += "</ul>";
+        return '<a href="' + l + '" target="_blank" rel="noopener">' + l + "</a>";
+      }).join("<br>");
+      html += "</li>";
     }
+
+    html += "</ul>";
 
     html += '<p><a href="#" id="reset-view-link">Start over</a></p>';
 
     resultSection.innerHTML = html;
 
-    // swap visibility
+    // swap views
     formSection.style.display = "none";
     resultSection.style.display = "block";
 
+    // reset handler
     var resetLink = document.getElementById("reset-view-link");
     if (resetLink) {
       resetLink.addEventListener("click", function (e) {
@@ -169,9 +176,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ---------- Event Listeners ----------
+  // -------- Events --------
 
-  // Prevent default submit; validate; then build page
+  // Submit → validate + build intro
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!form.checkValidity()) {
@@ -181,28 +188,27 @@ document.addEventListener("DOMContentLoaded", function () {
     buildIntroductionPage();
   });
 
-  // Reset → back to defaults + hide result
+  // Reset → back to form view
   form.addEventListener("reset", function () {
-    // allow browser to reset values first
     window.setTimeout(function () {
       resultSection.style.display = "none";
       formSection.style.display = "block";
     }, 0);
   });
 
-  // Clear button → all fields empty (except buttons)
+  // Clear → blank all fields (except buttons)
   if (clearBtn) {
     clearBtn.addEventListener("click", function () {
       var elements = form.querySelectorAll("input, textarea");
       Array.prototype.forEach.call(elements, function (el) {
-        if (el.type !== "button" &&
-            el.type !== "submit" &&
-            el.type !== "reset" &&
-            el.name !== "imageFile") {
+        if (
+          el.type !== "button" &&
+          el.type !== "submit" &&
+          el.type !== "reset"
+        ) {
           el.value = "";
         }
       });
-      // clear file input separately
       var fileInput = document.getElementById("imageFile");
       if (fileInput) {
         fileInput.value = "";
@@ -210,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Add new course row
+  // Add course row
   if (addCourseBtn && coursesContainer) {
     addCourseBtn.addEventListener("click", function () {
       var row = document.createElement("div");
