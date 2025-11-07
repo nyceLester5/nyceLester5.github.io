@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Introduction Form</title>
+  <link rel="stylesheet" href="/tlester5/itis3135/styles/default.css" />
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div data-include="components/header.html"></div>
+  </header>
+
+  <main class="content">
+    <h2>Introduction Form</h2>
+    <h3>Please submit the form below.</h3>
+
+    <!-- FORM WRAPPER -->
+    <section id="intro-form-section">
+      <form id="intro-form">
+
+        <!-- NAME FIELDS -->
+        <fieldset>
+          <legend>Name</legend>
+          <label>
+            First Name*:
+            <input type="text" name="firstName" required
+                   value="Tranyce"
+                   placeholder="Enter your first name" />
+          </label>
+          <label>
+            Middle Name / Initial:
+            <input type="text" name="middleName"
+                   placeholder="Optional" />
+          </label>
+          <label>
+            Nickname / Preferred Name:
+            <input type="text" name="nickname"
+                   placeholder="Optional" />
+          </label>
+          <label>
+            Last Name*:
+            <input type="text" name="lastName" required
+                   value="Lester"
+                   placeholder="Enter your last name" />
+          </label>
+        </fieldset>
+
+        <!-- ACKNOWLEDGMENT -->
+        <fieldset>
+          <legend>Acknowledgment</legend>
+          <label>
+            Acknowledgment Statement*:
+            <input type="text" name="ackStatement" required
+                   value="I have read and understand the course contract."
+                   placeholder="Type your acknowledgment statement" />
+          </label>
+          <label>
+            Acknowledgment Date*:
+            <input type="date" name="ackDate" required />
+          </label>
+        </fieldset>
+
+        <!-- MASCOT -->
+        <fieldset>
+          <legend>Mascot</legend>
+          <label>
+            Mascot Adjective*:
+            <input type="text" name="mascotAdj" required
+                   value="Nova"
+                   placeholder="e.g. Mighty, Fierce, Nova" />
+          </label>
+          <label>
+            Mascot Animal*:
+            <input type="text" name="mascotAnimal" required
+                   value="Lion"
+                   placeholder="e.g. Lion, Owl, Dragon" />
+          </label>
+          <label>
+            Divider*:
+            <input type="text" name="divider" required
+                   value="~"
+                   placeholder="e.g. ~ | ♥️" />
+          </label>
+        </fieldset>
+
+        <!-- IMAGE -->
+        <fieldset>
+          <legend>Picture</legend>
+          <label>
+            Upload Image*:
+            <input type="file" name="imageFile" id="imageFile" accept="image/*" required />
+        </label>
+        <label>
+            Picture Caption*:
+            <input type="text" name="imageCaption" required
+                value="Tranyce Lester"
+                placeholder="Short caption for the image" />
+        </label>
+
+          <label>
+            Picture Caption*:
+            <input type="text" name="imageCaption" required
+                   value="Tranyce Lester"
+                   placeholder="Short caption for the image" />
+          </label>
+        </fieldset>
+
+        <!-- PERSONAL STATEMENT -->
+        <fieldset>
+          <legend>Personal Statement</legend>
+          <label>
+            Personal Statement*:
+            <textarea name="personalStatement" required
+                      placeholder="Write a brief intro about yourself."></textarea>
+          </label>
+        </fieldset>
+
+        <!-- 7 MAIN BULLETS -->
+        <fieldset>
+          <legend>Main Sections (7 bullets)</legend>
+          <label>Personal Background*:
+            <input type="text" name="bullet1" required
+                   placeholder="Personal Background" />
+          </label>
+          <label>Academic Background*:
+            <input type="text" name="bullet2" required
+                   placeholder="Academic Background" />
+          </label>
+          <label>Background in this Subject*:
+            <input type="text" name="bullet3" required
+                   placeholder="Background in this Subject" />
+          </label>
+          <label>Primary Computer Platform*:
+            <input type="text" name="bullet4" required
+                   placeholder="Primary Computer Platform" />
+          </label>
+          <label>Courses Taking*:
+            <input type="text" name="bullet5" required
+                   placeholder="General note about your courses" />
+          </label>
+          <label>Funny/Interesting Thing*:
+            <input type="text" name="bullet6" required
+                   placeholder="Something fun/interesting" />
+          </label>
+          <label>Anything Else*:
+            <input type="text" name="bullet7" required
+                   placeholder="Anything else to share" />
+          </label>
+        </fieldset>
+
+        <!-- COURSES (dynamic list) -->
+        <fieldset>
+          <legend>Courses</legend>
+          <div id="courses-container">
+            <!-- one default row -->
+            <div class="course-row">
+              <input type="text" name="courseDept[]" placeholder="Dept (e.g. ITIS)" required />
+              <input type="text" name="courseNum[]" placeholder="Number (e.g. 3135)" required />
+              <input type="text" name="courseName[]" placeholder="Course Name" required />
+              <input type="text" name="courseReason[]" placeholder="Why you're taking it" required />
+            </div>
+          </div>
+          <button type="button" id="add-course-btn">Add Another Course</button>
+        </fieldset>
+
+        <!-- QUOTE -->
+        <fieldset>
+          <legend>Quote</legend>
+          <label>
+            Favorite Quote*:
+            <input type="text" name="quote" required
+                   placeholder="Your favorite quote" />
+          </label>
+          <label>
+            Quote Author*:
+            <input type="text" name="quoteAuthor" required
+                   placeholder="Who said it?" />
+          </label>
+        </fieldset>
+
+        <!-- OPTIONAL FIELDS -->
+        <fieldset>
+          <legend>Optional Extras</legend>
+          <label>
+            Funny Thing (optional):
+            <input type="text" name="funnyThing" placeholder="Optional" />
+          </label>
+          <label>
+            Something I’d Like to Share (optional):
+            <textarea name="share" placeholder="Optional"></textarea>
+          </label>
+        </fieldset>
+
+        <!-- LINKS -->
+        <fieldset>
+          <legend>Links (up to 5)</legend>
+          <label>Link 1:
+            <input type="url" name="link1" placeholder="https://..." />
+          </label>
+          <label>Link 2:
+            <input type="url" name="link2" placeholder="https://..." />
+          </label>
+          <label>Link 3:
+            <input type="url" name="link3" placeholder="https://..." />
+          </label>
+          <label>Link 4:
+            <input type="url" name="link4" placeholder="https://..." />
+          </label>
+          <label>Link 5:
+            <input type="url" name="link5" placeholder="https://..." />
+          </label>
+        </fieldset>
+
+        <!-- BUTTONS -->
+        <div class="form-buttons">
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+          <button type="button" id="clear-btn">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- RESULT SECTION (hidden until submit) -->
+    <section id="intro-result-section" style="display:none;"></section>
+
+  </main>
+
+  <footer>
+    <div data-include="components/footer.html"></div>
+  </footer>
+
+  <script src="scripts/HTMLInclude.js"></script>
+  <script src="scripts/introduction.js"></script>
+
+  <script>
+    // auto-wire validators in footer
+    window.addEventListener("load", function () {
+      const html = document.getElementById("validation-link-html");
+      const css = document.getElementById("validation-link-css");
+      if (html && css) {
+        html.href = "https://validator.w3.org/check?uri=" + location.href;
+        css.href = "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href;
+      }
+    });
+  </script>
+</body>
+</html>
