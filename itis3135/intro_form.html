@@ -156,9 +156,9 @@
           </label>
           <label>
             Acknowledgment Date*:
-            <!-- Browser fallback: "date" input supported by most browsers -->
-            <input type="date" name="ackDate" required />
-          </label>
+            <input type="date" name="ackDate" required onfocus="(this.type='date')" onblur="(this.type='text')" />
+        </label>
+
         </fieldset>
 
         <!-- MASCOT -->
