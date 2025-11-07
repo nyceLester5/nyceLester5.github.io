@@ -115,14 +115,14 @@
   <header>
     <div data-include="components/header.html"></div>
   </header>
+<main id="content">
+  <h2>Introduction Form</h2>
 
-  <main id="content">
-    <h2>Introduction Form</h2>
+  <!-- FORM SECTION -->
+  <section id="intro-form-section">
     <h3>Please submit the form below.</h3>
 
-    <!-- FORM SECTION -->
-    <section id="intro-form-section">
-      <form id="intro-form" novalidate>
+    <form id="intro-form" novalidate>
         <!-- NAME FIELDS -->
         <fieldset>
           <legend>Name</legend>
@@ -161,12 +161,10 @@
           </label>
           <label>
             Acknowledgment Date*:
-            <input type="text"
-                   name="ackDate"
-                   required
-                   placeholder="YYYY-MM-DD"
-                   pattern="\d{4}-\d{2}-\d{2}" />
-          </label>
+            <input type="text" name="ackDate" placeholder="YYYY-MM-DD" required pattern="\d{4}-\d{2}-\d{2}" />
+            <small style="color:#555;">Format: YYYY-MM-DD</small>
+        </label>
+
         </fieldset>
 
         <!-- MASCOT -->
@@ -187,7 +185,7 @@
           <label>
             Divider*:
             <input type="text" name="divider" required
-                   value="·"
+                   value="~"
                    placeholder="e.g. ~ | ♥️ ·" />
           </label>
         </fieldset>
