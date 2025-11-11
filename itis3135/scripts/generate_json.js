@@ -2,17 +2,27 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("intro-form");
   const resultSection = document.getElementById("intro-result-section");
-  const generateBtn = document.getElementById("generate-json-btn");
+
+  // Create Generate JSON button if not already in HTML
+  let generateBtn = document.getElementById("generate-json-btn");
+  if (!generateBtn && form) {
+    const btnGroup = form.querySelector(".form-buttons");
+    generateBtn = document.createElement("button");
+    generateBtn.type = "button";
+    generateBtn.id = "generate-json-btn";
+    generateBtn.textContent = "Generate JSON";
+    btnGroup.appendChild(generateBtn);
+  }
 
   if (!form || !generateBtn) return;
 
   generateBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    // Collect all form data
+    // Collect form data
     const data = new FormData(form);
 
-    // Build JSON object structure
+    // Build JSON structure
     const jsonOutput = {
       firstName: data.get("firstName") || "",
       preferredName: data.get("nickname") || "",
@@ -33,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       links: []
     };
 
-    // Handle courses (dynamic rows)
+    // Collect dynamic courses
     const depts = data.getAll("courseDept[]");
     const nums = data.getAll("courseNum[]");
     const names = data.getAll("courseName[]");
@@ -48,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Handle links
+    // Collect up to 5 links
     for (let i = 1; i <= 5; i++) {
       const linkVal = data.get(`link${i}`);
       if (linkVal) {
@@ -56,21 +66,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Format JSON for display
+    // Format JSON text
     const formatted = JSON.stringify(jsonOutput, null, 2);
 
-    // Change H2 text
+    // Change H2 title
     const heading = document.querySelector("#intro-form-section h2");
     if (heading) heading.textContent = "Introduction JSON";
 
-    // Display JSON output using Highlight.js
+    // Display formatted JSON in card layout
     resultSection.style.display = "block";
     resultSection.innerHTML = `
-      <h2>Generated JSON Output</h2>
-      <section aria-label="Formatted JSON Output">
-        <pre><code class="language-json">${formatted}</code></pre>
-      </section>
-      <button id="reset-json-btn">Reset Form</button>
+      <div class="json-card fade-in">
+        <h2>Generated JSON Output</h2>
+        <section aria-label="Formatted JSON Output">
+          <pre><code class="language-json">${formatted}</code></pre>
+        </section>
+        <div style="text-align:center; margin-top:1rem;">
+          <button id="reset-json-btn">Reset Form</button>
+        </div>
+      </div>
     `;
 
     // Highlight JSON syntax
@@ -83,11 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hide the form
     form.style.display = "none";
 
-    // Reset button functionality
-    document.getElementById("reset-json-btn").addEventListener("click", () => {
+    // Reset form and show again
+    const resetBtn = document.getElementById("reset-json-btn");
+    resetBtn.addEventListener("click", () => {
       resultSection.style.display = "none";
       form.style.display = "block";
-      heading.textContent = "Introduction Form";
+      if (heading) heading.textContent = "Introduction Form";
     });
   });
 });
