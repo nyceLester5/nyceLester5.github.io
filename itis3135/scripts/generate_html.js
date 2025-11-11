@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // Escape for displaying HTML as text inside <pre><code>
+  // Escape for displaying HTML literally inside <pre><code>
   function escapeHtml(str) {
     return String(str)
       .replace(/&/g, "&amp;")
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   generateHtmlBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
-    // use built-in validation
+    // Use built-in validation so required fields must be filled
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const data = new FormData(form);
 
-    // Basic fields
+    // ===== BASIC FIELDS =====
     const firstName = data.get("firstName") || "";
     const middleName = data.get("middleName") || "";
     const nickname = data.get("nickname") || "";
@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const divider = data.get("divider") || "~";
     const mascotAdj = data.get("mascotAdj") || "";
     const mascotAnimal = data.get("mascotAnimal") || "";
+
     const imageCaption = data.get("imageCaption") || "Profile image";
     const personalStatement = data.get("personalStatement") || "";
 
@@ -53,14 +54,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const funnyThing = data.get("funnyThing") || "";
     const share = data.get("share") || "";
 
-    // Decide which image path to show
+    // ===== IMAGE PATH =====
     const imageFile = data.get("imageFile");
     const imagePath =
       imageFile && imageFile.name
         ? "uploads/" + imageFile.name
         : "images/profile.jpg";
 
-    // Build display name: First [Middle] ["Nickname"] Last
+    // ===== NAME + MASCOT LINE =====
+    // First [Middle] ["Nickname"] Last
     let nameLine = firstName;
     if (middleName) {
       nameLine += " " + middleName;
@@ -72,14 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
       nameLine += " " + lastName;
     }
 
-    // Build mascot bit:  e.g.  ★ Nova Lion
+    // Mascot part → e.g. "~ Nova Lion"
     let mascotBit = "";
     if (mascotAdj || mascotAnimal) {
-      const symbol = divider || "★";
+      const symbol = divider || "~";
       mascotBit = ` ${symbol} ${mascotAdj} ${mascotAnimal}`.trimEnd();
     }
 
-    // Collect dynamic course rows
+    // ===== COURSES (dynamic rows) =====
     const depts = data.getAll("courseDept[]");
     const nums = data.getAll("courseNum[]");
     const names = data.getAll("courseName[]");
@@ -96,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Collect up to 5 links
+    // ===== LINKS (from 5 inputs) =====
     const links = [];
     for (let i = 1; i <= 5; i++) {
       const href = data.get("link" + i);
@@ -105,8 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // ================== BUILD HTML SNIPPET ==================
-    // This is the code that will be SHOWN as text (escaped) in <pre><code>
+    // ===== BUILD HTML SNIPPET (this is what we SHOW as code) =====
     let htmlOutput = "";
 
     htmlOutput += `<h2>Introduction HTML</h2>\n`;
@@ -154,10 +155,10 @@ document.addEventListener("DOMContentLoaded", function () {
       htmlOutput += `</ul>\n`;
     }
 
-    // Escape for safe display
+    // Escape snippet so it shows as code, not rendered HTML
     const safeHtml = escapeHtml(htmlOutput);
 
-    // Change H2 above form section
+    // Change H2 in the form section
     const heading = document.querySelector("#intro-form-section h2");
     if (heading) {
       heading.textContent = "Introduction HTML";
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Hide form
     form.style.display = "none";
 
-    // Inject output in same style card as JSON (reusing .json-card + .json-heading)
+    // Show formatted HTML snippet
     resultSection.style.display = "block";
     resultSection.innerHTML = `
       <div class="json-card">
@@ -180,15 +181,15 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     `;
 
-    // Highlight.js: apply syntax highlighting
+    // Highlight.js syntax highlighting
     if (window.hljs) {
-      var codeBlock = resultSection.querySelector("pre code");
+      const codeBlock = resultSection.querySelector("pre code");
       if (codeBlock) {
         hljs.highlightElement(codeBlock);
       }
     }
 
-    // Reset button restores form
+    // Reset button: restore form + heading
     const resetHtmlBtn = document.getElementById("reset-html-btn");
     if (resetHtmlBtn) {
       resetHtmlBtn.addEventListener("click", function () {
