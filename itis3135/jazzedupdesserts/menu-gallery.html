@@ -7,6 +7,7 @@
   <script src="scripts/main.js" defer></script>
   <script src="scripts/HTMLInclude.js"></script>
 </head>
+
 <body>
 
 <div data-include="components/header.html"></div>
@@ -15,11 +16,21 @@
   <h1>Menu & Gallery</h1>
   <p>Explore our signature cakes, cupcakes, and dessert selections.</p>
 
-  <div class="gallery">
-    <img src="images/cc.PNG" alt="Dessert 1">
-    <img src="images/fav.PNG" alt="Dessert 2">
-    <img src="images/p3.PNG" alt="Dessert 3">
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button data-filter="all">Show All</button>
+    <button data-filter="cake">Cakes</button>
+    <button data-filter="cupcake">Cupcakes</button>
+    <button data-filter="dessert">Specialty Desserts</button>
   </div>
+
+  <!-- Gallery Items -->
+  <div class="gallery">
+    <img src="images/cc.PNG" alt="Dessert 1" data-category="cake">
+    <img src="images/fav.PNG" alt="Dessert 2" data-category="cupcake">
+    <img src="images/p3.PNG" alt="Dessert 3" data-category="dessert">
+  </div>
+
 </main>
 
 <div data-include="components/footer.html"></div>
