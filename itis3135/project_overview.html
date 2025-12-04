@@ -24,8 +24,8 @@
       <p>
         This project is a professional portfolio website for <strong>Pastry Chef Jazmin Lester</strong>, 
         focused on showcasing her custom cakes, desserts, and bakery collaborations. 
-        The application will centralize her visual work, core menu offerings, and current availability, 
-        while providing a clear and structured way for customers to submit <em>non-transactional</em> order inquiries.
+        The application centralizes her visual work, menu offerings, and weekly availability, while providing 
+        a structured way for customers to submit <em>non-transactional</em> order inquiries.
       </p>
       <p>
         The website’s purpose is to increase Jazmin’s online visibility, present her work in a clean and modern layout, 
@@ -37,17 +37,17 @@
         <li>Local customers seeking custom cakes and dessert orders for events.</li>
         <li>Event planners organizing weddings, birthdays, showers, and corporate events.</li>
         <li>Bakery owners or managers interested in collaborations.</li>
-        <li>Friends, followers, and returning customers who want to browse her portfolio.</li>
+        <li>Friends, followers, and returning customers browsing her portfolio.</li>
       </ul>
 
       <h3>Overview of Website Content</h3>
       <ul>
-        <li>Chef bio and story background.</li>
-        <li>Curated gallery of cakes, cupcakes, and specialty desserts.</li>
-        <li>Menu with flavor options and starting price ranges.</li>
-        <li>Order inquiry form for custom requests (front-end only).</li>
-        <li>Weekly schedule and bakery location details.</li>
-        <li>Optional testimonials and FAQs.</li>
+        <li>Chef biography and brand story.</li>
+        <li>Photo gallery of cakes, cupcakes, and specialty desserts.</li>
+        <li>Menu with flavor options and starting prices.</li>
+        <li>Order inquiry form (front-end only, no data storage).</li>
+        <li>Weekly schedule and bakery location map.</li>
+        <li>Optional testimonials and frequently asked questions.</li>
       </ul>
     </section>
 
@@ -56,8 +56,8 @@
       <h3>Client Information</h3>
       <p><strong>Client Name:</strong> Jazmin Lester</p>
       <p><strong>Role:</strong> Professional Pastry Chef &amp; Custom Cake Designer</p>
-      <p><strong>Organization/Business:</strong> [Bakery Name] / Independent Pastry Chef</p>
-      <p><strong>Email:</strong> [private]</p>
+      <p><strong>Organization/Business:</strong> Jazzed Up Desserts, LLC</p>
+      <p><strong>Email:</strong> jazzedupdessertsllc@gmail.com</p>
       <p><strong>Phone:</strong> [private]</p>
       <p>
         Jazmin’s goal is to have a visually appealing, easy-to-navigate website that showcases her work 
@@ -68,78 +68,181 @@
     <!-- WIREFRAME -->
     <section>
       <h3>Wireframe: Default Page Layout</h3>
-      <ul>
-        <li><strong>Header:</strong> Logo/wordmark “Chef Jazmin Lester”, main navigation links.</li>
-        <li><strong>Hero Area:</strong> Wide featured dessert image with tagline and button.</li>
-        <li><strong>Content Area:</strong> One or two columns for text, cards, or image grids.</li>
-        <li><strong>Footer:</strong> Contact info summary, social icons, and validation links.</li>
-      </ul>
-
       <figure>
-        <img src="images/jazmin-wireframe.png" alt="Wireframe of the default layout for Chef Jazmin Lester's portfolio website." />
+        <img src="images/jazzedupdesserts.drawio.png" alt="Wireframe of the default layout for Chef Jazmin Lester's portfolio website." />
         <figcaption>Figure 1: Proposed default layout for the pastry portfolio website.</figcaption>
       </figure>
       <p>
-        <a href="LINK_TO_DRAWIO_WIREFRAME">View full-size wireframe on diagrams.net</a>
+        <a href="https://drive.google.com/file/d/1T9-FFg9fOQFBEHuJBiXkfIUmj9Kd_VPl/view?usp=sharing">View full-size wireframe on diagrams.net</a>
       </p>
     </section>
 
     <!-- SITE MAP -->
     <section>
       <h3>Site Map</h3>
-      <ul>
-        <li><strong>Home (index.html)</strong></li>
-        <li><strong>About (about.html)</strong></li>
-        <li><strong>Menu &amp; Gallery (menu-gallery.html)</strong></li>
-        <li><strong>Order Inquiry (order.html)</strong></li>
-        <li><strong>Schedule &amp; Location (schedule.html)</strong></li>
-        <li><strong>Testimonials / FAQ (testimonials.html)</strong> (optional)</li>
-      </ul>
       <figure>
-        <img src="images/jazmin-sitemap.png" alt="Sitemap diagram for Chef Jazmin Lester's portfolio website." />
+        <img src="images/judsitemap.drawio.png" alt="Sitemap diagram for Chef Jazmin Lester's portfolio website." />
         <figcaption>Figure 2: Sitemap for the pastry portfolio website.</figcaption>
       </figure>
       <p>
-        <a href="LINK_TO_DRAWIO_SITEMAP">View full-size sitemap on diagrams.net</a>
+        <a href="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=judsitemap.drawio&dark=auto#R%3Cmxfile%3E">View full-size sitemap on diagrams.net</a>
       </p>
     </section>
 
     <!-- PAGE DESIGN DETAILS -->
     <section>
-      <h3>Page Design Details</h3>
-      <p>
-        Each page will follow the site’s overall layout and style, maintaining a consistent navigation bar, 
-        responsive content sections, and dynamic interactivity. Detailed page-by-page breakdowns include:
-      </p>
-      <ul>
-        <li><strong>Home:</strong> Hero banner, intro text, and featured desserts.</li>
-        <li><strong>About:</strong> Chef background, photos, and philosophy.</li>
-        <li><strong>Menu &amp; Gallery:</strong> Category tabs, image filters, and lightbox functionality.</li>
-        <li><strong>Order Inquiry:</strong> Validated form with dropdowns and date picker.</li>
-        <li><strong>Schedule &amp; Location:</strong> AJAX-loaded schedule with embedded map.</li>
-        <li><strong>Testimonials / FAQ:</strong> Accordion layout using jQuery UI (optional).</li>
-      </ul>
-    </section>
+  <h3>Page Design Details</h3>
+  <p>
+    Each page will use a consistent layout that includes the shared header, navigation bar, 
+    footer, and responsive page structure. The following sections describe the design 
+    requirements for each individual page.
+  </p>
+
+  <h4>1. Home (index.html)</h4>
+  <ul>
+    <li><strong>Purpose:</strong> Introduce the brand and highlight featured desserts to attract users immediately.</li>
+    <li><strong>Audience/Users:</strong> All site visitors including new customers, returning customers, and event planners.</li>
+    <li><strong>Content:</strong> Hero banner, tagline, chef introduction, featured dessert images.</li>
+    <li><strong>Data Fields:</strong> None.</li>
+    <li><strong>Validations:</strong> Not applicable.</li>
+    <li><strong>Buttons/Links:</strong> “Browse Gallery”, “Order Inquiry”, main navigation links.</li>
+    <li><strong>Actions:</strong> Clicking featured images opens a lightbox modal; buttons link to additional pages.</li>
+    <li><strong>Special Notes:</strong> Page may include subtle animations to improve first impressions.</li>
+  </ul>
+
+  <h4>2. About (about.html)</h4>
+  <ul>
+    <li><strong>Purpose:</strong> Share Chef Jazmin’s background, qualifications, and baking philosophy.</li>
+    <li><strong>Audience/Users:</strong> Clients who want to verify credibility or learn her story.</li>
+    <li><strong>Content:</strong> Biography text, portrait photo, mission statement, brand story.</li>
+    <li><strong>Data Fields:</strong> None.</li>
+    <li><strong>Validations:</strong> Not applicable.</li>
+    <li><strong>Buttons/Links:</strong> Links to Menu & Gallery and Order Inquiry pages.</li>
+    <li><strong>Actions:</strong> Smooth scrolling and fade-in effects for text sections (optional).</li>
+    <li><strong>Special Notes:</strong> Focus on storytelling and building trust.</li>
+  </ul>
+
+  <h4>3. Menu & Gallery (menu-gallery.html)</h4>
+  <ul>
+    <li><strong>Purpose:</strong> Display available dessert categories and showcase high-quality images of past work.</li>
+    <li><strong>Audience/Users:</strong> Customers comparing flavors, styles, and dessert offerings.</li>
+    <li><strong>Content:</strong> Menu flavor list, tabs for dessert categories, images with descriptions.</li>
+    <li><strong>Data Fields:</strong> None.</li>
+    <li><strong>Validations:</strong> Not applicable.</li>
+    <li><strong>Buttons/Links:</strong> Category tabs, filter options, “Request This Style” button leading to Order Inquiry.</li>
+    <li><strong>Actions:</strong> jQuery UI tabs allow switching between categories; images open in a modal viewer; filters adjust visible items.</li>
+    <li><strong>Special Notes:</strong> This page uses the most interactive visual elements.</li>
+  </ul>
+
+  <h4>4. Order Inquiry (order.html)</h4>
+  <ul>
+    <li><strong>Purpose:</strong> Collect front-end only custom order details from visitors.</li>
+    <li><strong>Audience/Users:</strong> Customers interested in placing custom dessert requests.</li>
+    <li><strong>Content:</strong> Inquiry form containing name, email, dessert type, flavor, event date, serving size, and notes.</li>
+    <li><strong>Data Fields:</strong> Multiple input fields, dropdowns, textarea, date picker.</li>
+    <li><strong>Validations:</strong> Required field checks; email format validation; date validation using JavaScript.</li>
+    <li><strong>Buttons/Links:</strong> “Submit Inquiry”, “Clear Form”, navigation links.</li>
+    <li><strong>Actions:</strong> JavaScript displays success message or errors; jQuery UI datepicker opens; form resets after submission.</li>
+    <li><strong>Special Notes:</strong> No user data is stored due to the course’s no-CRUD rule.</li>
+  </ul>
+
+  <h4>5. Schedule & Location (schedule.html)</h4>
+  <ul>
+    <li><strong>Purpose:</strong> Display weekly bakery hours and provide a visual map for pickups or consultations.</li>
+    <li><strong>Audience/Users:</strong> Customers planning visits or coordinating order pickup.</li>
+    <li><strong>Content:</strong> Weekly schedule loaded from JSON, Google Map embed, address details.</li>
+    <li><strong>Data Fields:</strong> None.</li>
+    <li><strong>Validations:</strong> Not applicable.</li>
+    <li><strong>Buttons/Links:</strong> Link to external Google Maps for directions.</li>
+    <li><strong>Actions:</strong> AJAX request retrieves JSON schedule; map allows zoom and pan.</li>
+    <li><strong>Special Notes:</strong> Keeps operating hours flexible to update without editing HTML.</li>
+  </ul>
+
+  <h4>6. Testimonials / FAQ (testimonials.html)</h4>
+  <ul>
+    <li><strong>Purpose:</strong> Provide social proof and address common customer questions.</li>
+    <li><strong>Audience/Users:</strong> New customers and event planners evaluating service quality.</li>
+    <li><strong>Content:</strong> Customer quotes, frequently asked questions, accordion-style toggles.</li>
+    <li><strong>Data Fields:</strong> None.</li>
+    <li><strong>Validations:</strong> Not applicable.</li>
+    <li><strong>Buttons/Links:</strong> Collapsible accordion headers, links to other site pages.</li>
+    <li><strong>Actions:</strong> jQuery UI accordion opens/closes selected panels.</li>
+    <li><strong>Special Notes:</strong> Optional page but recommended for brand credibility.</li>
+  </ul>
+</section>
+
 
     <!-- DYNAMIC FUNCTIONALITY -->
     <section>
-      <h3>Planned Dynamic Functionality</h3>
-      <ul>
-        <li><strong>Interactive Gallery:</strong> Filterable desserts with modal image viewer.</li>
-        <li><strong>jQuery UI Tabs/Accordion:</strong> For menu categories or FAQ toggles.</li>
-        <li><strong>Validated Form:</strong> Client-side form checking on Order page.</li>
-        <li><strong>AJAX Schedule Loader:</strong> Loads weekly hours from JSON for Schedule page.</li>
-      </ul>
-    </section>
+  <h3>Planned Dynamic Functionality</h3>
+  <p>
+    The website will use JavaScript, jQuery, jQuery UI, and AJAX to support interactive 
+    and user-friendly features. The following list describes each planned dynamic 
+    component, its purpose, and an example of a website demonstrating similar functionality.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Interactive Photo Gallery (Lightbox Viewer)</strong><br />
+      <em>Description:</em> Dessert images open in a modal overlay when clicked.<br />
+      <em>Purpose:</em> Enables users to view cake designs in detail without leaving the page.<br />
+      <em>Example:</em> 
+      <a href="https://www.w3schools.com/howto/howto_js_lightbox.asp" target="_blank">
+        W3Schools Lightbox Example
+      </a>
+    </li>
+
+    <li>
+      <strong>jQuery UI Tabs for Menu Categories</strong><br />
+      <em>Description:</em> Organizes dessert categories (cakes, cupcakes, treats) into tabbed panels.<br />
+      <em>Purpose:</em> Reduces page clutter and improves menu navigation.<br />
+      <em>Example:</em> 
+      <a href="https://jqueryui.com/tabs/" target="_blank">
+        jQuery UI Tabs Demo
+      </a>
+    </li>
+
+    <li>
+      <strong>jQuery UI Accordion for FAQs</strong><br />
+      <em>Description:</em> FAQ items expand or collapse when clicked.<br />
+      <em>Purpose:</em> Allows users to quickly find answers without navigating multiple pages.<br />
+      <em>Example:</em> 
+      <a href="https://jqueryui.com/accordion/" target="_blank">
+        jQuery UI Accordion Demo
+      </a>
+    </li>
+
+    <li>
+      <strong>Validated Order Inquiry Form</strong><br />
+      <em>Description:</em> JavaScript ensures required fields are complete and properly formatted.<br />
+      <em>Purpose:</em> Improves data quality and guides the customer through the process.<br />
+      <em>Example:</em> 
+      <a href="https://www.w3schools.com/js/js_validation.asp" target="_blank">
+        JavaScript Form Validation Example
+      </a>
+    </li>
+
+    <li>
+      <strong>AJAX-Loaded Weekly Schedule</strong><br />
+      <em>Description:</em> A JSON file containing weekly operating hours is loaded dynamically using AJAX.<br />
+      <em>Purpose:</em> Allows schedule updates without editing HTML pages and improves maintainability.<br />
+      <em>Example:</em> 
+      <a href="https://www.w3schools.com/jquery/ajax_getjson.asp" target="_blank">
+        AJAX getJSON Example
+      </a>
+    </li>
+  </ul>
+</section>
+
 
     <!-- NOTES -->
     <section>
       <h3>Notes &amp; References</h3>
       <p>
-        Reference sites: small business portfolios and bakery showcase websites.  
+        Reference sites: small business portfolios and bakery showcase websites.<br />
         Prepared by: <strong>Tranyce Lester</strong><br />
-        Date: <!-- Fill in --> <br />
-        Time: <!-- Fill in -->
+        Date:  12/1/2025 <br />
+        Time: 5:00 PM
       </p>
     </section>
   </main>
@@ -148,11 +251,9 @@
     <div data-include="components/footer.html"></div>
   </footer>
 
-  
   <script src="scripts/HTMLInclude.js"></script>
 
   <script>
-    
     window.addEventListener('load', function() {
       const html = document.getElementById('validation-link-html');
       const css  = document.getElementById('validation-link-css');
@@ -164,4 +265,3 @@
   </script>
 </body>
 </html>
-
