@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Inquiry – Jazzed Up Desserts</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/HTMLInclude.js"></script>
+</head>
+<body>
+
+<div data-include="components/header.html"></div>
+
+<main>
+  <h1>Order Inquiry Form</h1>
+  <form id="order-form">
+      <label>Name *</label>
+      <input type="text" id="cust-name" required>
+
+      <label>Email *</label>
+      <input type="email" id="cust-email" required>
+
+      <label>Dessert Type</label>
+      <select>
+        <option>Cake</option>
+        <option>Cupcakes</option>
+        <option>Specialty Dessert</option>
+      </select>
+
+      <label>Event Date</label>
+      <input type="date">
+
+      <label>Additional Notes</label>
+      <textarea rows="5"></textarea>
+
+      <button type="submit">Submit Inquiry</button>
+  </form>
+</main>
+
+<div data-include="components/footer.html"></div>
+
+</body>
+</html>

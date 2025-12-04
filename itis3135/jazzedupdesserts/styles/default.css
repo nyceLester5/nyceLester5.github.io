@@ -1,0 +1,125 @@
+/* ===============================
+   GLOBAL STYLES
+   Jazzed Up Desserts — Lavender Theme
+================================== */
+
+:root {
+  --lavender: #E8D8F6;
+  --cream: #FFF9F2;
+  --plum: #4B2E59;
+  --soft-gold: #C7A27C;
+  --dark-text: #3A2A3B;
+  --light-text: #FFFFFF;
+  --body-font: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font);
+  background-color: var(--cream);
+  color: var(--dark-text);
+}
+
+/* Header */
+#site-header {
+  background-color: var(--lavender);
+  padding: 15px 0;
+  border-bottom: 3px solid var(--soft-gold);
+}
+
+.header-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#site-logo {
+  height: 70px;
+}
+
+/* Navigation */
+#main-nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--plum);
+  font-weight: 600;
+}
+
+#main-nav a:hover {
+  color: var(--soft-gold);
+}
+
+/* Page Layout */
+main {
+  width: 90%;
+  margin: 40px auto;
+}
+
+/* Hero */
+.hero {
+  background-color: var(--lavender);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--plum);
+}
+
+.hero img {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 30%;
+  border-radius: 10px;
+  border: 2px solid var(--soft-gold);
+}
+
+/* Footer */
+#site-footer {
+  background-color: var(--lavender);
+  color: var(--dark-text);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 3px solid var(--soft-gold);
+}
+
+/* Forms */
+form input, form select, form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid var(--plum);
+  border-radius: 8px;
+}
+
+button {
+  background-color: var(--plum);
+  color: var(--light-text);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--soft-gold);
+  color: var(--dark-text);
+}
