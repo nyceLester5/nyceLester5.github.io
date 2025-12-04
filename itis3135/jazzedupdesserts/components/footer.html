@@ -1,10 +1,37 @@
-<!-- Footer Component -->
 <footer id="site-footer">
-  <p>© 2025 Jazzed Up Desserts • Designed for ITIS 3135 by Tranyce Lester</p>
-  <p>Email: jazzedupdessertsllc@gmail.com</p>
 
   <p>
-    <a id="validation-link-html" href="#">Validate HTML</a> |
-    <a id="validation-link-css" href="#">Validate CSS</a>
+    Jazzed Up Desserts • page built by
+    <a href="https://webpages.charlotte.edu/tlester5/itis3135/lesterlabs.co/" target="_blank" rel="noopener">Lester Labs</a>
+    © <span id="year"></span>
   </p>
+
+  <!-- Footer Mini Navigation -->
+  <nav id="footer-nav">
+    <a href="mailto:jazzedupdessertsllc@gmail.com">Contact</a> |
+    <a href="https://webpages.charlotte.edu/tlester5/itis3135/">Return to ITIS 3135 Homepage</a>
+  </nav>
+
+  <div class="validators">
+    <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+      <img src="images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML">
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+      <img src="images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS">
+    </a>
+  </div>
+
+  <script>
+    // Update year + validator URLs
+    (function () {
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+
+      var html = document.getElementById('validation-link-html');
+      var css  = document.getElementById('validation-link-css');
+      if (html) html.setAttribute('href', 'https://validator.w3.org/check?uri=' + location.href);
+      if (css)  css.setAttribute('href', 'https://jigsaw.w3.org/css-validator/validator?uri=' + location.href);
+    }());
+  </script>
+
 </footer>

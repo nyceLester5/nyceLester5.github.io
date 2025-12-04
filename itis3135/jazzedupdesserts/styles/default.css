@@ -1,31 +1,45 @@
-/* ===============================
-   GLOBAL STYLES
-   Jazzed Up Desserts — Lavender Theme
-================================== */
+/* =========================================
+   GLOBAL STYLES — Pastel Ombre Theme
+   Jazzed Up Desserts
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
 
 :root {
-  --lavender: #E8D8F6;
-  --cream: #FFF9F2;
-  --plum: #4B2E59;
-  --soft-gold: #C7A27C;
+  --powder-petal: #e8d6cb;
+  --cotton-rose: #d0ada7;
+  --lilac: #d09fb8;
+  --amethyst-smoke: #b58db6;
+  --ash-grey: #bfc7bd;
+
   --dark-text: #3A2A3B;
-  --light-text: #FFFFFF;
-  --body-font: 'Poppins', sans-serif;
+  --light-text: #ffffff;
+
+  --body-font: 'Quicksand', sans-serif;
 }
 
+/* Background Ombre */
 body {
   margin: 0;
   padding: 0;
   font-family: var(--body-font);
-  background-color: var(--cream);
+  background: linear-gradient(
+    to bottom right,
+    var(--powder-petal),
+    var(--cotton-rose),
+    var(--lilac),
+    var(--amethyst-smoke)
+  );
   color: var(--dark-text);
+  min-height: 100vh;
 }
 
-/* Header */
+/* HEADER */
 #site-header {
-  background-color: var(--lavender);
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
   padding: 15px 0;
-  border-bottom: 3px solid var(--soft-gold);
+  border-bottom: 2px solid var(--amethyst-smoke);
 }
 
 .header-container {
@@ -40,34 +54,50 @@ body {
   height: 70px;
 }
 
-/* Navigation */
+/* NAVIGATION */
 #main-nav a {
-  margin-left: 20px;
+  margin-left: 18px;
   text-decoration: none;
-  color: var(--plum);
+  color: var(--amethyst-smoke);
   font-weight: 600;
+  font-size: 1.1rem;
+  transition: 0.3s ease;
 }
 
 #main-nav a:hover {
-  color: var(--soft-gold);
+  color: var(--light-text);
+  background-color: var(--amethyst-smoke);
+  padding: 6px 12px;
+  border-radius: 6px;
 }
 
-/* Page Layout */
+/* MAIN CONTENT */
 main {
   width: 90%;
   margin: 40px auto;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
 }
 
-/* Hero */
+/* HERO SECTION */
 .hero {
-  background-color: var(--lavender);
+  background: linear-gradient(
+    to right,
+    var(--powder-petal),
+    var(--lilac),
+    var(--amethyst-smoke)
+  );
   padding: 40px;
   border-radius: 10px;
   text-align: center;
+  color: var(--dark-text);
 }
 
 .hero h1 {
-  color: var(--plum);
+  font-size: 2.4rem;
+  font-weight: 600;
 }
 
 .hero img {
@@ -75,9 +105,10 @@ main {
   max-width: 600px;
   margin-top: 20px;
   border-radius: 10px;
+  border: 3px solid var(--cotton-rose);
 }
 
-/* Gallery */
+/* GALLERY */
 .gallery {
   display: flex;
   gap: 20px;
@@ -87,39 +118,62 @@ main {
 .gallery img {
   width: 30%;
   border-radius: 10px;
-  border: 2px solid var(--soft-gold);
+  border: 3px solid var(--cotton-rose);
+  transition: transform 0.3s ease;
 }
 
-/* Footer */
-#site-footer {
-  background-color: var(--lavender);
-  color: var(--dark-text);
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  border-top: 3px solid var(--soft-gold);
+.gallery img:hover {
+  transform: scale(1.05);
 }
 
-/* Forms */
-form input, form select, form textarea {
+/* FORMS */
+form input,
+form select,
+form textarea {
   width: 100%;
   padding: 12px;
   margin-top: 10px;
-  border: 1px solid var(--plum);
-  border-radius: 8px;
+  border: 2px solid var(--amethyst-smoke);
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-size: 1rem;
 }
 
 button {
-  background-color: var(--plum);
+  background-color: var(--amethyst-smoke);
   color: var(--light-text);
   padding: 12px 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   margin-top: 15px;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 button:hover {
-  background-color: var(--soft-gold);
+  background-color: var(--lilac);
   color: var(--dark-text);
+}
+
+/* FOOTER */
+#site-footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--dark-text);
+  text-align: center;
+  padding: 25px;
+  border-top: 2px solid var(--amethyst-smoke);
+  backdrop-filter: blur(6px);
+}
+
+/* Footer Navigation */
+#footer-nav a {
+  color: var(--amethyst-smoke);
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#footer-nav a:hover {
+  color: var(--lilac);
 }
