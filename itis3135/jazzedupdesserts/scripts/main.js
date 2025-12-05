@@ -11,17 +11,28 @@
 function validateOrderForm(event) {
   event.preventDefault();
 
-  const name = document.getElementById("cust-name")?.value.trim();
-  const email = document.getElementById("cust-email")?.value.trim();
+  // Get input elements safely
+  var nameInput = document.getElementById("cust-name");
+  var emailInput = document.getElementById("cust-email");
 
-  if (!name || !email) {
+  // Extract values safely
+  var name = nameInput ? nameInput.value.trim() : "";
+  var email = emailInput ? emailInput.value.trim() : "";
+
+  // Validation
+  if (name === "" || email === "") {
     alert("Please complete all required fields.");
     return;
   }
 
   alert("Thank you! Your inquiry has been received.");
-  document.getElementById("order-form").reset();
+
+  var form = document.getElementById("order-form");
+  if (form) {
+    form.reset();
+  }
 }
+
 
 
 

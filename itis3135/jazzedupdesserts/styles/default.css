@@ -17,7 +17,9 @@
 
   --body-font: 'Quicksand', sans-serif;
 }
-
+* {
+  box-sizing: border-box;
+}
 /* Background Ombre */
 body {
   margin: 0;
