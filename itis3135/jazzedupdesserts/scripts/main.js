@@ -77,21 +77,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".gallery img");
 
   if (buttons.length > 0 && items.length > 0) {
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        const filter = button.getAttribute("data-filter");
 
-        items.forEach(item => {
-          const category = item.getAttribute("data-category");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter");
 
-          if (filter === "all" || filter === category) {
-            item.style.display = "block";
-          } else {
-            item.style.display = "none";
-          }
-        });
+      items.forEach((item) => {
+        const category = item.getAttribute("data-category");
+
+        if (filter === "all" || filter === category) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
       });
     });
-  }
+  });
 
+}
 });
