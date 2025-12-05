@@ -41,6 +41,14 @@ body {
   padding: 15px 0;
   border-bottom: 2px solid var(--amethyst-smoke);
 }
+/* Make logo clickable + styled */
+#site-header a {
+  display: inline-block;
+}
+
+#site-logo {
+  cursor: pointer;
+}
 
 .header-container {
   width: 90%;
