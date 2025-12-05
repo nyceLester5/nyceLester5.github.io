@@ -168,8 +168,7 @@ main {
 
 /* FORMS — Validator safe (no width + padding conflict) */
 form input,
-form select,
-form textarea {
+form select{
   max-width: 100%; /* replaces width: 100% */
   padding: 12px;
   margin-top: 10px;
@@ -216,3 +215,44 @@ button:hover {
 #footer-nav a:hover {
   color: var(--lilac);
 }
+
+/* =========================================
+   RESTORED ORDER FORM LAYOUT (VALIDATOR-SAFE)
+========================================= */
+
+.form-row {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 220px;
+}
+
+.full-width {
+  flex: 100%;
+}
+
+form label {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+form textarea {
+  margin-bottom: 10px;
+}
+
+
+/* =========================================
+   RESTORED SLIDESHOW (NO ADJOINING CLASSES)
+========================================= */
+
+.active-slide {
+  opacity: 1;
+}
+

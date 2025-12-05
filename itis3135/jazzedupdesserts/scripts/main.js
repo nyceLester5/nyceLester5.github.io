@@ -11,15 +11,12 @@
 function validateOrderForm(event) {
   event.preventDefault();
 
-  // Get input elements safely
   var nameInput = document.getElementById("cust-name");
   var emailInput = document.getElementById("cust-email");
 
-  // Extract values safely
   var name = nameInput ? nameInput.value.trim() : "";
   var email = emailInput ? emailInput.value.trim() : "";
 
-  // Validation
   if (name === "" || email === "") {
     alert("Please complete all required fields.");
     return;
@@ -35,17 +32,16 @@ function validateOrderForm(event) {
 
 
 
-
 // ==============================
 // Initialize All Page Scripts
 // ==============================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
   // ------------------------------
   // Order Form Validation
   // ------------------------------
-  const form = document.getElementById("order-form");
+  var form = document.getElementById("order-form");
   if (form) {
     form.addEventListener("submit", validateOrderForm);
   }
@@ -55,16 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Home Page Slideshow
   // ==============================
 
-  const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
+  var slides = document.querySelectorAll(".slide");
+  var currentSlide = 0;
 
   if (slides.length > 0) {
-    slides[currentSlide].classList.add("active");
+    // first slide visible
+    slides[currentSlide].classList.add("active-slide");
 
-    setInterval(() => {
-      slides[currentSlide].classList.remove("active");
+    setInterval(function () {
+      slides[currentSlide].classList.remove("active-slide");
+
       currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add("active");
+
+      slides[currentSlide].classList.add("active-slide");
     }, 3000);
   }
 
@@ -73,26 +72,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // Dynamic Menu Filter (Gallery Page)
   // ==============================
 
-  const buttons = document.querySelectorAll(".filter-buttons button");
-  const items = document.querySelectorAll(".gallery img");
+  var buttons = document.querySelectorAll(".filter-buttons button");
+  var items = document.querySelectorAll(".gallery img");
 
   if (buttons.length > 0 && items.length > 0) {
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const filter = button.getAttribute("data-filter");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var filter = button.getAttribute("data-filter");
 
-      items.forEach((item) => {
-        const category = item.getAttribute("data-category");
+        items.forEach(function (item) {
+          var category = item.getAttribute("data-category");
 
-        if (filter === "all" || filter === category) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
+          if (filter === "all" || filter === category) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
       });
     });
-  });
 
-}
+  }
+
 });

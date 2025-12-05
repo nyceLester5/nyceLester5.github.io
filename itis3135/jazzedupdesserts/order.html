@@ -14,27 +14,46 @@
 <main>
   <h1>Order Inquiry Form</h1>
   <form id="order-form">
+
+  <div class="form-row">
+    <div class="form-group">
       <label>Name *</label>
       <input type="text" id="cust-name" required>
+    </div>
 
+    <div class="form-group">
       <label>Email *</label>
       <input type="email" id="cust-email" required>
+    </div>
+  </div>
 
+  <div class="form-row">
+    <div class="form-group">
       <label>Dessert Type</label>
       <select>
         <option>Cake</option>
         <option>Cupcakes</option>
         <option>Specialty Dessert</option>
       </select>
+    </div>
 
+    <div class="form-group">
       <label>Event Date</label>
       <input type="date">
+    </div>
+  </div>
 
+  <div class="form-row">
+    <div class="form-group full-width">
       <label>Additional Notes</label>
       <textarea rows="5"></textarea>
+    </div>
+  </div>
 
-      <button type="submit">Submit Inquiry</button>
-  </form>
+  <button type="submit">Submit Inquiry</button>
+
+</form>
+
 </main>
 
 <div data-include="components/footer.html"></div>
