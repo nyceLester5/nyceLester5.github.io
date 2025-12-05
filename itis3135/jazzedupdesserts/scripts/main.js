@@ -37,7 +37,6 @@ function validateOrderForm(event) {
 // ==============================
 
 document.addEventListener("DOMContentLoaded", function () {
-
   // ------------------------------
   // Order Form Validation
   // ------------------------------
@@ -45,6 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
   if (form) {
     form.addEventListener("submit", validateOrderForm);
   }
+  // ==============================
+// Set Current Year in Footer
+// ==============================
+var yearSpan = document.getElementById("year");
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
+
 
 
   // ==============================
