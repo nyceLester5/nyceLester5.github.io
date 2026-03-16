@@ -1,0 +1,274 @@
+/* ====== GLOBAL STYLES ====== */
+:root {
+  --main-green: #3e8e41; /* primary green */
+  --light-beige: #f9f6ee; /* background beige */
+  --hover-green: #2d6a2e; /* darker hover green */
+  --text-dark: #2f2f2f;
+  --link-green: #3e8e41;
+  --border-light: #dcd7c9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-beige);
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+  padding: 2rem;                /* base padding; adjusted in media queries */
+}
+
+/* ====== HEADER ====== */
+header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 1rem;
+}
+
+h1 {
+  color: var(--main-green);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ====== NAVIGATION ====== */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--link-green);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* animated underline hover effect */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--hover-green);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--hover-green);
+}
+
+/* ====== MAIN CONTENT ====== */
+/* Foundational Three: width %, max-width, centered with margin: 0 auto */
+main {
+  margin: 2rem auto;            /* centers the block vertically with space */
+  text-align: center;
+  width: 90%;                   /* % width for fluid layout */
+  max-width: 1200px;            /* keeps lines readable on large screens */
+}
+
+h2 {
+  color: var(--main-green);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  border-top: 2px solid var(--border-light);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* enhanced responsive footer nav */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.footer-nav a {
+  color: var(--link-green);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--hover-green);
+  transition: width 0.3s ease;
+}
+
+.footer-nav a:hover::after,
+.footer-nav a:focus::after {
+  width: 100%;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: var(--hover-green);
+}
+
+.footer-nav .sep {
+  color: var(--border-light);
+  margin: 0 0.25rem;
+}
+
+/* ====== GLOBAL LINK COLORS (override blue/purple/red) ====== */
+a {
+  color: var(--link-green);
+  text-decoration: none;
+  font-weight: 600;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+a:visited {
+  color: var(--hover-green);
+}
+
+a:hover,
+a:focus {
+  color: var(--hover-green);
+  text-decoration: underline;
+}
+
+a:active {
+  color: #1f4d20;
+}
+
+/* ====== ACCESSIBILITY ====== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--main-green);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Clear focus style for keyboard users */
+a:focus-visible {
+  outline: 3px solid var(--hover-green);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none; transition: none; }
+}
+
+/* ====== MEDIA / FIGURES ====== */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+figure img { max-width: 600px; }
+
+figure {
+  margin: 1rem auto 2rem;
+  text-align: center;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* ====== BIO LIST ====== */
+.bio-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 60ch;     /* comfy reading width */
+  text-align: left;    /* keeps paragraphs readable */
+}
+
+.bio-list > li + li { margin-top: 1rem; }
+.bio-list li strong + br { line-height: 1rem; }
+
+/* ===================================================================== */
+/* ========================= RESPONSIVE QUERIES ========================= */
+/* Desktop/Large screens = default rules above                            */
+/* Tablet: 601px–980px                                                    */
+/* Mobile: 370px–600px                                                    */
+/* (You can adjust breakpoints to your instructor's preference)           */
+/* ===================================================================== */
+
+/* ====== TABLET (601px–980px) ====== */
+@media screen and (min-width: 601px) and (max-width: 980px) {
+  body { padding: 1.5rem; }
+  main { width: 94%; max-width: 1000px; }
+  nav ul { gap: 1rem; }
+  .h1-responsive { font-size: 1.6rem; }
+  .h2-responsive { font-size: 1.2rem; }
+}
+
+/* ====== MOBILE (370px–600px) ====== */
+@media screen and (min-width: 370px) and (max-width: 600px) {
+  body { padding: 1rem; }
+  main { width: 95%; max-width: 580px; }
+  nav ul { gap: 0.65rem; }
+  .h1-responsive { font-size: 1.4rem; }
+  .h2-responsive { font-size: 1.1rem; }
+  .footer-nav { flex-direction: column; gap: 0.25rem; }
+  .footer-nav .sep { display: none; }
+}
+
+/* ====== SMALL-LAPTOP / WIDE-TABLET (981px–1400px) ====== */
+@media screen and (min-width: 981px) and (max-width: 1400px) {
+  main { width: 92%; max-width: 1100px; }
+  nav ul { gap: 1.25rem; }
+}
+
+
+
+
