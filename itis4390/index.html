@@ -4,13 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tranyce Lester — ITIS 4390</title>
-    <meta name="description" content="Course homepage for ITIS 3135 - Front-End Web Development by Tranyce Lester at UNC Charlotte." />
+    <meta name="description" content="Course homepage for ITIS 4390 - Interaction Design Project by Tranyce Lester at UNC Charlotte." />
     <link rel="stylesheet" href="styles/default.css" />
 
     <!-- Accumulus validator -->
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    
+
+<body class="responsive">
+
+  
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header>
+    <div data-include="comp/header.html"></div>
+  </header>
+
+  <main id="content">
+    <h2>About This Site</h2>
+    <p>
+      Hello! I’m <strong>Tranyce Lester</strong>, and this website showcases my projects, assignments,
+      and labs for <strong>ITIS 4390 – Interaction Design Project</strong> at UNC Charlotte.
+      Here you’ll find a progression of my full stack project I’ve completed
+      throughout the semester.
+    </p>
+    <p>
+      Use the navigation links above to explore my project week-by-week.
+    </p>
+  </main>
+
+  <footer>
+    <div data-include="comp/footer.html"></div>
+  </footer>
+
+
+  <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
 </body>
 </html>
