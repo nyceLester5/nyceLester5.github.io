@@ -36,34 +36,45 @@
   </main>
 
   <footer>
-    <nav aria-label="Primary links">
-      <div class="footer-nav">
-        <a href="/itis4390/">ITIS4390</a>
-        <span class="sep" aria-hidden="true">|</span>
-        <a href="/itis3135/">ITIS3135</a>
-        <span class="sep" aria-hidden="true">|</span>
-        <a href="https://github.com/nyceLester5" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="sep" aria-hidden="true">|</span>
-        <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </div>
-    </nav>
+    <nav aria-label="footer links">
+    <a href="/itis4390/" target="blank" rel="noopener">ITIS4390</a>
+  <span class="sep" aria-hidden="true">|</span>
+  <a href="/itis3135/" target="_blank" rel="noopener">ITIS3135</a>
+  <span class="sep" aria-hidden="true">|</span>
+  <a href="https://github.com/nyceLester5" target="_blank" rel="noopener">Github</a>
+  <span class="sep" aria-hidden="true">|</span>
+  <a href="https://lesterlabs.org" target="_blank" rel="noopener">Portfolio</a>
+  <span class="sep" aria-hidden="true">|</span>
+  <a href="https://www.linkedin.com/in/tranycelester" target="_blank" rel="noopener">LinkedIn</a>
+</nav>
 
-    <div style="margin-top: 0.75rem;">
-      
-      <a href="https://validator.w3.org/nu/?doc=https://lesterlabs.org/" target="_blank" rel="noopener noreferrer">Validate HTML</a>
-      <span class="sep" aria-hidden="true">|</span>
-      <a href="https://jigsaw.w3.org/css-validator/validator?uri=https://lesterlabs.org/&profile=css3svg&usermedium=all&warning=1" target="_blank" rel="noopener noreferrer">Validate CSS</a>
-    
-    </div>
+<p>
+  page built by
+  <a href="/itis3135/lesterlabs.co/" target="_blank" rel="noopener">Lester Labs</a>
+  © <span id="year"></span>
+</p>
 
-    <p style="margin-top: 0.75rem;">
-      © <span id="y"></span> Nyce Lester • All rights reserved.
-    </p>
+<div class="validators">
+  <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+    <img src="/itis3135/images/button_validation_html5.png" width="88" height="31" alt="Validate webpage HTML">
+  </a>
+  <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+    <img src="/itis3135/images/button_validation_css.png" width="88" height="31" alt="Validate webpage CSS">
+  </a>
+</div>
+
+<script>
+  // ids are lowercase-dashed, imgs are not self-closed
+  (function () {
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+
+    var html = document.getElementById('validation-link-html');
+    var css  = document.getElementById('validation-link-css');
+    if (html) html.setAttribute('href', 'https://validator.w3.org/check?uri=' + location.href);
+    if (css)  css.setAttribute('href', 'https://jigsaw.w3.org/css-validator/validator?uri=' + location.href);
+  }());
+</script>
   </footer>
-
-  <script>
-    // Auto-update current year in footer
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
