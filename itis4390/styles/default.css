@@ -22,7 +22,7 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   margin: 0;
-  text-align: center;
+  text-align: left;
   padding: 2rem;                /* base padding; adjusted in media queries */
 }
 
@@ -84,7 +84,7 @@ nav a:focus {
 /* Foundational Three: width %, max-width, centered with margin: 0 auto */
 main {
   margin: 2rem auto;            /* centers the block vertically with space */
-  text-align: center;
+  text-align: left;
   width: 90%;                   /* % width for fluid layout */
   max-width: 1200px;            /* keeps lines readable on large screens */
 }
@@ -92,6 +92,7 @@ main {
 h2 {
   color: var(--accent-mid);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 p {
@@ -271,6 +272,129 @@ figcaption {
   nav ul { gap: 1.25rem; }
 }
 
+/* ===================================================== */
+/* ========== ITIS 4390 CASE STUDY ADDITIONS ============ */
+/* ===================================================== */
 
+
+/* ====== SECTION SPACING ====== */
+/* ====== SECTION SPACING ====== */
+section {
+  margin: 3rem 0;
+}
+section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+section h3 {
+  margin-top: 1rem;
+}
+/* ====== CASE STUDY LAYOUT ====== */
+.case-study {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.case-study h2 {
+  text-align: center;
+}
+
+.case-study h3 {
+  margin-top: 1.5rem;
+  color: var(--accent-dark);
+}
+
+/* ====== BEFORE / AFTER ====== */
+.before-after {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+.comparison-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 18px;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+
+.comparison-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.comparison-card img {
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--border-light); /* ADD THIS */
+}
+
+/* ====== WEEK GRID IMPROVEMENT ====== */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  margin-top: 2rem;
+}
+
+.week-grid a {
+  display: block;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  background: #fff;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+
+.week-grid a:hover {
+  background: var(--accent-light);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* ====== READABILITY FIX ====== */
+p {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* ====== TYPOGRAPHY HIERARCHY ====== */
+h3 {
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ====== MOBILE FIX ====== */
+@media screen and (max-width: 600px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 
