@@ -1,23 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/default.css" />
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/default.css">
+  <title>Week 1 – Heuristic Evaluation | ITIS 4390</title>
 </head>
 <body>
-    <main>
-  <h1>Week 1</h1>
 
-  <h2>Overview</h2>
-  <p>Describe what you worked on this week.</p>
+<a class="skip-link" href="#content">Skip to main content</a>
 
-  <h2>Wireframes / Sketches</h2>
-  <img src="../images/week1-wireframe.png" alt="Wireframe">
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
 
-  <h2>Reflection</h2>
-  <p>What you learned, challenges, improvements.</p>
+<main id="content">
+
+  <h1 class="page-title">Week 1 – Heuristic Evaluation (Craigslist)</h1>
+
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 1, we conducted a usability critique of Craigslist using
+      Nielsen’s 10 usability heuristics. We identified key usability issues
+      and mapped each problem to a violated heuristic.
+    </p>
+  </section>
+
+  <!-- ISSUE 1 -->
+  <section class="card">
+    <h2>Cluttered, Text-Heavy Interface</h2>
+
+    <img src="images/cluttered-interface.png" alt="Cluttered Craigslist homepage">
+
+    <h3>Description</h3>
+    <p>
+      The homepage presents a dense wall of text with no visual hierarchy.
+      All links are equally sized and arranged in long lists, forcing users
+      to read everything to understand where to go.
+    </p>
+
+    <h3>Heuristic Violation</h3>
+    <p>
+      <strong>Aesthetic and Minimalist Design:</strong>
+      The interface includes excessive information with no prioritization,
+      making it difficult for users to focus on key actions.
+    </p>
+  </section>
+
+  <!-- ISSUE 2 -->
+  <section class="card">
+    <h2>Fragile Search Filters</h2>
+
+    <img src="images/search-error.png" alt="Craigslist search filter issue">
+
+    <h3>Description</h3>
+    <p>
+      The search system allows invalid inputs such as negative prices,
+      contradictory ranges, and incorrect zip codes without validation.
+      Users only see a “no results found” message.
+    </p>
+
+    <h3>Heuristic Violation</h3>
+    <p>
+      <strong>Error Prevention:</strong>
+      The system does not prevent invalid inputs or provide feedback,
+      allowing users to make avoidable mistakes.
+    </p>
+  </section>
+
+  <!-- ISSUE 3 -->
+  <section class="card">
+    <h2>Inconsistent Navigation Structure</h2>
+
+    <img src="images/navigation.png" alt="Craigslist navigation layout">
+
+    <h3>Description</h3>
+    <p>
+      Categories are grouped inconsistently, with some sections containing
+      long lists while others are much shorter. This forces users to scan
+      multiple areas to locate content.
+    </p>
+
+    <h3>Heuristic Violation</h3>
+    <p>
+      <strong>Consistency and Standards:</strong>
+      Similar types of content are not organized consistently, making it
+      harder for users to rely on predictable patterns.
+    </p>
+  </section>
+
+  <!-- ISSUE 4 -->
+  <section class="card">
+    <h2>Lack of Guidance for New Users</h2>
+
+    <img src="images/help.png" alt="Craigslist lack of guidance">
+
+    <h3>Description</h3>
+    <p>
+      The platform provides little onboarding or explanation of how to
+      navigate, search, or post listings, leaving new users unsure how to begin.
+    </p>
+
+    <h3>Heuristic Violation</h3>
+    <p>
+      <strong>Help and Documentation:</strong>
+      The system lacks accessible guidance, forcing users to rely on trial
+      and error.
+    </p>
+  </section>
+
+  <!-- ISSUE 5 -->
+  <section class="card">
+    <h2>Unbalanced Use of White Space</h2>
+
+    <img src="images/whitespace.png" alt="Craigslist whitespace issue">
+
+    <h3>Description</h3>
+    <p>
+      Large portions of the page feel empty and outdated, while other areas
+      are overly dense. This imbalance creates a confusing visual experience.
+    </p>
+
+    <h3>Heuristic Violation</h3>
+    <p>
+      <strong>Aesthetic and Minimalist Design:</strong>
+      Poor use of space disrupts visual balance and reduces usability.
+    </p>
+  </section>
+
+  <!-- ISSUE 6 -->
+  <section class="card">
+    <h2>Poor Visibility of System Status</h2>
+
+    <img src="images/system-status.png" alt="Craigslist feedback issue">
+
+    <h3>Description</h3>
+    <p>
+      When users perform actions like filtering or searching, there is little
+      feedback explaining what is happening or why results may be empty.
+    </p>
+
+    <h3>Heuristic Violation</h3>
+    <p>
+      <strong>Visibility of System Status:</strong>
+      The system does not provide clear or timely feedback, leaving users
+      uncertain about the results of their actions.
+    </p>
+  </section>
+
 </main>
+
+<footer>
+  <div data-include="../components/footer.html"></div>
+</footer>
+
+<script src="../scripts/HTMLInclude.js"></script>
 </body>
 </html>
