@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3 – Usability Testing | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 3 – Usability Testing</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 3, we conducted think-aloud usability testing using our
+      low-fidelity sketches. The goal was to observe how real users
+      interpreted our design and identify areas of confusion before
+      moving into higher-fidelity designs.
+    </p>
+  </section>
+
+  <!-- TESTING METHOD -->
+  <section class="card">
+    <h2>Testing Method</h2>
+
+    <p><strong>Participants:</strong> 5 users (peers)</p>
+    <p><strong>Approach:</strong> Think-aloud testing</p>
+
+    <h3>Tasks Given</h3>
+    <ul class="bio-list">
+      <li>Navigate the homepage</li>
+      <li>Open and use the hamburger menu</li>
+      <li>Modify a setting on the account page</li>
+      <li>Search for an item</li>
+      <li>Use search filters</li>
+      <li>View an item listing</li>
+      <li>Create a post</li>
+    </ul>
+  </section>
+
+  <!-- KEY FINDINGS -->
+  <section class="card">
+    <h2>Key Observations</h2>
+
+    <h3>What Worked Well</h3>
+    <ul class="bio-list">
+      <li>Users consistently understood and navigated the homepage easily</li>
+      <li>Item listing pages were clear and contained useful information</li>
+      <li>General layout and spacing were seen as clean and modern</li>
+    </ul>
+
+    <h3>Where Users Struggled</h3>
+    <ul class="bio-list">
+      <li>Search results lacked context (no text, only images)</li>
+      <li>Filter button was difficult to identify and mistaken for a back button</li>
+      <li>Hamburger menu contained too many unclear options</li>
+      <li>Account page was confusing—users could not tell whose profile it was</li>
+      <li>Search page purpose was unclear due to lack of labels</li>
+      <li>Users did not understand how pages connected together</li>
+      <li>Social/post page felt unnecessary and disconnected</li>
+    </ul>
+  </section>
+
+  <!-- USER INSIGHTS -->
+  <section class="card">
+    <h2>User Feedback Highlights</h2>
+
+    <ul class="bio-list">
+      <li>“I had no idea this was here.” (filter button)</li>
+      <li>“Is this my account or somebody else’s?”</li>
+      <li>“None of this makes sense except the homepage.”</li>
+      <li>“This is way too much here.” (menu options)</li>
+      <li>“How would I find this?”</li>
+    </ul>
+  </section>
+
+  <!-- DESIGN CHANGES -->
+  <section class="card">
+    <h2>Design Changes</h2>
+
+    <h3>1. Improve Search Results Clarity</h3>
+    <p><strong>Problem:</strong> Users could not understand search results without text.</p>
+    <p><strong>Change:</strong> Add title, price, and category to each listing.</p>
+    <p><strong>Why:</strong> Provides context and improves decision-making.</p>
+
+    <h3>2. Simplify Hamburger Menu</h3>
+    <p><strong>Problem:</strong> Menu had too many confusing options.</p>
+    <p><strong>Change:</strong> Reduce and group menu items more clearly.</p>
+    <p><strong>Why:</strong> Reduces cognitive load and improves navigation.</p>
+
+    <h3>3. Clarify Account Page</h3>
+    <p><strong>Problem:</strong> Users didn’t know whose account they were viewing.</p>
+    <p><strong>Change:</strong> Label as “Your Account” and add edit indicators.</p>
+    <p><strong>Why:</strong> Improves clarity and user confidence.</p>
+
+    <h3>4. Redesign Filter Button</h3>
+    <p><strong>Problem:</strong> Filter button was mistaken for a back button.</p>
+    <p><strong>Change:</strong> Add label “Filter Results” and clearer icon.</p>
+    <p><strong>Why:</strong> Improves discoverability and usability.</p>
+
+    <h3>5. Add Back Navigation</h3>
+    <p><strong>Problem:</strong> No clear way to navigate backward.</p>
+    <p><strong>Change:</strong> Add a visible back button.</p>
+    <p><strong>Why:</strong> Supports user control and navigation flow.</p>
+
+    <h3>6. Remove Social/Post Feature</h3>
+    <p><strong>Problem:</strong> Feature felt disconnected and unnecessary.</p>
+    <p><strong>Change:</strong> Remove feature from design.</p>
+    <p><strong>Why:</strong> Simplifies interface and reduces confusion.</p>
+
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+<script src="../scripts/HTMLInclude.js"></script>
+
+</body>
+</html>
