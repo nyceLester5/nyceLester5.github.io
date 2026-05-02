@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 11 – Form Validation | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 11 – Form Validation & User Feedback</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 11, we implemented a functional sign-up form with real-time
+      validation and inline feedback. The goal was to create a form experience
+      that guides users toward correct input rather than relying on post-submission errors.
+    </p>
+  </section>
+
+  <!-- MY CONTRIBUTION -->
+  <section class="card">
+    <h2>My Contribution</h2>
+    <p>
+      I contributed to the design and implementation of the sign-up flow,
+      focusing on validation behavior, user feedback, and ensuring a smooth
+      transition from account creation to logged-in state.
+    </p>
+  </section>
+
+  <!-- FORM UI -->
+  <section class="card">
+    <h2>Form Interface</h2>
+
+    <img src="images/week11-form.png" alt="Sign up form with validation">
+
+    <p>
+      The form includes multiple required fields and provides immediate
+      feedback as users interact with each input.
+    </p>
+  </section>
+
+  <!-- VALIDATION -->
+  <section class="card">
+    <h2>Real-Time Validation</h2>
+
+    <ul class="bio-list">
+      <li>Validation triggers on input and field interaction</li>
+      <li>Password strength is displayed dynamically</li>
+      <li>Confirmation password ensures matching input</li>
+      <li>Errors are caught before form submission</li>
+    </ul>
+
+    <p>
+      This approach prevents user frustration by identifying issues early
+      and guiding users to correct them immediately.
+    </p>
+  </section>
+
+  <!-- INLINE FEEDBACK -->
+  <section class="card">
+    <h2>Inline Feedback</h2>
+
+    <ul class="bio-list">
+      <li>Error messages appear directly next to inputs</li>
+      <li>Messages explain how to fix the issue</li>
+      <li>Visual indicators (checkmarks, progress bars) confirm valid input</li>
+    </ul>
+
+    <p>
+      Feedback is designed to be helpful and clear, reducing confusion
+      and improving form completion rates.
+    </p>
+  </section>
+
+  <!-- SUCCESS STATE -->
+  <section class="card">
+    <h2>Success State</h2>
+
+    <p>
+      After successful submission, users are shown a confirmation message
+      indicating that their account has been created.
+    </p>
+
+    <ul class="bio-list">
+      <li>Clear success confirmation screen</li>
+      <li>Call-to-action to return to homepage</li>
+      <li>Visual reinforcement with success icon</li>
+    </ul>
+  </section>
+
+  <!-- PERSISTENT STATE -->
+  <section class="card">
+    <h2>Persistent User State</h2>
+
+    <p>
+      After account creation, the interface updates to reflect the user's
+      new status. The “Sign Up” button is replaced with “Your Account”
+      across pages, creating a consistent and persistent experience.
+    </p>
+
+    <ul class="bio-list">
+      <li>Header updates after sign-up</li>
+      <li>User state maintained across pages</li>
+      <li>Navigation reflects logged-in experience</li>
+    </ul>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="card">
+    <h2>Design Impact</h2>
+    <p>
+      This implementation improves usability by guiding users through the
+      form process with immediate feedback and clear validation. The result
+      is a smoother, more intuitive experience that reduces errors and
+      increases user confidence.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+ <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
+</body>
+</html>

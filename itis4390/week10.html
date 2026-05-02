@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 10 – Interactive Search | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 10 – Interactive Search & Micro-Interactions</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 10, we enhanced our interface by adding interactive search,
+      loading states, and micro-interactions. The goal was to make the
+      interface feel responsive and provide immediate feedback to user input.
+    </p>
+  </section>
+
+  <!-- MY CONTRIBUTION -->
+  <section class="card">
+    <h2>My Contribution</h2>
+    <p>
+      I contributed to implementing the search interaction experience,
+      including real-time suggestions and loading feedback when users
+      perform a search.
+    </p>
+  </section>
+
+  <!-- SEARCH SUGGESTIONS -->
+  <section class="card">
+    <h2>Real-Time Search Suggestions</h2>
+
+    <img src="images/search.png" alt="Search suggestions dropdown">
+
+    <p>
+      As users type into the search bar, relevant suggestions appear
+      instantly. This allows users to quickly refine their search
+      without needing to submit the form.
+    </p>
+
+    <ul class="bio-list">
+      <li>Suggestions update dynamically as users type</li>
+      <li>Dropdown disappears when input is cleared</li>
+      <li>Helps users discover categories and refine queries</li>
+    </ul>
+  </section>
+
+  <!-- LOADING STATE -->
+  <section class="card">
+    <h2>Loading Feedback</h2>
+
+    <img src="images/loading.png" alt="Loading state with spinner">
+
+    <p>
+      A loading state is displayed when users perform a search. A
+      spinner appears with a short delay to simulate data processing
+      and provide visual feedback.
+    </p>
+
+    <ul class="bio-list">
+      <li>3-second loading buffer after search interaction</li>
+      <li>Prevents users from feeling uncertain about system response</li>
+      <li>Creates a smoother transition to results</li>
+    </ul>
+  </section>
+
+  <!-- MICRO INTERACTIONS -->
+  <section class="card">
+    <h2>Micro-Interactions</h2>
+
+    <ul class="bio-list">
+      <li>Smooth dropdown animation for search suggestions</li>
+      <li>Loading spinner transition during search actions</li>
+      <li>Hover and focus states for search input and buttons</li>
+    </ul>
+
+    <p>
+      These micro-interactions improve usability by making the interface
+      feel responsive and guiding users through their actions.
+    </p>
+  </section>
+
+  <!-- DESIGN IMPACT -->
+  <section class="card">
+    <h2>Design Impact</h2>
+    <p>
+      These features improve the overall user experience by reducing
+      uncertainty and increasing responsiveness. Users receive immediate
+      feedback, which makes the interface feel faster and more intuitive,
+      even without real backend functionality.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+ <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
+</body>
+</html>

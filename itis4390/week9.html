@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 9 – Responsive Implementation | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 9 – Responsive Implementation</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 9, we translated our high-fidelity prototype into a fully
+      functional front-end implementation using HTML, CSS, and JavaScript.
+      The focus was on building a responsive layout that works across
+      mobile and desktop while maintaining consistency with our original design.
+    </p>
+  </section>
+
+  <!-- MY CONTRIBUTION -->
+  <section class="card">
+    <h2>My Contribution – Item Listing Page</h2>
+    <p>
+      I implemented the item listing page, bringing the design to life with
+      real layout structure, responsive behavior, and interactive elements.
+      This included adapting the design for both mobile and desktop views
+      while maintaining a consistent visual system.
+    </p>
+  </section>
+
+  <!-- DESKTOP -->
+  <section class="card">
+    <h2>Desktop Layout</h2>
+
+    <img src="images/desktop.png" alt="Desktop item listing page">
+
+    <p>
+      On desktop, the layout uses a two-column structure with the image
+      gallery on the left and item details on the right. Navigation is
+      fully visible, allowing quick access to features such as posting,
+      messaging, and account options.
+    </p>
+  </section>
+
+  <!-- MOBILE -->
+  <section class="card">
+    <h2>Mobile Layout</h2>
+
+    <img src="images/mobile.png" alt="Mobile item listing page">
+
+    <p>
+      On mobile, the layout shifts to a vertical structure optimized for
+      smaller screens. Navigation is simplified into a hamburger menu,
+      and all content is stacked for easy scrolling and touch interaction.
+    </p>
+  </section>
+
+  <!-- RESPONSIVE FEATURES -->
+  <section class="card">
+    <h2>Responsive Features</h2>
+
+    <ul class="bio-list">
+      <li>Mobile-first CSS approach with media queries for scaling</li>
+      <li>Layout transitions from stacked (mobile) to two-column (desktop)</li>
+      <li>Navigation adapts between hamburger menu and horizontal layout</li>
+      <li>Touch-friendly buttons and readable text on small screens</li>
+      <li>No horizontal scrolling or layout breakage</li>
+    </ul>
+  </section>
+
+  <!-- NAVIGATION -->
+  <section class="card">
+    <h2>Navigation Behavior</h2>
+    <p>
+      The navigation system adapts based on screen size. On mobile, a
+      hamburger menu allows users to open and close navigation options.
+      On desktop, navigation is always visible and accessible. This
+      ensures usability across devices while maintaining consistency.
+    </p>
+  </section>
+
+  <!-- DESIGN CONSISTENCY -->
+  <section class="card">
+    <h2>Design Consistency</h2>
+    <p>
+      The implementation maintains the same typography, spacing, and
+      layout structure defined in the prototype. This ensures a cohesive
+      experience across both mobile and desktop views.
+    </p>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="card">
+    <h2>Impact</h2>
+    <p>
+      This implementation demonstrates the transition from design to
+      development, ensuring that the interface is not only visually
+      consistent but also functional and usable across devices.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+ <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
+</body>
+</html>

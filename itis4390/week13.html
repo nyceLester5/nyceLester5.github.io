@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 13 – Deployment | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 13 – Live Deployment</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Live Project</h2>
+    <p>
+      The project has been successfully deployed and is now publicly
+      accessible. You can explore the full experience using the link below.
+    </p>
+
+    <!-- 🔗 ADD YOUR LINK HERE -->
+    <a href="#" class="btn-primary" target="_blank">
+      View Live Site
+    </a>
+
+  </section>
+
+  <!-- PREVIEW -->
+  <section class="card">
+    <h2>Live Preview</h2>
+
+    <img src="images/live.png" alt="Live deployed website preview">
+
+  </section>
+
+  <!-- NOTE -->
+  <section class="card">
+    <p>
+      The deployed version includes all features built throughout the project,
+      including responsive layouts, interactive search, form validation,
+      and accessibility improvements.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+ <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
+</body>
+</html>

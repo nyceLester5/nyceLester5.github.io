@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 12 – Accessibility & Dark Mode | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 12 – Accessibility & Dark Mode</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 12, we focused on improving accessibility by enhancing
+      readability, contrast, and user control. We implemented a fully
+      functional dark mode and ensured the interface remains usable
+      across different viewing conditions and user needs.
+    </p>
+  </section>
+
+  <!-- MY CONTRIBUTION -->
+  <section class="card">
+    <h2>My Contribution</h2>
+    <p>
+      I contributed to implementing the dark mode experience and ensuring
+      that the interface remains readable and consistent across both
+      light and dark themes.
+    </p>
+  </section>
+
+  <!-- DARK MODE -->
+  <section class="card">
+    <h2>Dark Mode Implementation</h2>
+
+    <img src="images/darkmode.png" alt="Dark mode interface with toggle">
+
+    <p>
+      A toggle was added to allow users to switch between light and dark
+      themes. The change applies across the entire interface, providing
+      a consistent experience regardless of page.
+    </p>
+
+    <ul class="bio-list">
+      <li>Toggle clearly indicates current mode</li>
+      <li>Theme updates applied globally across pages</li>
+      <li>User preference persists during session</li>
+    </ul>
+  </section>
+
+  <!-- CONTRAST -->
+  <section class="card">
+    <h2>Improved Color Contrast</h2>
+
+    <p>
+      Colors were adjusted to meet accessibility standards for contrast.
+      Text remains readable against both light and dark backgrounds,
+      ensuring compliance with WCAG guidelines.
+    </p>
+
+    <ul class="bio-list">
+      <li>Minimum 4.5:1 contrast ratio for body text</li>
+      <li>3:1 contrast ratio for larger text</li>
+      <li>Improved readability in low-light environments</li>
+    </ul>
+  </section>
+
+  <!-- READABILITY -->
+  <section class="card">
+    <h2>Responsive Typography</h2>
+
+    <p>
+      Typography was updated using relative units (rem and em) to ensure
+      readability across different screen sizes and zoom levels.
+    </p>
+
+    <ul class="bio-list">
+      <li>Text remains readable at 200% zoom</li>
+      <li>No layout breakage when scaling text</li>
+      <li>Consistent spacing and hierarchy across devices</li>
+    </ul>
+  </section>
+
+  <!-- USER CONTROL -->
+  <section class="card">
+    <h2>User Control & Accessibility</h2>
+
+    <p>
+      Providing users with control over how they view the interface
+      improves usability and accessibility. Dark mode allows users to
+      reduce eye strain and adapt the interface to their environment.
+    </p>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="card">
+    <h2>Design Impact</h2>
+    <p>
+      These improvements make the interface more inclusive and usable
+      for a wider range of users. By focusing on contrast, readability,
+      and user control, the design ensures a more accessible and
+      comfortable experience.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+ <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
+</body>
+</html>
