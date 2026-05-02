@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 5 – Wireframe Testing | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 5 – Wireframe Usability Testing</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 5, our team conducted structured think-aloud usability testing
+      on our wireframes. The goal was to observe real user behavior and identify
+      usability issues affecting navigation, clarity, and task completion.
+    </p>
+  </section>
+
+  <!-- MY ROLE -->
+  <section class="card">
+    <h2>My Role</h2>
+    <p>
+      I contributed by helping define user tasks and observing participant
+      navigation behavior during testing. I focused on identifying hesitation,
+      confusion, and incorrect navigation patterns.
+    </p>
+  </section>
+
+  <!-- TASKS -->
+  <section class="card">
+    <h2>Primary Tasks</h2>
+    <ul class="bio-list">
+      <li>Search for a product and open the listing</li>
+      <li>Navigate to a seller’s profile and view ratings</li>
+      <li>Return to the homepage</li>
+      <li>Open the hamburger menu and access account settings</li>
+    </ul>
+  </section>
+
+  <!-- KEY FINDINGS -->
+  <section class="card">
+    <h2>Key Findings</h2>
+
+    <h3>Navigation Confusion</h3>
+    <p>
+      Some users hesitated when locating the search feature and hamburger menu.
+      One user clicked multiple elements before finding the correct path.
+    </p>
+
+    <h3>Seller Profile Issues</h3>
+    <p>
+      All users struggled to identify the seller’s trust rating. Users scanned
+      the page, hesitated, and questioned which rating was relevant.
+    </p>
+
+    <h3>Unclear Visual Hierarchy</h3>
+    <p>
+      Multiple elements on the seller profile page had equal visual weight,
+      making it difficult for users to prioritize information.
+    </p>
+
+    <h3>Inconsistent Mental Models</h3>
+    <p>
+      Some users did not recognize the site logo as a way to return home and
+      questioned the purpose of certain navigation elements.
+    </p>
+  </section>
+
+  <!-- USER FEEDBACK -->
+  <section class="card">
+    <h2>User Feedback</h2>
+
+    <ul class="bio-list">
+      <li>“Where am I supposed to click?”</li>
+      <li>“Wait, are these rating stars?”</li>
+      <li>“This is laid out a little weird.”</li>
+      <li>“What’s a hamburger?”</li>
+    </ul>
+  </section>
+
+  <!-- DESIGN CHANGES -->
+  <section class="card">
+    <h2>Design Revisions</h2>
+
+    <h3>Simplified Seller Profile Layout</h3>
+    <p><strong>Problem:</strong> Users could not identify the main trust rating.</p>
+    <p><strong>Change:</strong> Removed duplicate rating elements and emphasized one clear rating.</p>
+    <p><strong>Why:</strong> Improves clarity and reduces visual clutter.</p>
+
+    <h3>Improved Visual Hierarchy</h3>
+    <p><strong>Problem:</strong> Too many elements competed for attention.</p>
+    <p><strong>Change:</strong> Reorganized layout so key information appears at the top left.</p>
+    <p><strong>Why:</strong> Helps users scan and locate information quickly.</p>
+
+    <h3>Reduced Layout Complexity</h3>
+    <p><strong>Problem:</strong> Combined vertical and horizontal scrolling created confusion.</p>
+    <p><strong>Change:</strong> Simplified layout to a single scrolling direction.</p>
+    <p><strong>Why:</strong> Improves navigation and reduces cognitive load.</p>
+
+  </section>
+
+  <!-- IMPACT -->
+  <section class="card">
+    <h2>Impact</h2>
+    <p>
+      These revisions significantly improved usability by making the interface
+      easier to understand and navigate. Users can now locate key information
+      more quickly and complete tasks with less confusion.
+    </p>
+  </section>
+
+  <!-- SOURCE -->
+  <section class="card">
+    <h2>Testing Notes Source</h2>
+    <p>
+      Full raw and structured usability testing notes are documented here:
+      :contentReference[oaicite:0]{index=0}
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+ <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
+</body>
+</html>

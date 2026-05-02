@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 6 – High-Fidelity Prototype | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 6 – High-Fidelity Prototype</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 6, we developed a high-fidelity interactive prototype that
+      simulates core user flows across both mobile and desktop layouts.
+      This prototype focuses on interaction design, visual feedback,
+      and responsive behavior rather than real data functionality.
+    </p>
+  </section>
+
+  <!-- MY CONTRIBUTION -->
+  <section class="card">
+    <h2>My Contribution – Item Listing Page</h2>
+    <p>
+      I designed the high-fidelity item listing page for both mobile and
+      desktop views. My design focuses on clear information hierarchy,
+      interactive media browsing, and user-to-seller communication.
+    </p>
+  </section>
+
+  <!-- LIGHT MODE -->
+  <section class="card">
+    <h2>Light Mode (Desktop & Mobile)</h2>
+
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <h3>Desktop View</h3>
+        <img src="images/desktop-light.png" alt="Desktop light mode listing page">
+      </div>
+
+      <div class="comparison-card">
+        <h3>Mobile View</h3>
+        <img src="images/mobile-light.png" alt="Mobile light mode listing page">
+      </div>
+    </div>
+  </section>
+
+  <!-- DARK MODE -->
+  <section class="card">
+    <h2>Dark Mode (Desktop & Mobile)</h2>
+
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <h3>Desktop View</h3>
+        <img src="images/desktop-dark.png" alt="Desktop dark mode listing page">
+      </div>
+
+      <div class="comparison-card">
+        <h3>Mobile View</h3>
+        <img src="images/mobile-dark.png" alt="Mobile dark mode listing page">
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="card">
+    <h2>Key Interactions</h2>
+
+    <ul class="bio-list">
+      <li>Image carousel allows users to click through listing photos</li>
+      <li>Map supports zoom and location exploration</li>
+      <li>Message input allows direct communication with seller</li>
+      <li>Seller rating is clearly visible and easy to interpret</li>
+      <li>Search bar provides a clear entry point for navigation</li>
+    </ul>
+  </section>
+
+  <!-- RESPONSIVE DESIGN -->
+  <section class="card">
+    <h2>Responsive Design</h2>
+    <p>
+      The layout adapts between desktop and mobile by reorganizing content
+      into a vertical flow for smaller screens. Navigation shifts to a
+      hamburger menu on mobile, and touch-friendly elements are emphasized.
+    </p>
+  </section>
+
+  <!-- DESIGN IMPACT -->
+  <section class="card">
+    <h2>Design Impact</h2>
+    <p>
+      This prototype improves usability by creating a clear visual hierarchy,
+      reducing clutter, and providing intuitive interactions. The addition of
+      dark mode enhances accessibility, while interactive elements such as
+      image navigation and messaging improve overall user engagement.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+ <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
+</body>
+</html>
