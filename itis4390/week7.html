@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 7 – Prototype Usability Testing | ITIS 4390</title>
+
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#content">Skip to main content</a>
+
+<header>
+  <div data-include="../components/header.html"></div>
+</header>
+
+<main id="content">
+
+  <h1 class="page-title">Week 7 – Prototype Usability Testing</h1>
+
+  <!-- OVERVIEW -->
+  <section class="card">
+    <h2>Overview</h2>
+    <p>
+      In Week 7, we evaluated our high-fidelity prototype through usability
+      testing with real users. The goal was to observe how users interact
+      with the interface and identify areas of confusion before final refinement.
+    </p>
+  </section>
+
+  <!-- MY ROLE -->
+  <section class="card">
+    <h2>My Role</h2>
+    <p>
+      I observed user navigation behavior during testing, focusing on how
+      participants moved through the interface, where they hesitated, and
+      how they interpreted key interactions.
+    </p>
+  </section>
+
+  <!-- PARTICIPANTS -->
+  <section class="card">
+    <h2>Participants</h2>
+    <ul class="bio-list">
+      <li>P1 (18–22): No experience with Craigslist</li>
+      <li>P2 (18–22): Moderate experience with similar apps</li>
+      <li>P3 (18–22): Familiar with platforms like Amazon</li>
+    </ul>
+  </section>
+
+  <!-- TASKS -->
+  <section class="card">
+    <h2>Testing Tasks</h2>
+    <ul class="bio-list">
+      <li>Switch from light mode to dark mode</li>
+      <li>View recent notifications</li>
+      <li>Find a vehicle and message the seller</li>
+      <li>Locate a specific listing (2020 Honda Accord)</li>
+    </ul>
+  </section>
+
+  <!-- KEY FINDINGS -->
+  <section class="card">
+    <h2>Key Findings</h2>
+
+    <h3>What Worked Well</h3>
+    <ul class="bio-list">
+      <li>All users successfully completed all tasks</li>
+      <li>Search and messaging features were intuitive</li>
+      <li>Interface felt familiar and easy to navigate</li>
+    </ul>
+
+    <h3>Where Users Struggled</h3>
+    <ul class="bio-list">
+      <li>Notifications were unclear and not labeled</li>
+      <li>Back navigation was confusing or missing</li>
+      <li>Dark mode toggle lacked clear visual feedback</li>
+      <li>Some difficulty scanning listings quickly</li>
+      <li>Popup interactions caused temporary confusion</li>
+    </ul>
+  </section>
+
+  <!-- USER FEEDBACK -->
+  <section class="card">
+    <h2>User Feedback</h2>
+    <p>
+      Users described the interface as clean, familiar, and easy to use,
+      comparing it to platforms like Amazon and Facebook Marketplace.
+      However, they noted that certain features—such as notifications,
+      navigation controls, and dark mode—needed clearer labeling and feedback.
+    </p>
+  </section>
+
+  <!-- IMPROVEMENTS -->
+  <section class="card">
+    <h2>Design Improvements</h2>
+
+    <h3>Improve Notification Visibility</h3>
+    <p><strong>Problem:</strong> Users were unsure if they completed the task.</p>
+    <p><strong>Solution:</strong> Add clear labels or icons for notifications.</p>
+
+    <h3>Add Clear Navigation Controls</h3>
+    <p><strong>Problem:</strong> Users struggled to navigate back.</p>
+    <p><strong>Solution:</strong> Add a visible back button or breadcrumb navigation.</p>
+
+    <h3>Clarify Dark Mode Toggle</h3>
+    <p><strong>Problem:</strong> Toggle lacked clear feedback.</p>
+    <p><strong>Solution:</strong> Use icons (sun/moon) or labels to indicate state.</p>
+
+    <h3>Improve Listing Scanability</h3>
+    <p><strong>Problem:</strong> Users had slight difficulty scanning listings.</p>
+    <p><strong>Solution:</strong> Improve spacing, grouping, and visual hierarchy.</p>
+
+    <h3>Refine Popup Behavior</h3>
+    <p><strong>Problem:</strong> Popups blocked interaction.</p>
+    <p><strong>Solution:</strong> Add clear close actions and feedback messaging.</p>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section class="card">
+    <h2>Conclusion</h2>
+    <p>
+      Overall, the prototype performed well, with all users completing tasks
+      successfully. The design is largely intuitive, but improvements in
+      navigation clarity, labeling, and feedback will further enhance usability
+      and reduce user confusion.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-include="comp/footer.html"></div>
+</footer>
+
+ <script src="scripts/HTMLInclude.js"></script>
+
+  <script>
+    
+    window.addEventListener('load', function() {
+      const html = document.getElementById('validation-link-html');
+      const css  = document.getElementById('validation-link-css');
+      if (html && css) {
+        html.setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+        css.setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      }
+    });
+  </script>
+</body>
+</html>
